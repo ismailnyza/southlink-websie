@@ -96,15 +96,15 @@ const IndexPage = ({ data }) => {
         >
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
         </div>
-        <div className="relative h-full flex items-center justify-center px-3 xs:px-4 sm:px-6 md:px-8 lg:px-10">
-          <div className="text-center text-white w-full max-w-4xl mx-auto px-2 xs:px-4">
-            <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 xs:mb-4 sm:mb-6 leading-tight px-2">
+        <div className="relative h-full flex items-center justify-center px-4 sm:px-6 lg:px-8">
+          <div className="text-center text-white w-full max-w-4xl mx-auto px-4">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-5 sm:mb-6 md:mb-8 leading-tight">
               Travel, handled personally.
             </h1>
-            <p className="text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 mb-4 xs:mb-6 sm:mb-8 leading-relaxed px-2">
+            <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-white/90 mb-6 sm:mb-8 md:mb-10 leading-relaxed">
               Flights, managed by your own dedicated agent.
-              <br className="hidden xs:block" />
-              <span className="xs:hidden"> </span>
+              <br className="hidden sm:block" />
+              <span className="sm:hidden"> </span>
               Based in Galle. Trusted globally.
             </p>
             <button
@@ -114,7 +114,7 @@ const IndexPage = ({ data }) => {
                   planner.scrollIntoView({ behavior: 'smooth', block: 'start' })
                 }
               }}
-              className="mt-3 xs:mt-4 sm:mt-6 rounded-full bg-white/90 backdrop-blur-sm px-5 xs:px-6 sm:px-8 py-2.5 xs:py-3 sm:py-4 text-xs xs:text-sm sm:text-base font-medium text-gray-900 hover:bg-white transition-colors shadow-lg"
+              className="mt-5 sm:mt-6 md:mt-8 rounded-full bg-white/90 backdrop-blur-sm px-8 sm:px-10 md:px-12 py-4 sm:py-5 md:py-6 text-base sm:text-lg md:text-xl font-medium text-gray-900 hover:bg-white transition-colors shadow-lg"
             >
               Plan my flight
             </button>
@@ -124,33 +124,33 @@ const IndexPage = ({ data }) => {
 
       <section
         id="flight-planner"
-        className="min-h-screen w-full bg-white flex flex-col items-center justify-center px-3 xs:px-4 sm:px-6 md:px-8 lg:px-10 py-10 xs:py-12 sm:py-16 lg:py-20"
+        className="min-h-screen w-full bg-white flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20"
       >
-        <div className="w-full max-w-2xl lg:max-w-4xl mb-6 xs:mb-8 sm:mb-12">
-          <h2 className="text-xl xs:text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 text-center mb-2 xs:mb-3 sm:mb-4 px-2">
+        <div className="w-full max-w-2xl lg:max-w-4xl mb-8 sm:mb-12">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 text-center mb-3 sm:mb-4 md:mb-6">
             Plan your flight
           </h2>
-          <p className="text-sm xs:text-base sm:text-lg text-gray-600 text-center px-2">
+          <p className="text-lg sm:text-xl md:text-2xl text-gray-600 text-center">
             Changes handled by your agent. Not a system.
           </p>
         </div>
-        <div className="w-full max-w-2xl lg:max-w-4xl px-2 xs:px-0">
+        <div className="w-full max-w-2xl lg:max-w-4xl">
           <FlightPlanner settings={settings} />
         </div>
       </section>
 
-      <section className="py-10 xs:py-12 sm:py-16 lg:py-20 bg-gray-50">
-        <div className="container mx-auto px-3 xs:px-4 sm:px-6 md:px-8 lg:px-10">
+      <section className="py-12 sm:py-16 lg:py-20 bg-gray-50">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl lg:max-w-4xl mx-auto">
-            <h2 className="text-xl xs:text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-5 xs:mb-6 sm:mb-8 lg:mb-10 text-center px-2">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-8 sm:mb-10 lg:mb-12 text-center">
               Why book flights with us
             </h2>
-            <div className="space-y-4">
-              <div className="flex items-start gap-2 xs:gap-3 sm:gap-4">
-                <svg className="w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+            <div className="space-y-5 sm:space-y-6">
+              <div className="flex items-start gap-4 sm:gap-5">
+                <svg className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-green-500 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
-                <span className="text-sm xs:text-base sm:text-lg text-gray-700">Smart route planning</span>
+                <span className="text-lg sm:text-xl md:text-2xl text-gray-700">Smart route planning</span>
               </div>
               <div className="flex items-start gap-3">
                 <svg className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
@@ -181,12 +181,12 @@ const IndexPage = ({ data }) => {
         </div>
       </section>
 
-      <section className="py-10 xs:py-12 sm:py-16 lg:py-20 bg-white">
-        <div className="container mx-auto px-3 xs:px-4 sm:px-6 md:px-8 lg:px-10">
-          <h2 className="text-xl xs:text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-6 xs:mb-8 sm:mb-12 lg:mb-16 text-center px-2">
+      <section className="py-12 sm:py-16 lg:py-20 bg-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-10 sm:mb-12 lg:mb-16 text-center">
             Beyond flights
           </h2>
-          <div className="grid grid-cols-1 xs:grid-cols-2 gap-3 xs:gap-4 sm:gap-6 lg:gap-8 max-w-4xl lg:max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 max-w-4xl lg:max-w-6xl mx-auto">
             <ServiceCard
               icon={SuitcaseIcon}
               title="Outbound Tours"

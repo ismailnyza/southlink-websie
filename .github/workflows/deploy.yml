@@ -27,6 +27,12 @@ jobs:
         run: npm run build
         id: build
 
+      - name: List files to deploy
+        run: |
+          echo "Files to deploy:"
+          ls -la ./public/ | head -20
+          echo "Total files: $(find ./public -type f | wc -l)"
+
       - name: Deploy to FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.0
         with:
@@ -36,3 +42,4 @@ jobs:
           protocol: ftps
           local-dir: ./public/
           server-dir: ${{ secrets.FTP_REMOTE_DIR }}/
+          dangerous-clean-slate: true
