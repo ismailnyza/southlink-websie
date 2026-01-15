@@ -4,12 +4,24 @@
 
 @layer base {
   html {
-    font-size: 16px;
+    font-size: 15px;
+  }
+  
+  @media (min-width: 375px) {
+    html {
+      font-size: 16px;
+    }
   }
   
   @media (min-width: 640px) {
     html {
       font-size: 16px;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    html {
+      font-size: 17px;
     }
   }
   
@@ -23,6 +35,11 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+  
+  * {
+    box-sizing: border-box;
   }
 }
 
