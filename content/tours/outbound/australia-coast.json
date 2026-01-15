@@ -1,13 +1,44 @@
 {
-  "id": "australia-coast",
-  "title": "Australia East Coast",
-  "images": ["/images/australia-1.jpg"],
   "price": 300000,
-  "itinerary": [{"day": 1, "title": "Sydney", "description": "Visit Opera House and Harbour Bridge."}, {"day": 2, "title": "Bondi Beach", "description": "Enjoy famous beach and coastal walk."}, {"day": 3, "title": "Blue Mountains", "description": "Day trip to scenic mountain region."}, {"day": 4, "title": "Melbourne", "description": "Explore laneways and culture."}, {"day": 5, "title": "Great Ocean Road", "description": "Scenic drive along stunning coastline."}],
-  "visibility": true,
-  "tags": ["adventure", "beach"],
-  "map_location": null,
+  "itinerary": [
+    {
+      "day": 1,
+      "title": "Sydney",
+      "description": "Visit Opera House and Harbour Bridge."
+    },
+    {
+      "day": 2,
+      "title": "Bondi Beach",
+      "description": "Enjoy famous beach and coastal walk."
+    },
+    {
+      "day": 3,
+      "title": "Blue Mountains",
+      "description": "Day trip to scenic mountain region."
+    },
+    {
+      "day": 4,
+      "title": "Melbourne",
+      "description": "Explore laneways and culture."
+    },
+    {
+      "day": 5,
+      "title": "Great Ocean Road",
+      "description": "Scenic drive along stunning coastline."
+    }
+  ],
   "destination": "Australia",
+  "visibility": true,
   "duration": "5 Days",
+  "title": "Australia East Coast",
+  "images": [
+    "/images/wallhaven-d88rkg.jpg"
+  ],
+  "map_location": null,
+  "tags": [
+    "adventure",
+    "beach"
+  ],
+  "id": "australia-coast",
   "description": "Experience Australia's iconic east coast cities and natural wonders."
 }
