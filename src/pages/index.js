@@ -98,10 +98,10 @@ const IndexPage = ({ data }) => {
         </div>
         <div className="relative h-full flex items-center justify-center px-4 sm:px-6 lg:px-8">
           <div className="text-center text-white w-full max-w-4xl mx-auto px-4">
-            <h1 className="text-3xl min-[375px]:text-[2rem] min-[414px]:text-[2.25rem] min-[480px]:text-[2.5rem] md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight">
+            <h1 className="text-3xl min-[375px]:text-[2rem] min-[414px]:text-[2.25rem] min-[480px]:text-[2.5rem] min-[640px]:text-[2.75rem] min-[768px]:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight">
               Travel, handled personally.
             </h1>
-            <p className="text-base min-[375px]:text-lg min-[414px]:text-xl min-[480px]:text-[1.25rem] md:text-xl lg:text-2xl text-white/90 mb-6 sm:mb-8 leading-relaxed">
+            <p className="text-base min-[375px]:text-lg min-[414px]:text-xl min-[480px]:text-[1.25rem] min-[640px]:text-[1.375rem] min-[768px]:text-xl lg:text-2xl text-white/90 mb-6 sm:mb-8 leading-relaxed">
               Flights, managed by your own dedicated agent.
               <br className="hidden sm:block" />
               <span className="sm:hidden"> </span>
@@ -114,7 +114,7 @@ const IndexPage = ({ data }) => {
                   planner.scrollIntoView({ behavior: 'smooth', block: 'start' })
                 }
               }}
-              className="mt-4 sm:mt-6 rounded-full bg-white/90 backdrop-blur-sm px-6 min-[375px]:px-7 min-[414px]:px-8 min-[480px]:px-9 sm:px-8 py-3 min-[375px]:py-3.5 min-[414px]:py-4 min-[480px]:py-4.5 sm:py-4 text-sm min-[375px]:text-[0.9375rem] min-[414px]:text-base min-[480px]:text-[1.0625rem] sm:text-base font-medium text-gray-900 hover:bg-white transition-colors shadow-lg"
+              className="mt-4 sm:mt-6 rounded-full bg-white/90 backdrop-blur-sm px-6 min-[375px]:px-7 min-[414px]:px-8 min-[480px]:px-9 min-[640px]:px-10 min-[768px]:px-8 py-3 min-[375px]:py-3.5 min-[414px]:py-4 min-[480px]:py-4.5 min-[640px]:py-5 min-[768px]:py-4 text-sm min-[375px]:text-[0.9375rem] min-[414px]:text-base min-[480px]:text-[1.0625rem] min-[640px]:text-[1.125rem] min-[768px]:text-base font-medium text-gray-900 hover:bg-white transition-colors shadow-lg"
             >
               Plan my flight
             </button>
@@ -127,10 +127,10 @@ const IndexPage = ({ data }) => {
         className="min-h-screen w-full bg-white flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20"
       >
         <div className="w-full max-w-2xl lg:max-w-4xl mb-8 sm:mb-12">
-          <h2 className="text-2xl min-[375px]:text-[1.75rem] min-[414px]:text-3xl min-[480px]:text-[2rem] sm:text-3xl lg:text-4xl font-bold text-gray-900 text-center mb-2 sm:mb-4">
+          <h2 className="text-2xl min-[375px]:text-[1.75rem] min-[414px]:text-3xl min-[480px]:text-[2rem] min-[640px]:text-[2.25rem] min-[768px]:text-3xl lg:text-4xl font-bold text-gray-900 text-center mb-2 sm:mb-4">
             Plan your flight
           </h2>
-          <p className="text-base min-[375px]:text-lg min-[414px]:text-xl min-[480px]:text-[1.125rem] sm:text-lg text-gray-600 text-center">
+          <p className="text-base min-[375px]:text-lg min-[414px]:text-xl min-[480px]:text-[1.125rem] min-[640px]:text-[1.25rem] min-[768px]:text-lg text-gray-600 text-center">
             Changes handled by your agent. Not a system.
           </p>
         </div>
@@ -142,15 +142,15 @@ const IndexPage = ({ data }) => {
       <section className="py-12 sm:py-16 lg:py-20 bg-gray-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl lg:max-w-4xl mx-auto">
-            <h2 className="text-2xl min-[375px]:text-[1.75rem] min-[414px]:text-3xl min-[480px]:text-[2rem] sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-6 sm:mb-8 lg:mb-10 text-center">
+            <h2 className="text-2xl min-[375px]:text-[1.75rem] min-[414px]:text-3xl min-[480px]:text-[2rem] min-[640px]:text-[2.25rem] min-[768px]:text-3xl lg:text-4xl font-bold text-gray-900 mb-6 sm:mb-8 lg:mb-10 text-center">
               Why book flights with us
             </h2>
             <div className="space-y-4">
               <div className="flex items-start gap-3 sm:gap-4">
-                <svg className="w-5 h-5 min-[375px]:w-[1.375rem] min-[375px]:h-[1.375rem] min-[414px]:w-6 min-[414px]:h-6 min-[480px]:w-[1.5rem] min-[480px]:h-[1.5rem] sm:w-6 sm:h-6 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                <svg className="w-5 h-5 min-[375px]:w-[1.375rem] min-[375px]:h-[1.375rem] min-[414px]:w-6 min-[414px]:h-6 min-[480px]:w-[1.5rem] min-[480px]:h-[1.5rem] min-[640px]:w-[1.625rem] min-[640px]:h-[1.625rem] min-[768px]:w-6 min-[768px]:h-6 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
-                <span className="text-base min-[375px]:text-lg min-[414px]:text-xl min-[480px]:text-[1.125rem] sm:text-lg text-gray-700">Smart route planning</span>
+                <span className="text-base min-[375px]:text-lg min-[414px]:text-xl min-[480px]:text-[1.125rem] min-[640px]:text-[1.25rem] min-[768px]:text-lg text-gray-700">Smart route planning</span>
               </div>
               <div className="flex items-start gap-3">
                 <svg className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
@@ -183,7 +183,7 @@ const IndexPage = ({ data }) => {
 
       <section className="py-12 sm:py-16 lg:py-20 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl min-[375px]:text-[1.75rem] min-[414px]:text-3xl min-[480px]:text-[2rem] sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-8 sm:mb-12 lg:mb-16 text-center">
+          <h2 className="text-2xl min-[375px]:text-[1.75rem] min-[414px]:text-3xl min-[480px]:text-[2rem] min-[640px]:text-[2.25rem] min-[768px]:text-3xl lg:text-4xl font-bold text-gray-900 mb-8 sm:mb-12 lg:mb-16 text-center">
             Beyond flights
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 max-w-4xl lg:max-w-6xl mx-auto">

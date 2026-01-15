@@ -50,7 +50,7 @@ const Layout = ({ children, isHomePage = false }) => {
           <div className="flex items-center justify-between h-14">
             <Link
               to="/"
-              className={`text-xl min-[375px]:text-[1.25rem] min-[414px]:text-2xl min-[480px]:text-[1.5rem] font-bold transition-colors ${
+              className={`text-xl min-[375px]:text-[1.25rem] min-[414px]:text-2xl min-[480px]:text-[1.5rem] min-[640px]:text-[1.625rem] min-[768px]:text-xl font-bold transition-colors ${
                 isScrolled || !isHomePage || isMobileMenuOpen ? 'text-primary' : 'text-white'
               }`}
             >
