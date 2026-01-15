@@ -176,27 +176,27 @@ const Layout = ({ children, isHomePage = false }) => {
                     }, 100)
                   }
                 }}
-                className="block py-2 text-gray-700 hover:text-primary transition-colors active:bg-gray-50 rounded-lg -mx-2 px-2"
+                className="block py-3 text-base sm:text-lg text-gray-700 hover:text-primary transition-colors active:bg-gray-50 rounded-lg -mx-2 px-2"
               >
                 Flights
               </a>
               <Link
                 to="/tours/inbound"
-                className="block py-2 text-gray-700 hover:text-primary transition-colors active:bg-gray-50 rounded-lg -mx-2 px-2"
+                className="block py-3 text-base sm:text-lg text-gray-700 hover:text-primary transition-colors active:bg-gray-50 rounded-lg -mx-2 px-2"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Sri Lanka Experiences
               </Link>
               <Link
                 to="/tours/outbound"
-                className="block py-2 text-gray-700 hover:text-primary transition-colors active:bg-gray-50 rounded-lg -mx-2 px-2"
+                className="block py-3 text-base sm:text-lg text-gray-700 hover:text-primary transition-colors active:bg-gray-50 rounded-lg -mx-2 px-2"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 World Travel
               </Link>
               <Link
                 to="/corporate"
-                className="block py-2 text-gray-700 hover:text-primary transition-colors active:bg-gray-50 rounded-lg -mx-2 px-2"
+                className="block py-3 text-base sm:text-lg text-gray-700 hover:text-primary transition-colors active:bg-gray-50 rounded-lg -mx-2 px-2"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Corporate Travel
@@ -215,10 +215,10 @@ const Layout = ({ children, isHomePage = false }) => {
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-6 sm:mb-8">
               <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-2 sm:mb-3">Southlink Travels</h3>
-              <p className="text-gray-400 text-sm sm:text-base mb-3 sm:mb-4">Flights • Tours • Corporate</p>
-              <p className="text-gray-500 text-xs sm:text-sm">IATA Certified • Established in Galle</p>
+              <p className="text-gray-400 text-base sm:text-lg mb-3 sm:mb-4">Flights • Tours • Corporate</p>
+              <p className="text-gray-500 text-sm sm:text-base">IATA Certified • Established in Galle</p>
             </div>
-            <div className="flex flex-wrap justify-center gap-4 sm:gap-6 text-sm sm:text-base text-gray-400 mb-6 sm:mb-8">
+            <div className="flex flex-wrap justify-center gap-4 sm:gap-6 text-base sm:text-lg text-gray-400 mb-6 sm:mb-8">
               <Link to="/flights" className="hover:text-white transition-colors">
                 Flights
               </Link>
@@ -235,7 +235,7 @@ const Layout = ({ children, isHomePage = false }) => {
                 Contact
               </Link>
             </div>
-            <div className="text-center text-gray-500 text-xs sm:text-sm">
+            <div className="text-center text-gray-500 text-sm sm:text-base">
               <p>&copy; {new Date().getFullYear()} Southlink Travels</p>
             </div>
           </div>
