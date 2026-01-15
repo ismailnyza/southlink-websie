@@ -1,0 +1,13 @@
+{
+  "id": "philippines-islands",
+  "title": "Philippines Island Hopping",
+  "images": ["/images/philippines-1.jpg"],
+  "price": 150000,
+  "itinerary": [{"day": 1, "title": "Manila", "description": "Explore capital city."}, {"day": 2, "title": "Palawan", "description": "Fly to island paradise."}, {"day": 3, "title": "El Nido", "description": "Island hopping and lagoons."}, {"day": 4, "title": "Coron", "description": "Diving and shipwrecks."}, {"day": 5, "title": "Beach Relaxation", "description": "Final day on pristine beaches."}],
+  "visibility": true,
+  "tags": ["beach", "adventure"],
+  "map_location": null,
+  "destination": "Philippines",
+  "duration": "5 Days",
+  "description": "Island hop through the Philippines' most beautiful tropical destinations."
+}

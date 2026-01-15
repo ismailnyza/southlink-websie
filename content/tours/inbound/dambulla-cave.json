@@ -1,0 +1,13 @@
+{
+  "id": "dambulla-cave",
+  "title": "Dambulla Cave Temples",
+  "images": ["/images/dambulla-1.jpg"],
+  "price": 15000,
+  "itinerary": [{"day": 1, "title": "Cave Temples", "description": "Explore five ancient cave temples with Buddha statues and frescoes."}, {"day": 2, "title": "Golden Temple", "description": "Visit the modern Golden Temple complex."}],
+  "visibility": true,
+  "tags": ["culture", "heritage"],
+  "map_location": "Dambulla",
+  "destination": "Dambulla",
+  "duration": "2 Days",
+  "description": "Discover the largest and best-preserved cave temple complex in Sri Lanka."
+}

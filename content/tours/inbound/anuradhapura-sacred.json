@@ -1,0 +1,24 @@
+{
+  "id": "anuradhapura-sacred",
+  "title": "Anuradhapura Sacred City",
+  "images": ["/images/anuradhapura-1.jpg"],
+  "price": 18000,
+  "itinerary": [
+    {
+      "day": 1,
+      "title": "Ancient Capital",
+      "description": "Explore the ancient capital with its dagobas, temples, and sacred Bodhi tree."
+    },
+    {
+      "day": 2,
+      "title": "Historical Sites",
+      "description": "Visit Abhayagiri Monastery, Jetavanaramaya, and other archaeological wonders."
+    }
+  ],
+  "visibility": true,
+  "tags": ["culture", "heritage"],
+  "map_location": "Anuradhapura",
+  "destination": "Anuradhapura",
+  "duration": "2 Days",
+  "description": "Discover the ancient capital of Sri Lanka, a UNESCO World Heritage site with remarkable Buddhist monuments."
+}

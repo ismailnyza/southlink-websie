@@ -1,0 +1,13 @@
+{
+  "id": "mirissa-whale",
+  "title": "Mirissa Whale Watching",
+  "images": ["/images/mirissa-1.jpg"],
+  "price": 18000,
+  "itinerary": [{"day": 1, "title": "Whale Watching", "description": "Early morning boat trip to spot blue whales and dolphins."}, {"day": 2, "title": "Beach Time", "description": "Relax on Mirissa's beautiful beaches."}],
+  "visibility": true,
+  "tags": ["wildlife", "beach"],
+  "map_location": "Mirissa",
+  "destination": "Mirissa",
+  "duration": "2 Days",
+  "description": "Witness magnificent blue whales and dolphins in their natural habitat."
+}

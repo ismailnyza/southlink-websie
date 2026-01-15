@@ -1,0 +1,13 @@
+{
+  "id": "istanbul-bridge",
+  "title": "Istanbul Bridge of Cultures",
+  "images": ["/images/istanbul-1.jpg"],
+  "price": 150000,
+  "itinerary": [{"day": 1, "title": "Sultanahmet", "description": "Visit Hagia Sophia and Blue Mosque."}, {"day": 2, "title": "Grand Bazaar", "description": "Explore historic markets and spice bazaar."}, {"day": 3, "title": "Bosphorus Cruise", "description": "Boat trip between Europe and Asia."}, {"day": 4, "title": "Topkapi Palace", "description": "Explore Ottoman imperial palace."}, {"day": 5, "title": "Turkish Delights", "description": "Experience Turkish cuisine and culture."}],
+  "visibility": true,
+  "tags": ["culture", "heritage"],
+  "map_location": null,
+  "destination": "Istanbul",
+  "duration": "5 Days",
+  "description": "Discover where East meets West in this historic and vibrant city."
+}

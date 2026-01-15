@@ -1,0 +1,13 @@
+{
+  "id": "paris-romance",
+  "title": "Paris Romantic Getaway",
+  "images": ["/images/paris-1.jpg"],
+  "price": 250000,
+  "itinerary": [{"day": 1, "title": "Eiffel Tower", "description": "Visit iconic landmarks and enjoy Seine cruise."}, {"day": 2, "title": "Louvre & Art", "description": "Explore world-famous museums."}, {"day": 3, "title": "Montmartre", "description": "Visit Sacré-Cœur and artist quarter."}, {"day": 4, "title": "Versailles", "description": "Day trip to magnificent palace."}, {"day": 5, "title": "Café Culture", "description": "Experience Parisian café life and shopping."}],
+  "visibility": true,
+  "tags": ["culture", "honeymoon"],
+  "map_location": null,
+  "destination": "Paris",
+  "duration": "5 Days",
+  "description": "Romantic escape to the City of Light with iconic sights and French cuisine."
+}

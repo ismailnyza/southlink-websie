@@ -1,0 +1,13 @@
+{
+  "id": "south-korea-modern",
+  "title": "South Korea Modern & Traditional",
+  "images": ["/images/korea-1.jpg"],
+  "price": 170000,
+  "itinerary": [{"day": 1, "title": "Seoul Arrival", "description": "Explore modern districts and palaces."}, {"day": 2, "title": "DMZ Tour", "description": "Visit Demilitarized Zone."}, {"day": 3, "title": "Traditional Villages", "description": "Experience hanok villages and temples."}, {"day": 4, "title": "K-Pop Culture", "description": "Explore Gangnam and entertainment districts."}, {"day": 5, "title": "Korean Cuisine", "description": "Food tours and cooking classes."}],
+  "visibility": true,
+  "tags": ["culture", "adventure"],
+  "map_location": null,
+  "destination": "South Korea",
+  "duration": "5 Days",
+  "description": "Discover the perfect blend of traditional and modern South Korea."
+}

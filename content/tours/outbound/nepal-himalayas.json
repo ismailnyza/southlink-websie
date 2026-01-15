@@ -1,0 +1,13 @@
+{
+  "id": "nepal-himalayas",
+  "title": "Nepal Himalayan Adventure",
+  "images": ["/images/nepal-1.jpg"],
+  "price": 160000,
+  "itinerary": [{"day": 1, "title": "Kathmandu", "description": "Explore Durbar Square and temples."}, {"day": 2, "title": "Pokhara", "description": "Travel to lakeside city with mountain views."}, {"day": 3, "title": "Trekking", "description": "Begin Himalayan trek with guide."}, {"day": 4, "title": "Mountain Views", "description": "Sunrise views of Annapurna range."}, {"day": 5, "title": "Return", "description": "Return to Kathmandu and departure."}],
+  "visibility": true,
+  "tags": ["adventure", "nature"],
+  "map_location": null,
+  "destination": "Nepal",
+  "duration": "5 Days",
+  "description": "Trek through the Himalayas with stunning mountain vistas and Sherpa culture."
+}

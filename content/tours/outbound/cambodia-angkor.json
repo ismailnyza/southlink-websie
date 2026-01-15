@@ -1,0 +1,13 @@
+{
+  "id": "cambodia-angkor",
+  "title": "Cambodia Angkor Wat",
+  "images": ["/images/cambodia-1.jpg"],
+  "price": 140000,
+  "itinerary": [{"day": 1, "title": "Siem Reap", "description": "Arrive and explore local markets."}, {"day": 2, "title": "Angkor Wat Sunrise", "description": "Early morning visit to iconic temple."}, {"day": 3, "title": "Angkor Thom", "description": "Explore Bayon and other temple complexes."}, {"day": 4, "title": "Ta Prohm", "description": "Visit jungle-covered temple ruins."}, {"day": 5, "title": "Tonle Sap", "description": "Boat trip to floating villages."}],
+  "visibility": true,
+  "tags": ["culture", "heritage"],
+  "map_location": null,
+  "destination": "Cambodia",
+  "duration": "5 Days",
+  "description": "Discover the magnificent Angkor Wat temple complex and Cambodian culture."
+}

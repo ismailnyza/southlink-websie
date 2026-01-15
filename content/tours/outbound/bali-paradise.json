@@ -1,0 +1,13 @@
+{
+  "id": "bali-paradise",
+  "title": "Bali Island Paradise",
+  "images": ["/images/bali-1.jpg"],
+  "price": 120000,
+  "itinerary": [{"day": 1, "title": "Ubud Arrival", "description": "Check into Ubud resort surrounded by rice terraces."}, {"day": 2, "title": "Temples & Culture", "description": "Visit Tanah Lot and Uluwatu temples."}, {"day": 3, "title": "Beach Time", "description": "Relax on Seminyak or Canggu beaches."}, {"day": 4, "title": "Waterfalls", "description": "Visit Tegenungan and other waterfalls."}, {"day": 5, "title": "Departure", "description": "Final day at leisure before departure."}],
+  "visibility": true,
+  "tags": ["beach", "relaxation"],
+  "map_location": null,
+  "destination": "Bali",
+  "duration": "5 Days",
+  "description": "Discover the beauty of Bali with its temples, beaches, and rich culture."
+}

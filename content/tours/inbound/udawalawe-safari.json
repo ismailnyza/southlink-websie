@@ -1,0 +1,13 @@
+{
+  "id": "udawalawe-safari",
+  "title": "Udawalawe Elephant Safari",
+  "images": ["/images/udawalawe-1.jpg"],
+  "price": 24000,
+  "itinerary": [{"day": 1, "title": "Elephant Encounters", "description": "Safari to see wild elephants in their natural habitat."}, {"day": 2, "title": "Elephant Transit Home", "description": "Visit the rehabilitation center for orphaned elephants."}],
+  "visibility": true,
+  "tags": ["wildlife", "adventure"],
+  "map_location": "Udawalawe",
+  "destination": "Udawalawe",
+  "duration": "2 Days",
+  "description": "Get up close with Sri Lanka's majestic elephants in Udawalawe National Park."
+}

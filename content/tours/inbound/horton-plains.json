@@ -1,0 +1,13 @@
+{
+  "id": "horton-plains",
+  "title": "Horton Plains Trek",
+  "images": ["/images/horton-1.jpg"],
+  "price": 22000,
+  "itinerary": [{"day": 1, "title": "World's End", "description": "Trek to World's End viewpoint for breathtaking views."}, {"day": 2, "title": "Baker's Falls", "description": "Visit the beautiful waterfall and explore the plateau."}],
+  "visibility": true,
+  "tags": ["nature", "adventure"],
+  "map_location": "Horton Plains",
+  "destination": "Horton Plains",
+  "duration": "2 Days",
+  "description": "Hike through highland grasslands to dramatic cliff edges and waterfalls."
+}

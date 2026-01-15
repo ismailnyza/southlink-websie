@@ -1,0 +1,13 @@
+{
+  "id": "vietnam-discovery",
+  "title": "Vietnam Cultural Discovery",
+  "images": ["/images/vietnam-1.jpg"],
+  "price": 140000,
+  "itinerary": [{"day": 1, "title": "Hanoi Arrival", "description": "Explore Old Quarter and Hoan Kiem Lake."}, {"day": 2, "title": "Halong Bay", "description": "Cruise through stunning limestone karsts."}, {"day": 3, "title": "Hoi An", "description": "Visit ancient town and tailor shops."}, {"day": 4, "title": "Ho Chi Minh City", "description": "Explore Cu Chi Tunnels and city highlights."}, {"day": 5, "title": "Mekong Delta", "description": "Boat trip through floating markets."}],
+  "visibility": true,
+  "tags": ["culture", "adventure"],
+  "map_location": null,
+  "destination": "Vietnam",
+  "duration": "5 Days",
+  "description": "Experience Vietnam's rich history, stunning landscapes, and vibrant culture."
+}

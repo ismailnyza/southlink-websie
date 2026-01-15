@@ -1,0 +1,47 @@
+{
+  "id": "uk-heritage",
+  "title": "UK Heritage Tour",
+  "images": [
+    "/images/uk-1.jpg",
+    "/images/uk-2.jpg"
+  ],
+  "price": 120000,
+  "itinerary": [
+    {
+      "day": 1,
+      "title": "London Arrival",
+      "description": "Arrive in London, visit Buckingham Palace, Big Ben, and Westminster Abbey."
+    },
+    {
+      "day": 2,
+      "title": "London Museums & Markets",
+      "description": "Explore British Museum, Tower of London, and Borough Market."
+    },
+    {
+      "day": 3,
+      "title": "Stonehenge & Bath",
+      "description": "Day trip to mysterious Stonehenge and historic Roman Baths."
+    },
+    {
+      "day": 4,
+      "title": "Oxford & Cotswolds",
+      "description": "Visit Oxford University and explore charming Cotswolds villages."
+    },
+    {
+      "day": 5,
+      "title": "Windsor Castle",
+      "description": "Tour Windsor Castle, the oldest occupied castle in the world."
+    },
+    {
+      "day": 6,
+      "title": "Departure",
+      "description": "Final day in London before airport transfer."
+    }
+  ],
+  "visibility": true,
+  "tags": ["heritage", "culture"],
+  "map_location": null,
+  "destination": "United Kingdom",
+  "duration": "6 Days",
+  "description": "Discover Britain's royal heritage, historic landmarks, and charming countryside."
+}

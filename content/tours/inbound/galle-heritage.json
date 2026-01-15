@@ -1,0 +1,27 @@
+{
+  "id": "galle-heritage",
+  "title": "Galle Heritage & Fort",
+  "images": [
+    "/images/galle-1.jpg",
+    "/images/galle-2.jpg"
+  ],
+  "price": 15000,
+  "itinerary": [
+    {
+      "day": 1,
+      "title": "Galle Fort Exploration",
+      "description": "Walk through the historic Galle Fort, a UNESCO World Heritage Site. Explore colonial architecture, boutique shops, and charming cafes."
+    },
+    {
+      "day": 2,
+      "title": "Lighthouse & Beaches",
+      "description": "Visit the iconic lighthouse, stroll along the ramparts, and enjoy the beautiful beaches just outside the fort walls."
+    }
+  ],
+  "visibility": true,
+  "tags": ["Heritage", "Culture"],
+  "map_location": "Galle",
+  "destination": "Galle",
+  "duration": "2–3 days",
+  "description": "Discover the rich heritage of Galle Fort, a 17th-century colonial gem. Wander through cobblestone streets, explore Dutch architecture, and experience the unique blend of European and South Asian influences. Perfect for history lovers and slow travelers."
+}

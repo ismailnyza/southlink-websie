@@ -1,0 +1,37 @@
+{
+  "id": "singapore-4-days",
+  "title": "Singapore Urban Escape",
+  "images": [
+    "/images/singapore-1.jpg",
+    "/images/singapore-2.jpg"
+  ],
+  "price": 45000,
+  "itinerary": [
+    {
+      "day": 1,
+      "title": "Arrival & Marina Bay",
+      "description": "Arrive in Singapore, check-in and explore Marina Bay Sands and Gardens by the Bay."
+    },
+    {
+      "day": 2,
+      "title": "Sentosa Island",
+      "description": "Full day at Sentosa Island with Universal Studios or beach activities."
+    },
+    {
+      "day": 3,
+      "title": "City Tour & Shopping",
+      "description": "Visit Orchard Road, Little India, and Chinatown. Evening at Clarke Quay."
+    },
+    {
+      "day": 4,
+      "title": "Departure",
+      "description": "Last minute shopping and transfer to airport."
+    }
+  ],
+  "visibility": true,
+  "tags": ["luxury", "urban"],
+  "map_location": null,
+  "destination": "Singapore",
+  "duration": "4 Days",
+  "description": "Experience the perfect blend of modern architecture, diverse culture, and world-class attractions in Singapore."
+}

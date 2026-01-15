@@ -1,0 +1,13 @@
+{
+  "id": "adam-peak-pilgrimage",
+  "title": "Adam's Peak Pilgrimage",
+  "images": ["/images/adam-peak-1.jpg"],
+  "price": 20000,
+  "itinerary": [{"day": 1, "title": "Night Climb", "description": "Begin ascent in the early hours to reach summit at sunrise."}, {"day": 2, "title": "Sunrise & Descent", "description": "Witness spectacular sunrise and descend through tea plantations."}],
+  "visibility": true,
+  "tags": ["culture", "adventure"],
+  "map_location": "Adam's Peak",
+  "destination": "Adam's Peak",
+  "duration": "2 Days",
+  "description": "Sacred pilgrimage to Sri Pada, witnessing sunrise from the summit."
+}

@@ -1,0 +1,32 @@
+{
+  "id": "nuwara-eliya-tea",
+  "title": "Nuwara Eliya Tea Country",
+  "images": [
+    "/images/nuwara-eliya-1.jpg",
+    "/images/nuwara-eliya-2.jpg"
+  ],
+  "price": 19000,
+  "itinerary": [
+    {
+      "day": 1,
+      "title": "Tea Plantation Tour",
+      "description": "Visit working tea estates, learn about tea processing, and enjoy high-quality Ceylon tea."
+    },
+    {
+      "day": 2,
+      "title": "Gregory Lake & Victoria Park",
+      "description": "Boat ride on Gregory Lake and stroll through Victoria Park with its colonial charm."
+    },
+    {
+      "day": 3,
+      "title": "Horton Plains & World's End",
+      "description": "Early morning trek to Horton Plains National Park and the famous World's End viewpoint."
+    }
+  ],
+  "visibility": true,
+  "tags": ["nature", "culture"],
+  "map_location": "Nuwara Eliya",
+  "destination": "Nuwara Eliya",
+  "duration": "3 Days",
+  "description": "Experience Sri Lanka's 'Little England' with cool climate, tea plantations, and stunning highland scenery."
+}

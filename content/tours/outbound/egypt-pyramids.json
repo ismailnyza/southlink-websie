@@ -1,0 +1,13 @@
+{
+  "id": "egypt-pyramids",
+  "title": "Egypt Pyramids & Nile",
+  "images": ["/images/egypt-1.jpg"],
+  "price": 200000,
+  "itinerary": [{"day": 1, "title": "Cairo Arrival", "description": "Visit Giza Pyramids and Sphinx."}, {"day": 2, "title": "Egyptian Museum", "description": "Explore ancient artifacts and mummies."}, {"day": 3, "title": "Nile Cruise", "description": "Begin cruise to Luxor."}, {"day": 4, "title": "Valley of Kings", "description": "Visit tombs and Karnak Temple."}, {"day": 5, "title": "Aswan", "description": "See Philae Temple and return to Cairo."}],
+  "visibility": true,
+  "tags": ["culture", "heritage"],
+  "map_location": null,
+  "destination": "Egypt",
+  "duration": "5 Days",
+  "description": "Journey through ancient Egypt's most iconic monuments and temples."
+}

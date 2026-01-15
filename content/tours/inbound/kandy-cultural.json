@@ -1,0 +1,32 @@
+{
+  "id": "kandy-cultural",
+  "title": "Kandy Cultural Capital",
+  "images": [
+    "/images/kandy-1.jpg",
+    "/images/kandy-2.jpg"
+  ],
+  "price": 18000,
+  "itinerary": [
+    {
+      "day": 1,
+      "title": "Temple of the Tooth",
+      "description": "Visit the sacred Temple of the Tooth Relic, a UNESCO World Heritage Site."
+    },
+    {
+      "day": 2,
+      "title": "Royal Botanical Gardens & Cultural Show",
+      "description": "Explore Peradeniya Gardens and enjoy traditional Kandyan dance performance."
+    },
+    {
+      "day": 3,
+      "title": "Tea Plantations & Spice Gardens",
+      "description": "Visit tea estates in the hills and learn about Sri Lankan spices."
+    }
+  ],
+  "visibility": true,
+  "tags": ["culture", "heritage"],
+  "map_location": "Kandy",
+  "destination": "Kandy",
+  "duration": "3 Days",
+  "description": "Discover the cultural heart of Sri Lanka with ancient temples, lush gardens, and traditional performances."
+}

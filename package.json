@@ -1,0 +1,36 @@
+{
+  "name": "southlink-travels",
+  "version": "2.0.0",
+  "description": "Southlink Travels - Premium travel agency website",
+  "scripts": {
+    "develop": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean"
+  },
+  "dependencies": {
+    "ajv": "^8.17.1",
+    "gatsby": "^5.13.0",
+    "gatsby-plugin-decap-cms": "^4.0.4",
+    "gatsby-plugin-postcss": "^6.13.0",
+    "gatsby-source-filesystem": "^5.13.0",
+    "gatsby-transformer-json": "^5.13.0",
+    "qrcode.react": "^3.1.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-simple-maps": "^3.0.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.17",
+    "postcss": "^8.4.35",
+    "tailwindcss": "^3.4.1"
+  },
+  "keywords": [
+    "gatsby",
+    "travel",
+    "tourism",
+    "static-site"
+  ],
+  "author": "",
+  "license": "MIT"
+}

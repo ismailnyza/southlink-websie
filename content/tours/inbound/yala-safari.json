@@ -1,0 +1,32 @@
+{
+  "id": "yala-safari",
+  "title": "Yala Wildlife Safari",
+  "images": [
+    "/images/yala-1.jpg",
+    "/images/yala-2.jpg"
+  ],
+  "price": 25000,
+  "itinerary": [
+    {
+      "day": 1,
+      "title": "Arrival & Evening Safari",
+      "description": "Arrive in Yala and check-in to your safari lodge. Evening game drive through Block 1, known for high leopard density."
+    },
+    {
+      "day": 2,
+      "title": "Early Morning Safari",
+      "description": "Dawn safari when wildlife is most active. Spot elephants, sloth bears, and if you're lucky, the elusive leopard."
+    },
+    {
+      "day": 3,
+      "title": "Sithulpawwa Temple & Beach",
+      "description": "Visit the ancient Sithulpawwa rock temple, then unwind at nearby pristine beaches before departure."
+    }
+  ],
+  "visibility": true,
+  "tags": ["Wildlife", "Adventure"],
+  "map_location": "Yala",
+  "destination": "Yala",
+  "duration": "3–4 days",
+  "description": "Experience Sri Lanka's most famous national park with incredible wildlife encounters. Yala has one of the highest leopard densities in the world, alongside elephants, sloth bears, and over 200 bird species. Perfect for wildlife enthusiasts and photographers."
+}

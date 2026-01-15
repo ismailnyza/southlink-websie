@@ -1,0 +1,13 @@
+{
+  "id": "japan-cherry",
+  "title": "Japan Cherry Blossom Tour",
+  "images": ["/images/japan-1.jpg"],
+  "price": 180000,
+  "itinerary": [{"day": 1, "title": "Tokyo Arrival", "description": "Arrive in Tokyo and explore Shibuya and Harajuku."}, {"day": 2, "title": "Cherry Blossoms", "description": "Visit parks during sakura season."}, {"day": 3, "title": "Kyoto Temples", "description": "Explore ancient temples and gardens."}, {"day": 4, "title": "Traditional Culture", "description": "Experience tea ceremonies and traditional cuisine."}, {"day": 5, "title": "Departure", "description": "Final shopping and departure."}],
+  "visibility": true,
+  "tags": ["culture", "adventure"],
+  "map_location": null,
+  "destination": "Japan",
+  "duration": "5 Days",
+  "description": "Experience Japan's iconic cherry blossom season with visits to Tokyo and Kyoto."
+}

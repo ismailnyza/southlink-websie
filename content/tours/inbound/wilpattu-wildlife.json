@@ -1,0 +1,13 @@
+{
+  "id": "wilpattu-wildlife",
+  "title": "Wilpattu National Park",
+  "images": ["/images/wilpattu-1.jpg"],
+  "price": 26000,
+  "itinerary": [{"day": 1, "title": "Wildlife Safari", "description": "Game drives to spot leopards, elephants, and sloth bears."}, {"day": 2, "title": "Natural Lakes", "description": "Explore the park's unique villu (natural lakes)."}],
+  "visibility": true,
+  "tags": ["wildlife", "adventure"],
+  "map_location": "Wilpattu",
+  "destination": "Wilpattu",
+  "duration": "2 Days",
+  "description": "Sri Lanka's largest national park, home to diverse wildlife and natural lakes."
+}

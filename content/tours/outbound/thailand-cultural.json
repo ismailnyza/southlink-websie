@@ -1,0 +1,42 @@
+{
+  "id": "thailand-cultural",
+  "title": "Thailand Cultural Journey",
+  "images": [
+    "/images/thailand-1.jpg",
+    "/images/thailand-2.jpg"
+  ],
+  "price": 55000,
+  "itinerary": [
+    {
+      "day": 1,
+      "title": "Bangkok Arrival",
+      "description": "Arrive in Bangkok, visit Grand Palace and Wat Pho. Evening at Chatuchak Market."
+    },
+    {
+      "day": 2,
+      "title": "Ayutthaya Day Trip",
+      "description": "Explore ancient ruins of Ayutthaya, a UNESCO World Heritage Site."
+    },
+    {
+      "day": 3,
+      "title": "Chiang Mai",
+      "description": "Flight to Chiang Mai. Visit Doi Suthep Temple and explore the old city."
+    },
+    {
+      "day": 4,
+      "title": "Elephant Sanctuary",
+      "description": "Ethical elephant interaction and traditional Thai cooking class."
+    },
+    {
+      "day": 5,
+      "title": "Departure",
+      "description": "Final shopping and transfer to airport."
+    }
+  ],
+  "visibility": true,
+  "tags": ["culture", "heritage"],
+  "map_location": null,
+  "destination": "Thailand",
+  "duration": "5 Days",
+  "description": "Immerse yourself in Thailand's rich culture, ancient temples, and warm hospitality."
+}

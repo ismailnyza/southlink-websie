@@ -1,0 +1,13 @@
+{
+  "id": "ratnapura-gems",
+  "title": "Ratnapura Gem City",
+  "images": ["/images/ratnapura-1.jpg"],
+  "price": 18000,
+  "itinerary": [{"day": 1, "title": "Gem Mines", "description": "Visit working gem mines and learn about gemology."}, {"day": 2, "title": "Gem Museum", "description": "Explore the gem museum and local markets."}],
+  "visibility": true,
+  "tags": ["culture", "heritage"],
+  "map_location": "Ratnapura",
+  "destination": "Ratnapura",
+  "duration": "2 Days",
+  "description": "Discover the City of Gems, famous for sapphires, rubies, and other precious stones."
+}

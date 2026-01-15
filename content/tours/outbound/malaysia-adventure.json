@@ -1,0 +1,42 @@
+{
+  "id": "malaysia-adventure",
+  "title": "Malaysia Adventure Tour",
+  "images": [
+    "/images/malaysia-1.jpg",
+    "/images/malaysia-2.jpg"
+  ],
+  "price": 48000,
+  "itinerary": [
+    {
+      "day": 1,
+      "title": "Kuala Lumpur Arrival",
+      "description": "Arrive in KL, visit Petronas Twin Towers and KL Tower. Evening food tour."
+    },
+    {
+      "day": 2,
+      "title": "Batu Caves & Genting Highlands",
+      "description": "Visit colorful Batu Caves and enjoy the cool climate of Genting Highlands."
+    },
+    {
+      "day": 3,
+      "title": "Langkawi Island",
+      "description": "Flight to Langkawi. Cable car ride, island hopping, and beach relaxation."
+    },
+    {
+      "day": 4,
+      "title": "Water Sports & Duty-Free Shopping",
+      "description": "Enjoy water activities and shop at duty-free outlets."
+    },
+    {
+      "day": 5,
+      "title": "Departure",
+      "description": "Transfer to airport for departure."
+    }
+  ],
+  "visibility": true,
+  "tags": ["adventure", "beach"],
+  "map_location": null,
+  "destination": "Malaysia",
+  "duration": "5 Days",
+  "description": "Experience the perfect mix of modern cities, tropical islands, and natural wonders in Malaysia."
+}

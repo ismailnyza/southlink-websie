@@ -1,0 +1,13 @@
+{
+  "id": "indonesia-java",
+  "title": "Indonesia Java & Borobudur",
+  "images": ["/images/java-1.jpg"],
+  "price": 130000,
+  "itinerary": [{"day": 1, "title": "Jakarta", "description": "Explore capital city."}, {"day": 2, "title": "Yogyakarta", "description": "Visit royal palace and batik workshops."}, {"day": 3, "title": "Borobudur", "description": "Sunrise at ancient Buddhist temple."}, {"day": 4, "title": "Prambanan", "description": "Explore Hindu temple complex."}, {"day": 5, "title": "Mount Merapi", "description": "Visit active volcano and return."}],
+  "visibility": true,
+  "tags": ["culture", "heritage"],
+  "map_location": null,
+  "destination": "Indonesia",
+  "duration": "5 Days",
+  "description": "Discover Java's ancient temples and rich cultural heritage."
+}

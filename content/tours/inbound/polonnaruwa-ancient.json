@@ -1,0 +1,13 @@
+{
+  "id": "polonnaruwa-ancient",
+  "title": "Polonnaruwa Ancient City",
+  "images": ["/images/polonnaruwa-1.jpg"],
+  "price": 20000,
+  "itinerary": [{"day": 1, "title": "Royal Palace Complex", "description": "Explore the ancient royal palace ruins and Gal Vihara."}, {"day": 2, "title": "Archaeological Museum", "description": "Visit the museum and surrounding archaeological sites."}],
+  "visibility": true,
+  "tags": ["culture", "heritage"],
+  "map_location": "Polonnaruwa",
+  "destination": "Polonnaruwa",
+  "duration": "2 Days",
+  "description": "Step back in time at Polonnaruwa, the medieval capital with stunning stone carvings and ancient ruins."
+}

@@ -1,0 +1,32 @@
+{
+  "id": "sigiriya-ancient",
+  "title": "Sigiriya Ancient Wonder",
+  "images": [
+    "/images/sigiriya-1.jpg",
+    "/images/sigiriya-2.jpg"
+  ],
+  "price": 20000,
+  "itinerary": [
+    {
+      "day": 1,
+      "title": "Sigiriya Rock Fortress",
+      "description": "Climb the ancient rock fortress, a UNESCO World Heritage Site. Explore frescoes and royal gardens."
+    },
+    {
+      "day": 2,
+      "title": "Dambulla Cave Temple",
+      "description": "Visit the largest cave temple complex with over 150 Buddha statues and intricate murals."
+    },
+    {
+      "day": 3,
+      "title": "Anuradhapura Ancient City",
+      "description": "Explore the ancient capital with sacred stupas, ancient reservoirs, and archaeological sites."
+    }
+  ],
+  "visibility": true,
+  "tags": ["heritage", "culture"],
+  "map_location": "Sigiriya",
+  "destination": "Sigiriya",
+  "duration": "3 Days",
+  "description": "Journey through Sri Lanka's ancient civilization with magnificent rock fortresses, cave temples, and historic cities."
+}

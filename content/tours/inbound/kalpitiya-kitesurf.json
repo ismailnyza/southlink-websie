@@ -1,0 +1,13 @@
+{
+  "id": "kalpitiya-kitesurf",
+  "title": "Kalpitiya Kitesurfing",
+  "images": ["/images/kalpitiya-1.jpg"],
+  "price": 35000,
+  "itinerary": [{"day": 1, "title": "Kitesurfing Lessons", "description": "Learn kitesurfing in ideal wind conditions."}, {"day": 2, "title": "Dolphin Watching", "description": "Boat trip to see dolphins in the lagoon."}, {"day": 3, "title": "Beach Activities", "description": "Enjoy beach sports and relaxation."}],
+  "visibility": true,
+  "tags": ["adventure", "beach"],
+  "map_location": "Kalpitiya",
+  "destination": "Kalpitiya",
+  "duration": "3 Days",
+  "description": "World-class kitesurfing destination with perfect winds and dolphin encounters."
+}

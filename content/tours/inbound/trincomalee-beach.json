@@ -1,0 +1,13 @@
+{
+  "id": "trincomalee-beach",
+  "title": "Trincomalee Beach Paradise",
+  "images": ["/images/trinco-1.jpg"],
+  "price": 25000,
+  "itinerary": [{"day": 1, "title": "Nilaveli Beach", "description": "Relax on pristine white sand beaches."}, {"day": 2, "title": "Snorkeling & Diving", "description": "Explore coral reefs and marine life."}, {"day": 3, "title": "Koneswaram Temple", "description": "Visit the historic Hindu temple overlooking the ocean."}],
+  "visibility": true,
+  "tags": ["beach", "relaxation"],
+  "map_location": "Trincomalee",
+  "destination": "Trincomalee",
+  "duration": "3 Days",
+  "description": "Experience some of Sri Lanka's most beautiful beaches and crystal-clear waters."
+}

@@ -1,0 +1,13 @@
+{
+  "id": "matale-spice",
+  "title": "Matale Spice Gardens",
+  "images": ["/images/matale-1.jpg"],
+  "price": 14000,
+  "itinerary": [{"day": 1, "title": "Spice Gardens", "description": "Tour working spice gardens and learn about cultivation."}, {"day": 2, "title": "Ayurveda Experience", "description": "Experience traditional Ayurvedic treatments."}],
+  "visibility": true,
+  "tags": ["culture", "wellness"],
+  "map_location": "Matale",
+  "destination": "Matale",
+  "duration": "2 Days",
+  "description": "Immerse yourself in Sri Lanka's spice heritage and traditional medicine."
+}

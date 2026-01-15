@@ -1,0 +1,42 @@
+{
+  "id": "dubai-5-days",
+  "title": "Dubai: Modern Marvels",
+  "images": [
+    "/images/dubai-1.jpg",
+    "/images/dubai-2.jpg"
+  ],
+  "price": 50000,
+  "itinerary": [
+    {
+      "day": 1,
+      "title": "Arrival & City Orientation",
+      "description": "Welcome to Dubai. Transfer to your hotel in the heart of the city. Evening at leisure to adjust to the time zone."
+    },
+    {
+      "day": 2,
+      "title": "Iconic Landmarks",
+      "description": "Visit Burj Khalifa, the world's tallest building. Explore Dubai Mall and witness the Palm Jumeirah from above."
+    },
+    {
+      "day": 3,
+      "title": "Desert Safari Experience",
+      "description": "Afternoon desert safari with dune bashing, camel rides, and traditional Bedouin dinner under the stars."
+    },
+    {
+      "day": 4,
+      "title": "Cultural & Shopping Day",
+      "description": "Explore traditional souks, visit the Dubai Museum, and enjoy world-class shopping at Dubai Mall or Souk Madinat."
+    },
+    {
+      "day": 5,
+      "title": "Departure",
+      "description": "Check out and transfer to Dubai International Airport for your flight home."
+    }
+  ],
+  "visibility": true,
+  "tags": ["Adventure", "Luxury"],
+  "map_location": null,
+  "destination": "Dubai, UAE",
+  "duration": "5–7 days",
+  "description": "Experience the best of Dubai, where modern architecture meets Arabian tradition. From the world's tallest building to golden desert dunes, this journey showcases Dubai's ambition and heritage. Perfect for first-time visitors seeking both luxury and adventure."
+}

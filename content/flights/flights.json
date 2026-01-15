@@ -1,0 +1,22 @@
+[
+  {
+    "id": "flight-001",
+    "origin": "Colombo",
+    "destination": "Dubai",
+    "airline": "Emirates",
+    "price": 45000,
+    "departure_date": "2024-06-01",
+    "return_date": "2024-06-08",
+    "visibility": true
+  },
+  {
+    "id": "flight-002",
+    "origin": "Colombo",
+    "destination": "Singapore",
+    "airline": "Singapore Airlines",
+    "price": 35000,
+    "departure_date": "2024-06-15",
+    "return_date": "2024-06-22",
+    "visibility": true
+  }
+]

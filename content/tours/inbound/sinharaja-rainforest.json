@@ -1,0 +1,13 @@
+{
+  "id": "sinharaja-rainforest",
+  "title": "Sinharaja Rainforest Trek",
+  "images": ["/images/sinharaja-1.jpg"],
+  "price": 28000,
+  "itinerary": [{"day": 1, "title": "Rainforest Exploration", "description": "Guided trek through UNESCO World Heritage rainforest."}, {"day": 2, "title": "Bird Watching", "description": "Spot endemic bird species and rare wildlife."}],
+  "visibility": true,
+  "tags": ["nature", "adventure"],
+  "map_location": "Sinharaja",
+  "destination": "Sinharaja",
+  "duration": "2 Days",
+  "description": "Explore one of the world's most biodiverse rainforests with endemic species."
+}

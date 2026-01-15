@@ -1,0 +1,13 @@
+{
+  "id": "pasikudah-paradise",
+  "title": "Pasikudah Beach Resort",
+  "images": ["/images/pasikudah-1.jpg"],
+  "price": 30000,
+  "itinerary": [{"day": 1, "title": "Beach Relaxation", "description": "Enjoy the shallow, calm waters perfect for swimming."}, {"day": 2, "title": "Water Sports", "description": "Try kayaking, snorkeling, and other activities."}],
+  "visibility": true,
+  "tags": ["beach", "relaxation"],
+  "map_location": "Pasikudah",
+  "destination": "Pasikudah",
+  "duration": "2 Days",
+  "description": "Unwind at Pasikudah's famous shallow bay, ideal for families and relaxation."
+}

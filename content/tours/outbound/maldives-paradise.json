@@ -1,0 +1,42 @@
+{
+  "id": "maldives-paradise",
+  "title": "Maldives Island Paradise",
+  "images": [
+    "/images/maldives-1.jpg",
+    "/images/maldives-2.jpg"
+  ],
+  "price": 85000,
+  "itinerary": [
+    {
+      "day": 1,
+      "title": "Arrival & Resort Check-in",
+      "description": "Speedboat transfer to your overwater villa. Welcome drinks and resort orientation."
+    },
+    {
+      "day": 2,
+      "title": "Snorkeling & Water Sports",
+      "description": "Explore vibrant coral reefs, try water sports, or simply relax on pristine beaches."
+    },
+    {
+      "day": 3,
+      "title": "Sunset Cruise & Spa",
+      "description": "Evening dolphin watching cruise followed by a relaxing spa treatment."
+    },
+    {
+      "day": 4,
+      "title": "Island Hopping",
+      "description": "Visit local islands, experience Maldivian culture, and enjoy fresh seafood."
+    },
+    {
+      "day": 5,
+      "title": "Departure",
+      "description": "Final breakfast and transfer to airport."
+    }
+  ],
+  "visibility": true,
+  "tags": ["luxury", "beach"],
+  "map_location": null,
+  "destination": "Maldives",
+  "duration": "5 Days",
+  "description": "Escape to crystal-clear waters, white sand beaches, and luxurious overwater villas in the Maldives."
+}

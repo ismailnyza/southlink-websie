@@ -1,0 +1,24 @@
+{
+  "id": "bentota-beach",
+  "title": "Bentota Beach Escape",
+  "images": ["/images/bentota-1.jpg"],
+  "price": 22000,
+  "itinerary": [
+    {
+      "day": 1,
+      "title": "Beach Relaxation",
+      "description": "Spend your day on pristine golden beaches. Try water sports or simply unwind by the Indian Ocean."
+    },
+    {
+      "day": 2,
+      "title": "River Safari",
+      "description": "Morning boat ride on the Bentota River. Spot crocodiles, monitor lizards, and diverse birdlife in their natural habitat."
+    }
+  ],
+  "visibility": true,
+  "tags": ["beach", "relaxation"],
+  "map_location": "Bentota",
+  "destination": "Bentota",
+  "duration": "3–5 days",
+  "description": "Relax on golden beaches and explore the scenic Bentota River. Designed for travellers who want a slower pace and time by the sea. Perfect for couples and families seeking coastal tranquility."
+}

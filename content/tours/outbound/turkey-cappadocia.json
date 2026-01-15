@@ -1,0 +1,13 @@
+{
+  "id": "turkey-cappadocia",
+  "title": "Turkey Cappadocia Hot Air Balloon",
+  "images": ["/images/turkey-1.jpg"],
+  "price": 180000,
+  "itinerary": [{"day": 1, "title": "Cappadocia Arrival", "description": "Check into cave hotel."}, {"day": 2, "title": "Hot Air Balloon", "description": "Sunrise balloon ride over fairy chimneys."}, {"day": 3, "title": "Underground Cities", "description": "Explore ancient underground cave cities."}, {"day": 4, "title": "Goreme Valley", "description": "Hike through unique rock formations."}, {"day": 5, "title": "Istanbul", "description": "Transfer to Istanbul for departure."}],
+  "visibility": true,
+  "tags": ["adventure", "honeymoon"],
+  "map_location": null,
+  "destination": "Turkey",
+  "duration": "5 Days",
+  "description": "Magical hot air balloon experience over Cappadocia's unique landscape."
+}

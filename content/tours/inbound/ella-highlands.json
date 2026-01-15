@@ -1,0 +1,32 @@
+{
+  "id": "ella-highlands",
+  "title": "Ella Highlands Adventure",
+  "images": [
+    "/images/ella-1.jpg",
+    "/images/ella-2.jpg"
+  ],
+  "price": 22000,
+  "itinerary": [
+    {
+      "day": 1,
+      "title": "Nine Arch Bridge & Little Adam's Peak",
+      "description": "Hike to iconic Nine Arch Bridge and climb Little Adam's Peak for stunning views."
+    },
+    {
+      "day": 2,
+      "title": "Ella Rock Trek",
+      "description": "Challenging trek to Ella Rock summit with panoramic mountain vistas."
+    },
+    {
+      "day": 3,
+      "title": "Ravana Falls & Tea Factory",
+      "description": "Visit Ravana Falls and tour a working tea factory to learn about Ceylon tea."
+    }
+  ],
+  "visibility": true,
+  "tags": ["adventure", "nature"],
+  "map_location": "Ella",
+  "destination": "Ella",
+  "duration": "3 Days",
+  "description": "Experience the breathtaking beauty of Sri Lanka's hill country with scenic hikes, waterfalls, and tea plantations."
+}

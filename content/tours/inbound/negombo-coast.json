@@ -1,0 +1,13 @@
+{
+  "id": "negombo-coast",
+  "title": "Negombo Coastal Tour",
+  "images": ["/images/negombo-1.jpg"],
+  "price": 16000,
+  "itinerary": [{"day": 1, "title": "Beach & Lagoon", "description": "Explore the fishing town and lagoon."}, {"day": 2, "title": "Dutch Fort", "description": "Visit historic Dutch fort and fish market."}],
+  "visibility": true,
+  "tags": ["beach", "culture"],
+  "map_location": "Negombo",
+  "destination": "Negombo",
+  "duration": "2 Days",
+  "description": "Experience the vibrant fishing culture and beautiful coastline near Colombo."
+}
