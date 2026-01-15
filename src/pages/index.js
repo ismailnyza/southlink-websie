@@ -159,29 +159,29 @@ const IndexPage = ({ data }) => {
                 </svg>
                 <span className="text-gray-700" style={{ fontSize: 'clamp(0.9375rem, 2vw + 0.8vh, 1.25rem)' }}>Smart route planning</span>
               </div>
-              <div className="flex items-start gap-3">
-                <svg className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+              <div className="flex items-start gap-3 sm:gap-4" style={{ gap: 'clamp(0.75rem, 2vw, 1.5rem)' }}>
+                <svg className="text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" style={{ width: 'clamp(1.25rem, 2vw + 0.5vh, 1.75rem)', height: 'clamp(1.25rem, 2vw + 0.5vh, 1.75rem)' }}>
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
-                <span className="text-gray-700">Fair, transparent fares</span>
+                <span className="text-gray-700" style={{ fontSize: 'clamp(0.9375rem, 2vw + 0.8vh, 1.25rem)' }}>Fair, transparent fares</span>
               </div>
-              <div className="flex items-start gap-3">
-                <svg className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+              <div className="flex items-start gap-3 sm:gap-4" style={{ gap: 'clamp(0.75rem, 2vw, 1.5rem)' }}>
+                <svg className="text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" style={{ width: 'clamp(1.25rem, 2vw + 0.5vh, 1.75rem)', height: 'clamp(1.25rem, 2vw + 0.5vh, 1.75rem)' }}>
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
-                <span className="text-gray-700">Visa & transit guidance</span>
+                <span className="text-gray-700" style={{ fontSize: 'clamp(0.9375rem, 2vw + 0.8vh, 1.25rem)' }}>Visa & transit guidance</span>
               </div>
-              <div className="flex items-start gap-3">
-                <svg className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+              <div className="flex items-start gap-3 sm:gap-4" style={{ gap: 'clamp(0.75rem, 2vw, 1.5rem)' }}>
+                <svg className="text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" style={{ width: 'clamp(1.25rem, 2vw + 0.5vh, 1.75rem)', height: 'clamp(1.25rem, 2vw + 0.5vh, 1.75rem)' }}>
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
-                <span className="text-gray-700">Changes handled by your agent</span>
+                <span className="text-gray-700" style={{ fontSize: 'clamp(0.9375rem, 2vw + 0.8vh, 1.25rem)' }}>Changes handled by your agent</span>
               </div>
-              <div className="flex items-start gap-3">
-                <svg className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+              <div className="flex items-start gap-3 sm:gap-4" style={{ gap: 'clamp(0.75rem, 2vw, 1.5rem)' }}>
+                <svg className="text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" style={{ width: 'clamp(1.25rem, 2vw + 0.5vh, 1.75rem)', height: 'clamp(1.25rem, 2vw + 0.5vh, 1.75rem)' }}>
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
-                <span className="text-gray-700">Support when things go wrong</span>
+                <span className="text-gray-700" style={{ fontSize: 'clamp(0.9375rem, 2vw + 0.8vh, 1.25rem)' }}>Support when things go wrong</span>
               </div>
             </div>
           </div>
