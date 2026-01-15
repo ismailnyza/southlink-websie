@@ -9,31 +9,31 @@
   
   @media (min-width: 376px) {
     html {
-      font-size: 54px;
+      font-size: 36px;
     }
   }
   
   @media (min-width: 414px) {
     html {
-      font-size: 60px;
+      font-size: 40px;
     }
   }
   
   @media (min-width: 640px) {
     html {
-      font-size: 54px;
+      font-size: 36px;
     }
   }
   
   @media (min-width: 1024px) {
     html {
-      font-size: 60px;
+      font-size: 40px;
     }
   }
   
   @media (min-width: 1280px) {
     html {
-      font-size: 66px;
+      font-size: 44px;
     }
   }
   

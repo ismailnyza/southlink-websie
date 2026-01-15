@@ -98,10 +98,10 @@ const IndexPage = ({ data }) => {
         </div>
         <div className="relative h-full flex items-center justify-center px-4 sm:px-6 lg:px-8">
           <div className="text-center text-white w-full max-w-4xl mx-auto px-4">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-5 sm:mb-6 md:mb-8 leading-tight">
+            <h1 className="text-4xl sm:text-6xl md:text-8xl lg:text-10xl xl:text-12xl font-bold mb-5 sm:mb-6 md:mb-8 leading-tight">
               Travel, handled personally.
             </h1>
-            <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-white/90 mb-6 sm:mb-8 md:mb-10 leading-relaxed">
+            <p className="text-lg sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-white/90 mb-6 sm:mb-8 md:mb-10 leading-relaxed">
               Flights, managed by your own dedicated agent.
               <br className="hidden sm:block" />
               <span className="sm:hidden"> </span>
@@ -114,7 +114,7 @@ const IndexPage = ({ data }) => {
                   planner.scrollIntoView({ behavior: 'smooth', block: 'start' })
                 }
               }}
-              className="mt-5 sm:mt-6 md:mt-8 rounded-full bg-white/90 backdrop-blur-sm px-8 sm:px-10 md:px-12 py-4 sm:py-5 md:py-6 text-base sm:text-lg md:text-xl font-medium text-gray-900 hover:bg-white transition-colors shadow-lg"
+              className="mt-5 sm:mt-6 md:mt-8 rounded-full bg-white/90 backdrop-blur-sm px-8 sm:px-12 md:px-16 lg:px-20 py-4 sm:py-6 md:py-8 lg:py-10 text-base sm:text-xl md:text-2xl lg:text-3xl font-medium text-gray-900 hover:bg-white transition-colors shadow-lg"
             >
               Plan my flight
             </button>
@@ -127,10 +127,10 @@ const IndexPage = ({ data }) => {
         className="min-h-screen w-full bg-white flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20"
       >
         <div className="w-full max-w-2xl lg:max-w-4xl mb-8 sm:mb-12">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 text-center mb-3 sm:mb-4 md:mb-6">
+          <h2 className="text-3xl sm:text-6xl md:text-8xl lg:text-10xl xl:text-12xl font-bold text-gray-900 text-center mb-3 sm:mb-4 md:mb-6">
             Plan your flight
           </h2>
-          <p className="text-lg sm:text-xl md:text-2xl text-gray-600 text-center">
+          <p className="text-lg sm:text-2xl md:text-3xl lg:text-4xl text-gray-600 text-center">
             Changes handled by your agent. Not a system.
           </p>
         </div>
@@ -142,15 +142,15 @@ const IndexPage = ({ data }) => {
       <section className="py-12 sm:py-16 lg:py-20 bg-gray-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl lg:max-w-4xl mx-auto">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-8 sm:mb-10 lg:mb-12 text-center">
+            <h2 className="text-3xl sm:text-6xl md:text-8xl lg:text-10xl xl:text-12xl font-bold text-gray-900 mb-8 sm:mb-10 lg:mb-12 text-center">
               Why book flights with us
             </h2>
             <div className="space-y-5 sm:space-y-6">
               <div className="flex items-start gap-4 sm:gap-5">
-                <svg className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-green-500 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                <svg className="w-6 h-6 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 text-green-500 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
-                <span className="text-lg sm:text-xl md:text-2xl text-gray-700">Smart route planning</span>
+                <span className="text-lg sm:text-2xl md:text-3xl lg:text-4xl text-gray-700">Smart route planning</span>
               </div>
               <div className="flex items-start gap-3">
                 <svg className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
@@ -183,7 +183,7 @@ const IndexPage = ({ data }) => {
 
       <section className="py-12 sm:py-16 lg:py-20 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-10 sm:mb-12 lg:mb-16 text-center">
+          <h2 className="text-3xl sm:text-6xl md:text-8xl lg:text-10xl xl:text-12xl font-bold text-gray-900 mb-10 sm:mb-12 lg:mb-16 text-center">
             Beyond flights
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 max-w-4xl lg:max-w-6xl mx-auto">
