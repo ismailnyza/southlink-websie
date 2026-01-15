@@ -35,15 +35,3 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./public/
           server-dir: ${{ secrets.FTP_REMOTE_DIR }}/
-
-      - name: Notify on failure
-        if: failure()
-        continue-on-error: true
-        run: |
-          if [ -n "${{ secrets.DISCORD_WEBHOOK }}" ]; then
-            curl -X POST ${{ secrets.DISCORD_WEBHOOK }} \
-              -H "Content-Type: application/json" \
-              -d '{
-                "content": "🚨 **Build Failed**\n\nRepository: ${{ github.repository }}\nBranch: ${{ github.ref }}\nCommit: ${{ github.sha }}\nAuthor: ${{ github.actor }}\n\n[View workflow run](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})"
-              }'
-          fi
