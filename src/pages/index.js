@@ -96,12 +96,12 @@ const IndexPage = ({ data }) => {
         >
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
         </div>
-        <div className="relative h-full flex items-center justify-center px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20 min-[1920px]:px-24 min-[2000px]:px-28">
-          <div className="text-center text-white w-full max-w-4xl lg:max-w-5xl xl:max-w-6xl 2xl:max-w-7xl min-[1920px]:max-w-[90rem] min-[2000px]:max-w-[100rem] mx-auto px-4 sm:px-6 md:px-8">
-            <h1 className="text-3xl min-[375px]:text-[2rem] min-[414px]:text-[2.25rem] min-[480px]:text-[2.5rem] sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl min-[1920px]:text-9xl min-[2000px]:text-[10rem] font-bold mb-4 sm:mb-5 md:mb-6 lg:mb-8 xl:mb-10 2xl:mb-12 leading-tight">
+        <div className="relative h-full flex items-center justify-center px-4 sm:px-6 lg:px-8" style={{ paddingLeft: 'clamp(1rem, 4vw, 2rem)', paddingRight: 'clamp(1rem, 4vw, 2rem)' }}>
+          <div className="text-center text-white w-full mx-auto" style={{ maxWidth: 'clamp(320px, 90vw, 1200px)', paddingLeft: 'clamp(0.5rem, 2vw, 1rem)', paddingRight: 'clamp(0.5rem, 2vw, 1rem)' }}>
+            <h1 className="font-bold mb-4 sm:mb-6 leading-tight" style={{ fontSize: 'clamp(1.875rem, 5vw + 2vh, 4rem)' }}>
               Travel, handled personally.
             </h1>
-            <p className="text-base min-[375px]:text-lg min-[414px]:text-xl min-[480px]:text-[1.25rem] sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl min-[1920px]:text-5xl min-[2000px]:text-6xl text-white/90 mb-6 sm:mb-7 md:mb-8 lg:mb-10 xl:mb-12 2xl:mb-14 leading-relaxed">
+            <p className="text-white/90 mb-6 sm:mb-8 leading-relaxed" style={{ fontSize: 'clamp(1rem, 2.5vw + 1vh, 1.75rem)' }}>
               Flights, managed by your own dedicated agent.
               <br className="hidden sm:block" />
               <span className="sm:hidden"> </span>
@@ -114,7 +114,14 @@ const IndexPage = ({ data }) => {
                   planner.scrollIntoView({ behavior: 'smooth', block: 'start' })
                 }
               }}
-              className="mt-4 sm:mt-5 md:mt-6 lg:mt-8 xl:mt-10 2xl:mt-12 rounded-full bg-white/90 backdrop-blur-sm px-6 min-[375px]:px-7 min-[414px]:px-8 min-[480px]:px-9 sm:px-10 md:px-12 lg:px-14 xl:px-16 2xl:px-20 min-[1920px]:px-24 min-[2000px]:px-28 py-3 min-[375px]:py-3.5 min-[414px]:py-4 min-[480px]:py-4.5 sm:py-4 md:py-5 lg:py-6 xl:py-7 2xl:py-8 min-[1920px]:py-10 min-[2000px]:py-12 text-sm min-[375px]:text-[0.9375rem] min-[414px]:text-base min-[480px]:text-[1.0625rem] sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl min-[1920px]:text-4xl min-[2000px]:text-5xl font-medium text-gray-900 hover:bg-white transition-colors shadow-lg"
+              className="mt-4 sm:mt-6 rounded-full bg-white/90 backdrop-blur-sm font-medium text-gray-900 hover:bg-white transition-colors shadow-lg"
+              style={{ 
+                paddingLeft: 'clamp(1.5rem, 4vw, 2rem)', 
+                paddingRight: 'clamp(1.5rem, 4vw, 2rem)',
+                paddingTop: 'clamp(0.75rem, 2vw, 1rem)',
+                paddingBottom: 'clamp(0.75rem, 2vw, 1rem)',
+                fontSize: 'clamp(0.875rem, 1.5vw + 0.5vh, 1.125rem)'
+              }}
             >
               Plan my flight
             </button>
@@ -124,33 +131,33 @@ const IndexPage = ({ data }) => {
 
       <section
         id="flight-planner"
-        className="min-h-screen w-full bg-white flex flex-col items-center justify-center px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20 min-[1920px]:px-24 min-[2000px]:px-28 py-12 sm:py-16 md:py-20 lg:py-24 xl:py-28 2xl:py-32 min-[1920px]:py-36 min-[2000px]:py-40"
+        className="min-h-screen w-full bg-white flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20"
       >
-        <div className="w-full max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl 2xl:max-w-6xl min-[1920px]:max-w-7xl min-[2000px]:max-w-[90rem] mb-8 sm:mb-10 md:mb-12 lg:mb-16 xl:mb-20 2xl:mb-24">
-          <h2 className="text-2xl min-[375px]:text-[1.75rem] min-[414px]:text-3xl min-[480px]:text-[2rem] sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl min-[1920px]:text-8xl min-[2000px]:text-9xl font-bold text-gray-900 text-center mb-2 sm:mb-3 md:mb-4 lg:mb-6 xl:mb-8 2xl:mb-10">
+        <div className="w-full max-w-2xl lg:max-w-4xl mb-8 sm:mb-12">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 text-center mb-2 sm:mb-4">
             Plan your flight
           </h2>
-          <p className="text-base min-[375px]:text-lg min-[414px]:text-xl min-[480px]:text-[1.125rem] sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl min-[1920px]:text-5xl min-[2000px]:text-6xl text-gray-600 text-center">
+          <p className="text-base sm:text-lg text-gray-600 text-center">
             Changes handled by your agent. Not a system.
           </p>
         </div>
-        <div className="w-full max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl 2xl:max-w-6xl min-[1920px]:max-w-7xl min-[2000px]:max-w-[90rem]">
+        <div className="w-full max-w-2xl lg:max-w-4xl">
           <FlightPlanner settings={settings} />
         </div>
       </section>
 
-      <section className="py-12 sm:py-16 md:py-20 lg:py-24 xl:py-28 2xl:py-32 min-[1920px]:py-36 min-[2000px]:py-40 bg-gray-50">
-        <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20 min-[1920px]:px-24 min-[2000px]:px-28">
-          <div className="max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl 2xl:max-w-6xl min-[1920px]:max-w-7xl min-[2000px]:max-w-[90rem] mx-auto">
-            <h2 className="text-2xl min-[375px]:text-[1.75rem] min-[414px]:text-3xl min-[480px]:text-[2rem] sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl min-[1920px]:text-8xl min-[2000px]:text-9xl font-bold text-gray-900 mb-6 sm:mb-8 md:mb-10 lg:mb-12 xl:mb-16 2xl:mb-20 text-center">
+      <section className="bg-gray-50" style={{ paddingTop: 'clamp(3rem, 6vw + 3vh, 5rem)', paddingBottom: 'clamp(3rem, 6vw + 3vh, 5rem)' }}>
+        <div className="container mx-auto" style={{ paddingLeft: 'clamp(1rem, 4vw, 2rem)', paddingRight: 'clamp(1rem, 4vw, 2rem)' }}>
+          <div className="mx-auto" style={{ maxWidth: 'clamp(320px, 85vw, 1400px)' }}>
+            <h2 className="font-bold text-gray-900 mb-6 sm:mb-8 lg:mb-10 text-center" style={{ fontSize: 'clamp(1.5rem, 4vw + 1.5vh, 2.5rem)' }}>
               Why book flights with us
             </h2>
-            <div className="space-y-4 sm:space-y-5 md:space-y-6 lg:space-y-8 xl:space-y-10 2xl:space-y-12">
-              <div className="flex items-start gap-3 sm:gap-4 md:gap-5 lg:gap-6 xl:gap-8 2xl:gap-10">
-                <svg className="w-5 h-5 min-[375px]:w-[1.375rem] min-[375px]:h-[1.375rem] min-[414px]:w-6 min-[414px]:h-6 min-[480px]:w-[1.5rem] min-[480px]:h-[1.5rem] sm:w-6 sm:h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-10 xl:h-10 2xl:w-12 2xl:h-12 min-[1920px]:w-14 min-[1920px]:h-14 min-[2000px]:w-16 min-[2000px]:h-16 text-green-500 flex-shrink-0 mt-0.5 sm:mt-1 md:mt-1.5 lg:mt-2" fill="currentColor" viewBox="0 0 20 20">
+            <div className="space-y-4">
+              <div className="flex items-start gap-3 sm:gap-4" style={{ gap: 'clamp(0.75rem, 2vw, 1.5rem)' }}>
+                <svg className="text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" style={{ width: 'clamp(1.25rem, 2vw + 0.5vh, 1.75rem)', height: 'clamp(1.25rem, 2vw + 0.5vh, 1.75rem)' }}>
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
-                <span className="text-base min-[375px]:text-lg min-[414px]:text-xl min-[480px]:text-[1.125rem] sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl min-[1920px]:text-5xl min-[2000px]:text-6xl text-gray-700">Smart route planning</span>
+                <span className="text-gray-700" style={{ fontSize: 'clamp(0.9375rem, 2vw + 0.8vh, 1.25rem)' }}>Smart route planning</span>
               </div>
               <div className="flex items-start gap-3">
                 <svg className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
@@ -181,12 +188,12 @@ const IndexPage = ({ data }) => {
         </div>
       </section>
 
-      <section className="py-12 sm:py-16 md:py-20 lg:py-24 xl:py-28 2xl:py-32 min-[1920px]:py-36 min-[2000px]:py-40 bg-white">
-        <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20 min-[1920px]:px-24 min-[2000px]:px-28">
-          <h2 className="text-2xl min-[375px]:text-[1.75rem] min-[414px]:text-3xl min-[480px]:text-[2rem] sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl min-[1920px]:text-8xl min-[2000px]:text-9xl font-bold text-gray-900 mb-8 sm:mb-10 md:mb-12 lg:mb-16 xl:mb-20 2xl:mb-24 min-[1920px]:mb-28 text-center">
+      <section className="bg-white" style={{ paddingTop: 'clamp(3rem, 6vw + 3vh, 5rem)', paddingBottom: 'clamp(3rem, 6vw + 3vh, 5rem)' }}>
+        <div className="container mx-auto" style={{ paddingLeft: 'clamp(1rem, 4vw, 2rem)', paddingRight: 'clamp(1rem, 4vw, 2rem)' }}>
+          <h2 className="font-bold text-gray-900 mb-8 sm:mb-12 lg:mb-16 text-center" style={{ fontSize: 'clamp(1.5rem, 4vw + 1.5vh, 2.5rem)' }}>
             Beyond flights
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8 lg:gap-10 xl:gap-12 2xl:gap-16 max-w-4xl md:max-w-5xl lg:max-w-6xl xl:max-w-7xl 2xl:max-w-[90rem] min-[1920px]:max-w-[100rem] mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 mx-auto" style={{ gap: 'clamp(1rem, 3vw, 2rem)', maxWidth: 'clamp(320px, 90vw, 1400px)' }}>
             <ServiceCard
               icon={SuitcaseIcon}
               title="Outbound Tours"

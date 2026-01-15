@@ -4,66 +4,42 @@
 
 @layer base {
   html {
-    font-size: 16px;
+    font-size: clamp(14px, 2.5vw, 20px);
   }
   
-  @media (min-width: 375px) {
+  @media (min-width: 640px) and (max-width: 1023px) {
     html {
-      font-size: 17px;
-    }
-  }
-  
-  @media (min-width: 414px) {
-    html {
-      font-size: 18px;
-    }
-  }
-  
-  @media (min-width: 480px) {
-    html {
-      font-size: 19px;
-    }
-  }
-  
-  @media (min-width: 640px) {
-    html {
-      font-size: 16px;
-    }
-  }
-  
-  @media (min-width: 768px) {
-    html {
-      font-size: 17px;
+      font-size: clamp(15px, 2vw, 18px);
     }
   }
   
   @media (min-width: 1024px) {
     html {
-      font-size: 18px;
+      font-size: clamp(16px, 1.2vw + 0.5vh, 22px);
     }
   }
   
-  @media (min-width: 1280px) {
+  @media (min-width: 1440px) {
     html {
-      font-size: 19px;
-    }
-  }
-  
-  @media (min-width: 1536px) {
-    html {
-      font-size: 20px;
+      font-size: clamp(18px, 1vw + 0.6vh, 24px);
     }
   }
   
   @media (min-width: 1920px) {
     html {
-      font-size: 21px;
+      font-size: clamp(20px, 0.8vw + 0.5vh, 26px);
     }
   }
   
-  @media (min-width: 2000px) {
+  @media (min-width: 640px) and (max-aspect-ratio: 4/3) {
     html {
-      font-size: 22px;
+      font-size: clamp(15px, 2.2vw + 1vh, 19px);
+    }
+  }
+  
+  @media (min-width: 1024px) and (min-aspect-ratio: 16/9) {
+    html {
+      font-size: clamp(17px, 1.1vw + 0.7vh, 23px);
     }
   }
   

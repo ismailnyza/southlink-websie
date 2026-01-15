@@ -46,17 +46,18 @@ const Layout = ({ children, isHomePage = false }) => {
               : 'none'
           }}
         />
-        <nav className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20 min-[1920px]:px-24 min-[2000px]:px-28 relative z-10">
+        <nav className="container mx-auto relative z-10" style={{ paddingLeft: 'clamp(1rem, 4vw, 2rem)', paddingRight: 'clamp(1rem, 4vw, 2rem)' }}>
           <div className="flex items-center justify-between h-14">
             <Link
               to="/"
-              className={`text-xl min-[375px]:text-[1.25rem] min-[414px]:text-2xl min-[480px]:text-[1.5rem] sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl min-[1920px]:text-6xl min-[2000px]:text-7xl font-bold transition-colors ${
+              className={`font-bold transition-colors ${
                 isScrolled || !isHomePage || isMobileMenuOpen ? 'text-primary' : 'text-white'
               }`}
+              style={{ fontSize: 'clamp(1.125rem, 2.5vw + 0.5vh, 1.5rem)' }}
             >
               Southlink Travels
             </Link>
-            <div className="hidden md:flex gap-6 lg:gap-8 xl:gap-10 2xl:gap-12 min-[1920px]:gap-14 min-[2000px]:gap-16">
+            <div className="hidden md:flex gap-6">
               <a
                 href="/#flight-planner"
                 onClick={(e) => {
@@ -68,7 +69,7 @@ const Layout = ({ children, isHomePage = false }) => {
                     }
                   }
                 }}
-                className={`transition-colors font-medium text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl min-[1920px]:text-3xl min-[2000px]:text-4xl ${
+                className={`transition-colors font-medium ${
                   isScrolled || !isHomePage
                     ? 'text-gray-700 hover:text-primary'
                     : 'text-white hover:text-gray-200'
@@ -78,7 +79,7 @@ const Layout = ({ children, isHomePage = false }) => {
               </a>
               <Link
                 to="/tours/inbound"
-                className={`transition-colors font-medium text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl min-[1920px]:text-3xl min-[2000px]:text-4xl ${
+                className={`transition-colors font-medium ${
                   isScrolled || !isHomePage
                     ? 'text-gray-700 hover:text-primary'
                     : 'text-white hover:text-gray-200'
@@ -89,7 +90,7 @@ const Layout = ({ children, isHomePage = false }) => {
               </Link>
               <Link
                 to="/tours/outbound"
-                className={`transition-colors font-medium text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl min-[1920px]:text-3xl min-[2000px]:text-4xl ${
+                className={`transition-colors font-medium ${
                   isScrolled || !isHomePage
                     ? 'text-gray-700 hover:text-primary'
                     : 'text-white hover:text-gray-200'
@@ -100,7 +101,7 @@ const Layout = ({ children, isHomePage = false }) => {
               </Link>
               <Link
                 to="/corporate"
-                className={`transition-colors font-medium text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl min-[1920px]:text-3xl min-[2000px]:text-4xl ${
+                className={`transition-colors font-medium ${
                   isScrolled || !isHomePage
                     ? 'text-gray-700 hover:text-primary'
                     : 'text-white hover:text-gray-200'
@@ -210,15 +211,15 @@ const Layout = ({ children, isHomePage = false }) => {
         {children}
       </main>
 
-      <footer className={`bg-slate-900 text-white py-10 sm:py-12 md:py-16 lg:py-20 xl:py-24 2xl:py-28 min-[1920px]:py-32 min-[2000px]:py-36 ${isHomePage ? '' : 'mt-16'}`}>
-        <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20 min-[1920px]:px-24 min-[2000px]:px-28">
-          <div className="max-w-4xl lg:max-w-5xl xl:max-w-6xl 2xl:max-w-7xl min-[1920px]:max-w-[90rem] min-[2000px]:max-w-[100rem] mx-auto">
-            <div className="text-center mb-6 sm:mb-8 md:mb-10 lg:mb-12 xl:mb-16 2xl:mb-20">
-              <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl min-[1920px]:text-7xl min-[2000px]:text-8xl font-bold mb-2 sm:mb-3 md:mb-4 lg:mb-6 xl:mb-8">Southlink Travels</h3>
-              <p className="text-gray-400 text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl min-[1920px]:text-4xl min-[2000px]:text-5xl mb-3 sm:mb-4 md:mb-5 lg:mb-6 xl:mb-8">Flights • Tours • Corporate</p>
-              <p className="text-gray-500 text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl min-[1920px]:text-3xl min-[2000px]:text-4xl">IATA Certified • Established in Galle</p>
+      <footer className={`bg-slate-900 text-white ${isHomePage ? '' : 'mt-16'}`} style={{ paddingTop: 'clamp(2.5rem, 5vw + 2vh, 4rem)', paddingBottom: 'clamp(2.5rem, 5vw + 2vh, 4rem)' }}>
+        <div className="container mx-auto" style={{ paddingLeft: 'clamp(1rem, 4vw, 2rem)', paddingRight: 'clamp(1rem, 4vw, 2rem)' }}>
+          <div className="mx-auto" style={{ maxWidth: 'clamp(320px, 85vw, 1400px)' }}>
+            <div className="text-center mb-6 sm:mb-8">
+              <h3 className="font-bold mb-2 sm:mb-3" style={{ fontSize: 'clamp(1.25rem, 3vw + 1vh, 2rem)' }}>Southlink Travels</h3>
+              <p className="text-gray-400 mb-3 sm:mb-4" style={{ fontSize: 'clamp(0.875rem, 1.8vw + 0.6vh, 1.125rem)' }}>Flights • Tours • Corporate</p>
+              <p className="text-gray-500" style={{ fontSize: 'clamp(0.75rem, 1.5vw + 0.4vh, 0.9375rem)' }}>IATA Certified • Established in Galle</p>
             </div>
-            <div className="flex flex-wrap justify-center gap-4 sm:gap-6 md:gap-8 lg:gap-10 xl:gap-12 2xl:gap-14 text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl min-[1920px]:text-4xl min-[2000px]:text-5xl text-gray-400 mb-6 sm:mb-8 md:mb-10 lg:mb-12 xl:mb-16 2xl:mb-20">
+            <div className="flex flex-wrap justify-center text-gray-400 mb-6 sm:mb-8" style={{ gap: 'clamp(1rem, 2.5vw, 2rem)', fontSize: 'clamp(0.875rem, 1.8vw + 0.6vh, 1.125rem)' }}>
               <Link to="/flights" className="hover:text-white transition-colors">
                 Flights
               </Link>
@@ -235,7 +236,7 @@ const Layout = ({ children, isHomePage = false }) => {
                 Contact
               </Link>
             </div>
-            <div className="text-center text-gray-500 text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl min-[1920px]:text-3xl min-[2000px]:text-4xl">
+            <div className="text-center text-gray-500" style={{ fontSize: 'clamp(0.75rem, 1.5vw + 0.4vh, 0.9375rem)' }}>
               <p>&copy; {new Date().getFullYear()} Southlink Travels</p>
             </div>
           </div>
