@@ -37,10 +37,13 @@ jobs:
           server-dir: ${{ secrets.FTP_REMOTE_DIR }}/
 
       - name: Notify on failure
-        if: failure() && secrets.DISCORD_WEBHOOK != ''
+        if: failure()
+        continue-on-error: true
         run: |
-          curl -X POST ${{ secrets.DISCORD_WEBHOOK }} \
-            -H "Content-Type: application/json" \
-            -d '{
-              "content": "🚨 **Build Failed**\n\nRepository: ${{ github.repository }}\nBranch: ${{ github.ref }}\nCommit: ${{ github.sha }}\nAuthor: ${{ github.actor }}\n\n[View workflow run](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})"
-            }'
+          if [ -n "${{ secrets.DISCORD_WEBHOOK }}" ]; then
+            curl -X POST ${{ secrets.DISCORD_WEBHOOK }} \
+              -H "Content-Type: application/json" \
+              -d '{
+                "content": "🚨 **Build Failed**\n\nRepository: ${{ github.repository }}\nBranch: ${{ github.ref }}\nCommit: ${{ github.sha }}\nAuthor: ${{ github.actor }}\n\n[View workflow run](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})"
+              }'
+          fi
