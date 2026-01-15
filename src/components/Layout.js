@@ -68,7 +68,7 @@ const Layout = ({ children, isHomePage = false }) => {
                     }
                   }
                 }}
-                className={`transition-colors font-medium ${
+                className={`transition-colors font-medium text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl min-[1920px]:text-3xl min-[2000px]:text-4xl ${
                   isScrolled || !isHomePage
                     ? 'text-gray-700 hover:text-primary'
                     : 'text-white hover:text-gray-200'
@@ -78,7 +78,7 @@ const Layout = ({ children, isHomePage = false }) => {
               </a>
               <Link
                 to="/tours/inbound"
-                className={`transition-colors font-medium ${
+                className={`transition-colors font-medium text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl min-[1920px]:text-3xl min-[2000px]:text-4xl ${
                   isScrolled || !isHomePage
                     ? 'text-gray-700 hover:text-primary'
                     : 'text-white hover:text-gray-200'
@@ -89,7 +89,7 @@ const Layout = ({ children, isHomePage = false }) => {
               </Link>
               <Link
                 to="/tours/outbound"
-                className={`transition-colors font-medium ${
+                className={`transition-colors font-medium text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl min-[1920px]:text-3xl min-[2000px]:text-4xl ${
                   isScrolled || !isHomePage
                     ? 'text-gray-700 hover:text-primary'
                     : 'text-white hover:text-gray-200'
@@ -100,7 +100,7 @@ const Layout = ({ children, isHomePage = false }) => {
               </Link>
               <Link
                 to="/corporate"
-                className={`transition-colors font-medium ${
+                className={`transition-colors font-medium text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl min-[1920px]:text-3xl min-[2000px]:text-4xl ${
                   isScrolled || !isHomePage
                     ? 'text-gray-700 hover:text-primary'
                     : 'text-white hover:text-gray-200'
