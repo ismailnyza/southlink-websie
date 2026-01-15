@@ -46,7 +46,7 @@ const Layout = ({ children, isHomePage = false }) => {
               : 'none'
           }}
         />
-        <nav className="container mx-auto px-4 relative z-10">
+        <nav className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="flex items-center justify-between h-14">
             <Link
               to="/"
@@ -210,15 +210,15 @@ const Layout = ({ children, isHomePage = false }) => {
         {children}
       </main>
 
-      <footer className={`bg-slate-900 text-white py-10 ${isHomePage ? '' : 'mt-16'}`}>
-        <div className="container mx-auto px-4">
-          <div className="max-w-md mx-auto">
-            <div className="text-center mb-6">
-              <h3 className="text-xl font-bold mb-2">Southlink Travels</h3>
-              <p className="text-gray-400 text-sm mb-3">Flights • Tours • Corporate</p>
-              <p className="text-gray-500 text-xs">IATA Certified • Established in Galle</p>
+      <footer className={`bg-slate-900 text-white py-10 sm:py-12 lg:py-16 ${isHomePage ? '' : 'mt-16'}`}>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-6 sm:mb-8">
+              <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-2 sm:mb-3">Southlink Travels</h3>
+              <p className="text-gray-400 text-sm sm:text-base mb-3 sm:mb-4">Flights • Tours • Corporate</p>
+              <p className="text-gray-500 text-xs sm:text-sm">IATA Certified • Established in Galle</p>
             </div>
-            <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-400 mb-6">
+            <div className="flex flex-wrap justify-center gap-4 sm:gap-6 text-sm sm:text-base text-gray-400 mb-6 sm:mb-8">
               <Link to="/flights" className="hover:text-white transition-colors">
                 Flights
               </Link>
@@ -235,7 +235,7 @@ const Layout = ({ children, isHomePage = false }) => {
                 Contact
               </Link>
             </div>
-            <div className="text-center text-gray-500 text-xs">
+            <div className="text-center text-gray-500 text-xs sm:text-sm">
               <p>&copy; {new Date().getFullYear()} Southlink Travels</p>
             </div>
           </div>
