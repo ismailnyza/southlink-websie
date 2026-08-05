@@ -1,18 +1,21 @@
 import React, { useState, useMemo } from 'react'
 import { graphql, Link } from 'gatsby'
 import Layout from '../../components/Layout'
-import ExperienceCategoryCard from '../../components/ExperienceCategoryCard'
 import TourCard from '../../components/TourCard'
 import TourDetailModal from '../../components/TourDetailModal'
 import WhatsAppButton from '../../components/WhatsAppButton'
+import Seo from '../../components/Seo'
 
 export const query = graphql`
   query {
     inboundJson: allInboundJson(filter: { visibility: { eq: true } }) {
       nodes {
-        id
+        fields {
+          slug
+        }
         title
         images
+        price
         duration
         tags
         visibility
@@ -29,41 +32,19 @@ export const query = graphql`
     allSettingsJson {
       nodes {
         whatsapp_number
+        iata_license_number
       }
     }
   }
 `
 
 const InboundToursPage = ({ data }) => {
-  const allTours = data.inboundJson?.nodes || []
+  const allTours = (data.inboundJson?.nodes || []).map(node => ({ ...node, slug: node.fields.slug }))
   const settings = data.allSettingsJson?.nodes[0] || {}
   
   const [selectedChips, setSelectedChips] = useState([])
   const [searchQuery, setSearchQuery] = useState('')
   const [selectedTour, setSelectedTour] = useState(null)
-
-  const categories = [
-    {
-      title: 'Wildlife & Safari',
-      description: 'Yala, Udawalawe, Wilpattu',
-      experiences: 'Yala Safari, Udawalawe Elephant Safari, Wilpattu National Park',
-    },
-    {
-      title: 'Coast & Galle',
-      description: 'Beaches, forts, slow travel',
-      experiences: 'Galle Fort, Bentota, Mirissa, Pasikudah',
-    },
-    {
-      title: 'Hill Country',
-      description: 'Tea estates, trains, nature',
-      experiences: 'Ella, Nuwara Eliya, Horton Plains, Knuckles',
-    },
-    {
-      title: 'Culture & Heritage',
-      description: 'Temples, history, local life',
-      experiences: 'Anuradhapura, Polonnaruwa, Kandy, Dambulla',
-    },
-  ]
 
   const categoryChips = ['Beaches', 'Wildlife', 'Culture', 'Hill Country', 'Family']
 
@@ -94,7 +75,7 @@ const InboundToursPage = ({ data }) => {
   }, [allTours, searchQuery, selectedChips])
 
   const recommendedTours = filteredTours.slice(0, 6)
-  const popularTours = filteredTours.slice(6, 12)
+  const popularTours = filteredTours.slice(6)
 
   const toggleChip = (chip) => {
     setSelectedChips(prev =>
@@ -149,14 +130,6 @@ const InboundToursPage = ({ data }) => {
               <h2 className="text-lg font-bold text-gray-900">
                 Recommended experiences
               </h2>
-              {filteredTours.length > 6 && (
-                <Link
-                  to="/tours/inbound/all"
-                  className="text-xs text-gray-400 hover:text-gray-600 transition-colors"
-                >
-                  Explore all
-                </Link>
-              )}
             </div>
             {recommendedTours.length === 0 ? (
               <div className="text-center py-12">
@@ -165,7 +138,7 @@ const InboundToursPage = ({ data }) => {
             ) : (
               <div className="flex gap-3 overflow-x-auto pb-4 scrollbar-hide px-5" style={{ scrollSnapType: 'x mandatory', WebkitOverflowScrolling: 'touch' }}>
                 {recommendedTours.map(tour => (
-                  <div key={tour.id} className="flex-shrink-0" style={{ width: '66.67%', scrollSnapAlign: 'start' }}>
+                  <div key={tour.slug} className="flex-shrink-0" style={{ width: '66.67%', scrollSnapAlign: 'start' }}>
                     <TourCard
                       tour={tour}
                       badge={tour.tags?.includes('Popular') ? 'Popular' : tour.tags?.includes('Wildlife') ? 'Agent favourite' : null}
@@ -189,8 +162,8 @@ const InboundToursPage = ({ data }) => {
               <div className="grid grid-cols-2 gap-4">
                 {popularTours.map(tour => (
                   <Link
-                    key={tour.id}
-                    to={`/tours/${tour.id}`}
+                    key={tour.slug}
+                    to={`/tours/${tour.slug}`}
                     className="block bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 active:shadow-md active:bg-gray-50 transition-all duration-75"
                   >
                     <div className="aspect-w-1 aspect-h-1 bg-gray-200">
@@ -198,14 +171,19 @@ const InboundToursPage = ({ data }) => {
                         src={tour.images?.[0] || '/images/placeholder.jpg'}
                         alt={tour.title}
                         className="w-full h-32 object-cover"
+                        loading="lazy"
+                        onError={(e) => { e.target.onerror = null; e.target.src = '/images/placeholder.jpg' }}
                       />
                     </div>
                     <div className="p-3">
                       <h3 className="text-sm font-bold text-gray-900 mb-1 line-clamp-1">
                         {tour.title}
                       </h3>
-                      <p className="text-xs text-gray-500">
+                      <p className="text-xs text-gray-500 mb-1">
                         {tour.tags?.[0] || tour.destination || 'Sri Lanka'}
+                      </p>
+                      <p className="text-xs font-semibold text-gray-900">
+                        {tour.price ? `From LKR ${tour.price.toLocaleString()}` : 'Price on request'}
                       </p>
                     </div>
                   </Link>
@@ -261,12 +239,14 @@ const InboundToursPage = ({ data }) => {
                 </svg>
                 <span className="text-gray-700 text-sm">One agent, start to finish</span>
               </div>
-              <div className="flex items-start gap-3">
-                <svg className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                </svg>
-                <span className="text-gray-700 text-sm">IATA certified</span>
-              </div>
+              {settings.iata_license_number && (
+                <div className="flex items-start gap-3">
+                  <svg className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-gray-700 text-sm">IATA certified</span>
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -285,3 +265,11 @@ const InboundToursPage = ({ data }) => {
 }
 
 export default InboundToursPage
+
+export const Head = ({ location }) => (
+  <Seo
+    title="Sri Lanka Experiences"
+    description="Wildlife safaris, hill country, coast, and heritage - Sri Lanka tours designed by local agents and hosted with care."
+    pathname={location.pathname}
+  />
+)

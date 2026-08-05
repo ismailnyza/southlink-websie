@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
-import { graphql, Link } from 'gatsby'
+import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import CorporateContactStep from '../components/CorporateContactStep'
+import Seo from '../components/Seo'
 
 export const query = graphql`
   query {
@@ -10,9 +11,10 @@ export const query = graphql`
         contact_numbers
         address
         email
+        iata_license_number
       }
     }
-    allTestimonialsJson(filter: { visibility: { eq: true } }) {
+    allTestimonialsJson(filter: { visibility: { eq: true }, audience: { eq: "corporate" } }) {
       nodes {
         id
         rating
@@ -26,12 +28,7 @@ export const query = graphql`
 
 const CorporatePage = ({ data }) => {
   const settings = data.allSettingsJson?.nodes[0] || {}
-  const testimonials = data.allTestimonialsJson?.nodes || []
-  const corporateTestimonials = testimonials.filter(t => 
-    t.text.toLowerCase().includes('corporate') || 
-    t.text.toLowerCase().includes('company') ||
-    t.author.toLowerCase().includes('manager')
-  )
+  const corporateTestimonials = data.allTestimonialsJson?.nodes || []
   const [selectedPackage, setSelectedPackage] = useState(null)
   const [inquirySource, setInquirySource] = useState(null)
 
@@ -156,7 +153,9 @@ const CorporatePage = ({ data }) => {
               Flights, visas, changes, and emergencies managed by a dedicated agent.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-4 mb-8 text-sm text-gray-600">
-              <span className="px-3 py-1 bg-gray-100 rounded-full">IATA Certified</span>
+              {settings.iata_license_number && (
+                <span className="px-3 py-1 bg-gray-100 rounded-full">IATA Certified</span>
+              )}
               <span className="px-3 py-1 bg-gray-100 rounded-full">Established in Galle</span>
               <span className="px-3 py-1 bg-gray-100 rounded-full">Serving Sri Lanka & overseas businesses</span>
             </div>
@@ -367,3 +366,11 @@ const CorporatePage = ({ data }) => {
 }
 
 export default CorporatePage
+
+export const Head = ({ location }) => (
+  <Seo
+    title="Corporate Travel"
+    description="Corporate travel management with credit terms, visa handling, and 24/7 re-routing - a dedicated agent for your company, not a portal."
+    pathname={location.pathname}
+  />
+)

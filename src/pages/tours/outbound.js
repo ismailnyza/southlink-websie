@@ -1,17 +1,21 @@
 import React, { useState, useMemo } from 'react'
-import { graphql, Link } from 'gatsby'
+import { graphql } from 'gatsby'
 import Layout from '../../components/Layout'
 import TourCard from '../../components/TourCard'
 import TourDetailModal from '../../components/TourDetailModal'
 import WhatsAppButton from '../../components/WhatsAppButton'
+import Seo from '../../components/Seo'
 
 export const query = graphql`
   query {
     outboundJson: allOutboundJson(filter: { visibility: { eq: true } }) {
       nodes {
-        id
+        fields {
+          slug
+        }
         title
         images
+        price
         duration
         tags
         visibility
@@ -33,7 +37,7 @@ export const query = graphql`
 `
 
 const OutboundToursPage = ({ data }) => {
-  const allTours = data.outboundJson?.nodes || []
+  const allTours = (data.outboundJson?.nodes || []).map(node => ({ ...node, slug: node.fields.slug }))
   const settings = data.allSettingsJson?.nodes[0] || {}
   
   const [selectedChips, setSelectedChips] = useState([])
@@ -69,7 +73,7 @@ const OutboundToursPage = ({ data }) => {
   }, [allTours, searchQuery, selectedChips])
 
   const recommendedTours = filteredTours.slice(0, 6)
-  const popularTours = filteredTours.slice(6, 12)
+  const popularTours = filteredTours.slice(6)
 
   const toggleChip = (chip) => {
     setSelectedChips(prev =>
@@ -124,14 +128,6 @@ const OutboundToursPage = ({ data }) => {
               <h2 className="text-lg font-bold text-gray-900">
                 Recommended experiences
               </h2>
-              {filteredTours.length > 6 && (
-                <Link
-                  to="/tours/outbound/all"
-                  className="text-xs text-gray-400 hover:text-gray-600 transition-colors"
-                >
-                  Explore all
-                </Link>
-              )}
             </div>
             {recommendedTours.length === 0 ? (
               <div className="text-center py-12">
@@ -140,7 +136,7 @@ const OutboundToursPage = ({ data }) => {
             ) : (
               <div className="flex gap-3 overflow-x-auto pb-4 scrollbar-hide px-5" style={{ scrollSnapType: 'x mandatory', WebkitOverflowScrolling: 'touch' }}>
                 {recommendedTours.map(tour => (
-                  <div key={tour.id} className="flex-shrink-0" style={{ width: '66.67%', scrollSnapAlign: 'start' }}>
+                  <div key={tour.slug} className="flex-shrink-0" style={{ width: '66.67%', scrollSnapAlign: 'start' }}>
                     <TourCard
                       tour={tour}
                       badge={tour.tags?.includes('Popular') ? 'Popular' : tour.tags?.includes('Adventure') ? 'Agent favourite' : null}
@@ -164,7 +160,7 @@ const OutboundToursPage = ({ data }) => {
               <div className="grid grid-cols-2 gap-4">
                 {popularTours.map(tour => (
                   <button
-                    key={tour.id}
+                    key={tour.slug}
                     onClick={() => setSelectedTour(tour)}
                     className="block bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 active:shadow-md active:bg-gray-50 transition-all duration-75 text-left"
                   >
@@ -173,14 +169,19 @@ const OutboundToursPage = ({ data }) => {
                         src={tour.images?.[0] || '/images/placeholder.jpg'}
                         alt={tour.title}
                         className="w-full h-32 object-cover"
+                        loading="lazy"
+                        onError={(e) => { e.target.onerror = null; e.target.src = '/images/placeholder.jpg' }}
                       />
                     </div>
                     <div className="p-3">
                       <h3 className="text-sm font-bold text-gray-900 mb-1 line-clamp-1">
                         {tour.title}
                       </h3>
-                      <p className="text-xs text-gray-500">
+                      <p className="text-xs text-gray-500 mb-1">
                         {tour.tags?.[0] || tour.destination || 'International'}
+                      </p>
+                      <p className="text-xs font-semibold text-gray-900">
+                        {tour.price ? `From LKR ${tour.price.toLocaleString()}` : 'Price on request'}
                       </p>
                     </div>
                   </button>
@@ -254,3 +255,11 @@ const OutboundToursPage = ({ data }) => {
 }
 
 export default OutboundToursPage
+
+export const Head = ({ location }) => (
+  <Seo
+    title="World Tours"
+    description="Curated international tours to Bali, Japan, Dubai, the Maldives, and more - customized around your preferences and handled by your own agent."
+    pathname={location.pathname}
+  />
+)

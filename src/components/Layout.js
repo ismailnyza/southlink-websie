@@ -1,10 +1,21 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'gatsby'
+import { Link, useStaticQuery, graphql } from 'gatsby'
 import '../styles/global.css'
 
 const Layout = ({ children, isHomePage = false }) => {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+
+  const data = useStaticQuery(graphql`
+    query {
+      allSettingsJson {
+        nodes {
+          iata_license_number
+        }
+      }
+    }
+  `)
+  const iataLicenseNumber = data.allSettingsJson?.nodes[0]?.iata_license_number
 
   useEffect(() => {
     if (!isHomePage) {
@@ -217,7 +228,9 @@ const Layout = ({ children, isHomePage = false }) => {
             <div className="text-center mb-6 sm:mb-8">
               <h3 className="font-bold mb-2 sm:mb-3" style={{ fontSize: 'clamp(1.25rem, 3vw + 1vh, 2rem)' }}>Southlink Travels</h3>
               <p className="text-gray-400 mb-3 sm:mb-4" style={{ fontSize: 'clamp(0.875rem, 1.8vw + 0.6vh, 1.125rem)' }}>Flights • Tours • Corporate</p>
-              <p className="text-gray-500" style={{ fontSize: 'clamp(0.75rem, 1.5vw + 0.4vh, 0.9375rem)' }}>IATA Certified • Established in Galle</p>
+              <p className="text-gray-500" style={{ fontSize: 'clamp(0.75rem, 1.5vw + 0.4vh, 0.9375rem)' }}>
+                {iataLicenseNumber ? 'IATA Certified • ' : ''}Established in Galle
+              </p>
             </div>
             <div className="flex flex-wrap justify-center text-gray-400 mb-6 sm:mb-8" style={{ gap: 'clamp(1rem, 2.5vw, 2rem)', fontSize: 'clamp(0.875rem, 1.8vw + 0.6vh, 1.125rem)' }}>
               <Link to="/flights" className="hover:text-white transition-colors">
@@ -230,6 +243,18 @@ const Layout = ({ children, isHomePage = false }) => {
               <span className="text-gray-600">|</span>
               <Link to="/corporate" className="hover:text-white transition-colors">
                 Corporate
+              </Link>
+              <span className="text-gray-600">|</span>
+              <Link to="/airport-transfer" className="hover:text-white transition-colors">
+                Airport Transfers
+              </Link>
+              <span className="text-gray-600">|</span>
+              <Link to="/about" className="hover:text-white transition-colors">
+                About
+              </Link>
+              <span className="text-gray-600">|</span>
+              <Link to="/faq" className="hover:text-white transition-colors">
+                FAQ
               </Link>
               <span className="text-gray-600">|</span>
               <Link to="/contact" className="hover:text-white transition-colors">

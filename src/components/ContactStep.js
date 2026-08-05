@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { sendFlightRequestToWhatsApp } from '../utils/whatsapp-webhook'
+import { buildWhatsAppLink, isMobileDevice } from '../utils/whatsapp'
 import SuccessState from './SuccessState'
 
 const ContactStep = ({ flightData, settings, onClose }) => {
@@ -39,17 +39,13 @@ const ContactStep = ({ flightData, settings, onClose }) => {
       return { valid: false, error: '' }
     }
 
-    // Check for Sri Lankan phone numbers (10 digits starting with 0, or 9 digits without 0)
-    // Format: 0XX XXX XXXX or +94 XX XXX XXXX or 94 XX XXX XXXX
-    const sriLankanPattern = /^(\+?94|0)?[1-9]\d{8}$/
-    
-    // Check for international phone numbers (7-15 digits with optional country code)
-    const internationalPattern = /^(\+?\d{1,4})?\s?\d{6,14}$/
-    
-    // Remove + and spaces for pattern matching
+    // Accepts local Sri Lankan numbers (0XX XXX XXXX) and international
+    // numbers with an optional country code (7-15 digits total).
+    const phonePattern = /^(\+?\d{1,4})?\d{7,14}$/
+
     const digitsOnly = cleaned.replace(/\+/g, '').replace(/\s/g, '')
-    
-    if (sriLankanPattern.test(digitsOnly) || internationalPattern.test(digitsOnly)) {
+
+    if (phonePattern.test(digitsOnly)) {
       return { valid: true, error: '' }
     }
     
@@ -181,31 +177,21 @@ const ContactStep = ({ flightData, settings, onClose }) => {
 
               <div className="pt-4">
                 <button
-                  onClick={async () => {
+                  onClick={() => {
                     if (isPhoneValid() && !isSubmitting) {
                       setIsSubmitting(true)
                       setSubmitError('')
 
                       try {
                         const dataWithContact = getDataWithContact()
-                        
-                        // Send to WhatsApp webhook
-                        const whatsappConfig = {
-                          whatsapp_api_url: settings?.whatsapp_api_url || (typeof window !== 'undefined' && window.GATSBY_WHATSAPP_API_URL),
-                          whatsapp_api_key: settings?.whatsapp_api_key || (typeof window !== 'undefined' && window.GATSBY_WHATSAPP_API_KEY),
-                          recipient_number: settings?.whatsapp_recipient_number || (typeof window !== 'undefined' && window.GATSBY_WHATSAPP_RECIPIENT_NUMBER),
-                        }
-                        
-                        if (whatsappConfig.whatsapp_api_url) {
-                          const result = await sendFlightRequestToWhatsApp(dataWithContact, whatsappConfig)
-                          if (!result.success) {
-                            setSubmitError('Failed to submit request. Please try again.')
-                            setIsSubmitting(false)
-                            return
-                          }
+                        const whatsappLink = buildWhatsAppLink('flight', dataWithContact, settings)
+
+                        if (isMobileDevice()) {
+                          window.location.href = whatsappLink
+                        } else {
+                          window.open(whatsappLink, '_blank', 'noopener,noreferrer')
                         }
 
-                        // Show success state
                         setIsSubmitting(false)
                         setIsTransitioning(true)
                         setTimeout(() => {
@@ -213,8 +199,8 @@ const ContactStep = ({ flightData, settings, onClose }) => {
                           setIsTransitioning(false)
                         }, 300)
                       } catch (error) {
-                        console.error('Error submitting:', error)
-                        setSubmitError('An error occurred. Please try again.')
+                        console.error('Error opening WhatsApp:', error)
+                        setSubmitError('Could not open WhatsApp. Please try again.')
                         setIsSubmitting(false)
                       }
                     }

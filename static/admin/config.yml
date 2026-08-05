@@ -70,13 +70,13 @@ collections:
         label: "Global Settings"
         name: "global"
         fields:
-          - { label: "WhatsApp Number", name: "whatsapp_number", widget: "string" }
+          - { label: "WhatsApp Number", name: "whatsapp_number", widget: "string", hint: "Digits only, with country code, e.g. 94771234567 - no +, no spaces" }
           - { label: "Contact Numbers", name: "contact_numbers", widget: "list", field: { label: "Number", name: "number", widget: "string" } }
           - { label: "Address", name: "address", widget: "string" }
           - { label: "Email", name: "email", widget: "email" }
-          - { label: "WhatsApp API URL", name: "whatsapp_api_url", widget: "string", required: false }
-          - { label: "WhatsApp API Key", name: "whatsapp_api_key", widget: "string", required: false }
-          - { label: "WhatsApp Recipient Number", name: "whatsapp_recipient_number", widget: "string", required: false }
+          - { label: "IATA License Number", name: "iata_license_number", widget: "string", required: false, hint: "Leave blank to hide the IATA Certified badge until you have a real, verifiable license number" }
+          - { label: "Airport Drop-off Price (USD)", name: "airport_transfer_price_dropoff_usd", widget: "number" }
+          - { label: "Airport Pickup Price (USD)", name: "airport_transfer_price_pickup_usd", widget: "number" }
 
   - name: "testimonials"
     label: "Testimonials"
@@ -93,4 +93,5 @@ collections:
       - { label: "Text", name: "text", widget: "text" }
       - { label: "Author", name: "author", widget: "string" }
       - { label: "Location", name: "location", widget: "string" }
+      - { label: "Audience", name: "audience", widget: "select", options: ["leisure", "corporate"], default: "leisure", hint: "Which page this testimonial should appear on" }
       - { label: "Visibility", name: "visibility", widget: "boolean", default: true }

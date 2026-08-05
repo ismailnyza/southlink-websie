@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { sendFlightRequestToWhatsApp } from '../utils/whatsapp-webhook'
+import { buildWhatsAppLink, isMobileDevice } from '../utils/whatsapp'
 import SuccessState from './SuccessState'
 
 const CorporateContactStep = ({ packageName, inquirySource, settings, onClose }) => {
@@ -38,12 +38,11 @@ const CorporateContactStep = ({ packageName, inquirySource, settings, onClose })
       return { valid: false, error: '' }
     }
 
-    const sriLankanPattern = /^(\+?94|0)?[1-9]\d{8}$/
-    const internationalPattern = /^(\+?\d{1,4})?\s?\d{6,14}$/
-    
+    const phonePattern = /^(\+?\d{1,4})?\d{7,14}$/
+
     const digitsOnly = cleaned.replace(/\+/g, '').replace(/\s/g, '')
-    
-    if (sriLankanPattern.test(digitsOnly) || internationalPattern.test(digitsOnly)) {
+
+    if (phonePattern.test(digitsOnly)) {
       return { valid: true, error: '' }
     }
     
@@ -181,51 +180,30 @@ const CorporateContactStep = ({ packageName, inquirySource, settings, onClose })
 
               <div className="pt-4">
                 <button
-                  onClick={async () => {
+                  onClick={() => {
                     if (isFormValid() && !isSubmitting) {
                       setIsSubmitting(true)
                       setSubmitError('')
 
                       try {
                         const dataWithContact = getDataWithContact()
-                        
-                        const whatsappConfig = {
-                          whatsapp_api_url: settings?.whatsapp_api_url || (typeof window !== 'undefined' && window.GATSBY_WHATSAPP_API_URL),
-                          whatsapp_api_key: settings?.whatsapp_api_key || (typeof window !== 'undefined' && window.GATSBY_WHATSAPP_API_KEY),
-                          recipient_number: settings?.whatsapp_recipient_number || (typeof window !== 'undefined' && window.GATSBY_WHATSAPP_RECIPIENT_NUMBER),
-                        }
-                        
-                        if (whatsappConfig.whatsapp_api_url) {
-                          const sourceText = inquirySource === 'package_enquire' 
-                            ? 'Clicked "Enquire" button on package card'
-                            : inquirySource === 'request_consultation'
-                            ? 'Clicked "Request a consultation" button'
-                            : 'Corporate inquiry'
-                          
-                          const message = `🏢 *Corporate Travel Inquiry*
+                        const sourceText = inquirySource === 'package_enquire'
+                          ? 'Clicked "Enquire" button on package card'
+                          : inquirySource === 'request_consultation'
+                          ? 'Clicked "Request a consultation" button'
+                          : 'Corporate inquiry'
 
-📦 *Package:* ${packageName || 'General'}
-🏢 *Company:* ${dataWithContact.company}
-📱 *Contact:* ${dataWithContact.phone}
-📍 *Source:* ${sourceText}
+                        const whatsappLink = buildWhatsAppLink('corporate', {
+                          package: packageName,
+                          company: dataWithContact.company,
+                          phone: dataWithContact.phone,
+                          source: sourceText,
+                        }, settings)
 
-_Requested consultation_`
-
-                          const response = await fetch(whatsappConfig.whatsapp_api_url, {
-                            method: 'POST',
-                            headers: {
-                              'Content-Type': 'application/json',
-                              ...(whatsappConfig.whatsapp_api_key && { 'Authorization': `Bearer ${whatsappConfig.whatsapp_api_key}` }),
-                            },
-                            body: JSON.stringify({
-                              to: whatsappConfig.recipient_number,
-                              message: message,
-                            }),
-                          })
-
-                          if (!response.ok) {
-                            throw new Error(`WhatsApp API error: ${response.status}`)
-                          }
+                        if (isMobileDevice()) {
+                          window.location.href = whatsappLink
+                        } else {
+                          window.open(whatsappLink, '_blank', 'noopener,noreferrer')
                         }
 
                         setIsSubmitting(false)
@@ -235,8 +213,8 @@ _Requested consultation_`
                           setIsTransitioning(false)
                         }, 300)
                       } catch (error) {
-                        console.error('Error submitting:', error)
-                        setSubmitError('An error occurred. Please try again.')
+                        console.error('Error opening WhatsApp:', error)
+                        setSubmitError('Could not open WhatsApp. Please try again.')
                         setIsSubmitting(false)
                       }
                     }

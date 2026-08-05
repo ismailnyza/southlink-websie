@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { graphql, Link } from 'gatsby'
+import { StaticImage } from 'gatsby-plugin-image'
 import Layout from '../components/Layout'
 import TourCard from '../components/TourCard'
 import ServiceCard from '../components/ServiceCard'
@@ -7,10 +8,16 @@ import TestimonialCard from '../components/TestimonialCard'
 import WhatsAppButton from '../components/WhatsAppButton'
 import FlightPlanner from '../components/FlightPlanner'
 import TourDetailModal from '../components/TourDetailModal'
-import { SuitcaseIcon, LocationIcon, BriefcaseIcon } from '../components/Icons'
+import { SuitcaseIcon, LocationIcon, BriefcaseIcon, CarIcon } from '../components/Icons'
+import Seo, { buildTravelAgencyJsonLd } from '../components/Seo'
 
 export const query = graphql`
   query {
+    site {
+      siteMetadata {
+        siteUrl
+      }
+    }
     inbound: allInboundJson(filter: { visibility: { eq: true } }, limit: 5) {
       nodes {
         id
@@ -55,9 +62,9 @@ export const query = graphql`
         contact_numbers
         address
         email
-        whatsapp_api_url
-        whatsapp_api_key
-        whatsapp_recipient_number
+        iata_license_number
+        airport_transfer_price_dropoff_usd
+        airport_transfer_price_pickup_usd
       }
     }
     allTestimonialsJson(filter: { visibility: { eq: true } }) {
@@ -86,16 +93,18 @@ const IndexPage = ({ data }) => {
   return (
     <Layout isHomePage={true}>
       <section className="relative w-full -mt-14" style={{ height: '100vh' }}>
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: 'url(/images/galle-boat.avif)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-          }}
-        >
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
-        </div>
+        <StaticImage
+          src="../media/galle-boat.jpg"
+          alt="Fishing boats in Galle harbour"
+          className="absolute inset-0"
+          style={{ position: 'absolute' }}
+          layout="fullWidth"
+          objectFit="cover"
+          objectPosition="center"
+          loading="eager"
+          placeholder="blurred"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
         <div className="relative h-full flex items-center justify-center px-4 sm:px-6 lg:px-8" style={{ paddingLeft: 'clamp(1rem, 4vw, 2rem)', paddingRight: 'clamp(1rem, 4vw, 2rem)' }}>
           <div className="text-center text-white w-full mx-auto" style={{ maxWidth: 'clamp(320px, 90vw, 1200px)', paddingLeft: 'clamp(0.5rem, 2vw, 1rem)', paddingRight: 'clamp(0.5rem, 2vw, 1rem)' }}>
             <h1 className="font-bold mb-4 sm:mb-6 leading-tight" style={{ fontSize: 'clamp(1.875rem, 5vw + 2vh, 4rem)' }}>
@@ -212,14 +221,16 @@ const IndexPage = ({ data }) => {
               subtitle="Credit terms, visas, 24/7 re-routing"
               link="/corporate"
             />
-            <div className="flex flex-col items-center justify-center p-6 bg-gray-50 rounded-2xl border border-gray-200 border-dashed">
-              <div className="mb-3 text-gray-400">
-                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 4v16m8-8H4" />
-                </svg>
-              </div>
-              <h3 className="font-bold text-gray-400 mb-1 text-sm">Coming soon</h3>
-            </div>
+            <ServiceCard
+              icon={CarIcon}
+              title="Airport Transfers"
+              subtitle={
+                settings.airport_transfer_price_dropoff_usd && settings.airport_transfer_price_pickup_usd
+                  ? `Drop-off $${settings.airport_transfer_price_dropoff_usd} · Pickup $${settings.airport_transfer_price_pickup_usd}`
+                  : 'Book a date, we confirm your pickup point'
+              }
+              link="/airport-transfer"
+            />
           </div>
           <p className="text-sm text-gray-600 text-center mt-6 max-w-md mx-auto">
             Flights, visas, hotels and changes.
@@ -310,28 +321,34 @@ const IndexPage = ({ data }) => {
         </div>
       </section>
 
-      <section className="py-12 bg-white">
-        <div className="container mx-auto px-4">
-          <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">
-            Trusted by travellers & businesses
-          </h2>
-          <div className="max-w-md mx-auto space-y-4">
-            {testimonials.map((testimonial) => (
-              <TestimonialCard key={testimonial.id} {...testimonial} />
-            ))}
+      {testimonials.length > 0 && (
+        <section className="py-12 bg-white">
+          <div className="container mx-auto px-4">
+            <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">
+              Trusted by travellers & businesses
+            </h2>
+            <div className="max-w-md mx-auto space-y-4">
+              {testimonials.map((testimonial) => (
+                <TestimonialCard key={testimonial.id} {...testimonial} />
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       <section className="py-12 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-2xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 mb-4 px-4 py-2 bg-white rounded-full shadow-sm">
-              <svg className="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-              <span className="text-sm font-medium text-gray-700">IATA CERTIFIED</span>
-            </div>
+            {settings.iata_license_number && (
+              <div className="inline-flex items-center gap-2 mb-4 px-4 py-2 bg-white rounded-full shadow-sm">
+                <svg className="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span className="text-sm font-medium text-gray-700">
+                  IATA CERTIFIED · {settings.iata_license_number}
+                </span>
+              </div>
+            )}
             <p className="text-gray-700 mb-2 font-medium">
               Established in Galle
             </p>
@@ -373,7 +390,7 @@ const IndexPage = ({ data }) => {
                 <span className="font-medium text-sm">Call Galle office</span>
               </a>
               <a
-                href="https://www.google.com/maps/place/Southlink+Travels/@6.0335447,80.2103119,17z/data=!3m1!4b1!4m6!3m5!1s0x3ae173bca6d98601:0x29d1d5d5d9c8d5fa!8m2!3d6.0335394!4d80.2151775!16s%2Fg%2F11cmrrl1yl?entry=ttu&g_ep=EgoyMDI2MDExMS4wIKXMDSoASAFQAw%3D%3D"
+                href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`Southlink Travels, ${address}`)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-3 w-full h-11 px-5 border border-gray-300 rounded-full text-gray-600 hover:border-gray-400 hover:text-gray-700 transition-colors active:bg-gray-100"
@@ -412,3 +429,14 @@ const IndexPage = ({ data }) => {
 }
 
 export default IndexPage
+
+export const Head = ({ data, location }) => {
+  const settings = data.allSettingsJson?.nodes[0] || {}
+  return (
+    <Seo
+      description="Flights, Sri Lanka experiences, and corporate travel - handled personally by a dedicated agent based in Galle. Not a booking system."
+      pathname={location.pathname}
+      jsonLd={buildTravelAgencyJsonLd(settings, data.site?.siteMetadata?.siteUrl)}
+    />
+  )
+}

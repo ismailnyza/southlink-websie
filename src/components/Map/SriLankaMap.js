@@ -6,13 +6,30 @@ const geoUrl = "https://raw.githubusercontent.com/deldersveld/topojson/master/co
 
 const sriLankaLocations = {
   'Colombo': { coordinates: [79.8612, 6.9271] },
-  'Galle': { coordinates: [80.2176, 6.0329] },
+  'Galle': { coordinates: [80.2168, 6.0535] },
   'Kandy': { coordinates: [80.6337, 7.2906] },
-  'Anuradhapura': { coordinates: [80.4134, 8.3114] },
-  'Sigiriya': { coordinates: [80.7596, 7.9569] },
-  'Ella': { coordinates: [81.0447, 6.8667] },
-  'Nuwara Eliya': { coordinates: [80.7698, 6.9497] },
+  'Anuradhapura': { coordinates: [80.4037, 8.3114] },
+  'Sigiriya': { coordinates: [80.7603, 7.9570] },
+  'Ella': { coordinates: [81.0462, 6.8667] },
+  'Nuwara Eliya': { coordinates: [80.7891, 6.9497] },
   'Jaffna': { coordinates: [80.0074, 9.6615] },
+  "Adam's Peak": { coordinates: [80.4992, 6.8096] },
+  'Bentota': { coordinates: [79.9955, 6.4260] },
+  'Dambulla': { coordinates: [80.6517, 7.8567] },
+  'Horton Plains': { coordinates: [80.7969, 6.8067] },
+  'Kalpitiya': { coordinates: [79.7644, 8.2333] },
+  'Knuckles': { coordinates: [80.7833, 7.4667] },
+  'Matale': { coordinates: [80.6234, 7.4675] },
+  'Mirissa': { coordinates: [80.4589, 5.9483] },
+  'Negombo': { coordinates: [79.8358, 7.2083] },
+  'Pasikudah': { coordinates: [81.5667, 7.9333] },
+  'Polonnaruwa': { coordinates: [81.0000, 7.9403] },
+  'Ratnapura': { coordinates: [80.4037, 6.6828] },
+  'Sinharaja': { coordinates: [80.4167, 6.4000] },
+  'Trincomalee': { coordinates: [81.2335, 8.5874] },
+  'Udawalawe': { coordinates: [80.8883, 6.4386] },
+  'Wilpattu': { coordinates: [80.0500, 8.4500] },
+  'Yala': { coordinates: [81.5167, 6.3725] },
 }
 
 const SriLankaMap = ({ tours = [] }) => {
@@ -94,8 +111,8 @@ const SriLankaMap = ({ tours = [] }) => {
                     </text>
                     {locationToursList.map((tour, idx) => (
                       <Link
-                        key={tour.id}
-                        to={`/tours/${tour.id}`}
+                        key={tour.slug}
+                        to={`/tours/${tour.slug}`}
                         className="block"
                       >
                         <text

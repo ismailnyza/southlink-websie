@@ -2,14 +2,18 @@ import React, { useState } from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import TourCard from '../components/TourCard'
+import TourDetailModal from '../components/TourDetailModal'
 import SriLankaMap from '../components/Map/SriLankaMap'
 import WorldMap from '../components/Map/WorldMap'
+import Seo from '../components/Seo'
 
 export const query = graphql`
   query {
-    allToursJson(filter: { visibility: { eq: true } }) {
+    inbound: allInboundJson(filter: { visibility: { eq: true } }) {
       nodes {
-        id
+        fields {
+          slug
+        }
         title
         images
         price
@@ -20,13 +24,39 @@ export const query = graphql`
         map_location
       }
     }
+    outbound: allOutboundJson(filter: { visibility: { eq: true } }) {
+      nodes {
+        fields {
+          slug
+        }
+        title
+        images
+        price
+        destination
+        duration
+        tags
+        visibility
+        map_location
+      }
+    }
+    allSettingsJson {
+      nodes {
+        whatsapp_number
+      }
+    }
   }
 `
 
 const ToursPage = ({ data }) => {
-  const tours = data.allToursJson.nodes
+  const flatten = (node) => ({ ...node, slug: node.fields.slug })
+  const tours = [
+    ...(data.inbound?.nodes || []).map(flatten),
+    ...(data.outbound?.nodes || []).map(flatten),
+  ]
+  const settings = data.allSettingsJson?.nodes[0] || {}
   const [mapView, setMapView] = useState('sri-lanka')
   const [selectedTag, setSelectedTag] = useState(null)
+  const [selectedTour, setSelectedTour] = useState(null)
 
   const allTags = [...new Set(tours.flatMap(tour => tour.tags || []))]
 
@@ -118,7 +148,7 @@ const ToursPage = ({ data }) => {
           {filteredTours.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {filteredTours.map(tour => (
-                <TourCard key={tour.id} tour={tour} />
+                <TourCard key={tour.slug} tour={tour} onClick={setSelectedTour} />
               ))}
             </div>
           ) : (
@@ -126,8 +156,24 @@ const ToursPage = ({ data }) => {
           )}
         </div>
       </section>
+
+      {selectedTour && (
+        <TourDetailModal
+          tour={selectedTour}
+          settings={settings}
+          onClose={() => setSelectedTour(null)}
+        />
+      )}
     </Layout>
   )
 }
 
 export default ToursPage
+
+export const Head = ({ location }) => (
+  <Seo
+    title="All Tours"
+    description="Browse Sri Lanka experiences and international tours, all planned and handled by a dedicated Southlink Travels agent."
+    pathname={location.pathname}
+  />
+)

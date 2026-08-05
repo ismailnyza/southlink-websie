@@ -3,14 +3,24 @@ import { graphql, Link, navigate } from 'gatsby'
 import Layout from '../components/Layout'
 import WhatsAppButton from '../components/WhatsAppButton'
 import LazyImage from '../components/LazyImage'
+import SriLankaMap from '../components/Map/SriLankaMap'
+import Seo, { buildTourJsonLd } from '../components/Seo'
 
 export const query = graphql`
-  query($id: String!) {
-    inboundJson: allInboundJson(filter: { id: { eq: $id } }) {
+  query($slug: String!) {
+    site {
+      siteMetadata {
+        siteUrl
+      }
+    }
+    inboundJson: allInboundJson(filter: { fields: { slug: { eq: $slug } } }) {
       nodes {
-        id
+        fields {
+          slug
+        }
         title
         images
+        price
         destination
         duration
         tags
@@ -23,11 +33,14 @@ export const query = graphql`
         }
       }
     }
-    outboundJson: allOutboundJson(filter: { id: { eq: $id } }) {
+    outboundJson: allOutboundJson(filter: { fields: { slug: { eq: $slug } } }) {
       nodes {
-        id
+        fields {
+          slug
+        }
         title
         images
+        price
         destination
         duration
         tags
@@ -48,7 +61,8 @@ export const query = graphql`
 `
 
 const TourDetailPage = ({ data }) => {
-  const tour = data.inboundJson?.nodes[0] || data.outboundJson?.nodes[0]
+  const rawTour = data.inboundJson?.nodes[0] || data.outboundJson?.nodes[0]
+  const tour = rawTour ? { ...rawTour, slug: rawTour.fields.slug } : null
   const settings = data.allSettingsJson?.nodes[0] || {}
   const [expandedDescription, setExpandedDescription] = useState(false)
 
@@ -126,6 +140,9 @@ const TourDetailPage = ({ data }) => {
                   {tagsText}
                 </p>
               )}
+              <p className="text-xl font-bold text-gray-900 mb-3">
+                {tour.price ? `From LKR ${tour.price.toLocaleString()}` : 'Price on request'}
+              </p>
               <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-primary/10 rounded-full">
                 <span className="text-xs font-medium text-primary">
                   Designed by our local team
@@ -169,6 +186,15 @@ const TourDetailPage = ({ data }) => {
                     </li>
                   ))}
                 </ul>
+              </section>
+            )}
+
+            {tour.map_location && (
+              <section className="py-6 border-t border-gray-100">
+                <h2 className="text-xl font-bold text-gray-900 mb-4">
+                  Where this takes you
+                </h2>
+                <SriLankaMap tours={[tour]} />
               </section>
             )}
 
@@ -219,3 +245,22 @@ const TourDetailPage = ({ data }) => {
 }
 
 export default TourDetailPage
+
+export const Head = ({ data, location }) => {
+  const tour = data.inboundJson?.nodes[0] || data.outboundJson?.nodes[0]
+  const siteUrl = data.site?.siteMetadata?.siteUrl
+
+  if (!tour) {
+    return <Seo title="Experience Not Found" pathname={location.pathname} noindex />
+  }
+
+  return (
+    <Seo
+      title={tour.title}
+      description={tour.description}
+      image={tour.images?.[0]}
+      pathname={location.pathname}
+      jsonLd={buildTourJsonLd(tour, siteUrl)}
+    />
+  )
+}

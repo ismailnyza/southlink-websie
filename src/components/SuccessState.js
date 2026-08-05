@@ -1,6 +1,6 @@
 import React from 'react'
 
-const SuccessState = ({ onClose, isCorporate = false }) => {
+const SuccessState = ({ onClose, isCorporate = false, isTransfer = false }) => {
   return (
     <div className="px-6 py-6">
       <div className="text-center">
@@ -13,23 +13,32 @@ const SuccessState = ({ onClose, isCorporate = false }) => {
 
         {/* Title */}
         <h2 className="text-2xl font-bold text-gray-900 mb-3">
-          {isCorporate ? 'Consultation request received' : 'Request received'}
+          WhatsApp opened
         </h2>
 
         {/* Body Copy */}
         {isCorporate ? (
           <>
             <p className="text-gray-600 mb-2 leading-relaxed">
-              A dedicated corporate travel specialist will review your request and contact you shortly to understand your requirements.
+              We've opened WhatsApp with your consultation request ready to go — just hit send to reach a corporate travel specialist.
             </p>
             <p className="text-gray-600 mb-6 leading-relaxed">
               We typically respond within one business day.
             </p>
           </>
+        ) : isTransfer ? (
+          <>
+            <p className="text-gray-600 mb-2 leading-relaxed">
+              We've opened WhatsApp with your transfer request ready to go — just hit send and we'll confirm your exact pickup point.
+            </p>
+            <p className="text-gray-600 mb-6 leading-relaxed">
+              Most requests are answered within a few minutes.
+            </p>
+          </>
         ) : (
           <>
             <p className="text-gray-600 mb-2 leading-relaxed">
-              Your flight details have been sent to your personal agent.
+              We've opened WhatsApp with your flight details ready to go — just hit send to reach your personal agent.
             </p>
             <p className="text-gray-600 mb-6 leading-relaxed">
               You'll hear back shortly with available options.

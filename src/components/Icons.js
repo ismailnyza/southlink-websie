@@ -24,3 +24,9 @@ export const BriefcaseIcon = ({ className = "w-6 h-6" }) => (
     <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 14.15v4.25c0 .414-.336.75-.75.75h-4.5a.75.75 0 01-.75-.75v-4.25m0 0h-9m9 0v-4.25c0-.414-.336-.75-.75-.75h-4.5a.75.75 0 00-.75.75v4.25M9 10.25h6m-6 0v-1.5c0-1.657 1.343-3 3-3h0c1.657 0 3 1.343 3 3v1.5m-6 0h6" />
   </svg>
 )
+
+export const CarIcon = ({ className = "w-6 h-6" }) => (
+  <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+    <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h7.5m-7.5 0H4.5m13.5 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.5m-1.5 0h-7.5M4.5 18.75V13.5m0 5.25h-.75a.75.75 0 01-.75-.75V13.5m1.5 0V9a.75.75 0 01.75-.75h11.086a1.5 1.5 0 011.06.44l3.415 3.414a1.5 1.5 0 01.44 1.061v4.086m0 0h.75a.75.75 0 00.75-.75V13.5m-1.5 5.25v-5.25m0 0h-15" />
+  </svg>
+)

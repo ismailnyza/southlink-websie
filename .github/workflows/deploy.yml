@@ -23,6 +23,9 @@ jobs:
       - name: Install dependencies
         run: npm ci --legacy-peer-deps
 
+      - name: Lint
+        run: npm run lint
+
       - name: Build site
         run: npm run build
         id: build
@@ -43,3 +46,16 @@ jobs:
           local-dir: ./public/
           server-dir: ${{ secrets.FTP_REMOTE_DIR }}/
           dangerous-clean-slate: true
+
+      - name: Notify Discord on failure
+        if: failure()
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        run: |
+          if [ -n "$DISCORD_WEBHOOK" ]; then
+            curl -sfSL -X POST -H "Content-Type: application/json" \
+              -d "{\"content\": \"🔴 Southlink Travels deploy failed on \`${{ github.ref_name }}\` (${{ github.sha }}).\\n${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}\"}" \
+              "$DISCORD_WEBHOOK"
+          else
+            echo "DISCORD_WEBHOOK secret not set - skipping notification"
+          fi

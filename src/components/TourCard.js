@@ -14,6 +14,10 @@ const TourCard = ({ tour, badge, onClick }) => {
 
   const locationText = tour.map_location || tour.destination || 'Sri Lanka'
 
+  const priceText = tour.price
+    ? `From LKR ${tour.price.toLocaleString()}`
+    : 'Price on request'
+
   return (
     <button
       onClick={() => onClick && onClick(tour)}
@@ -57,9 +61,10 @@ const TourCard = ({ tour, badge, onClick }) => {
           </svg>
           <span className="text-xs text-gray-500 line-clamp-1">{locationText}</span>
         </div>
-        <p className="text-xs text-gray-400 mt-auto">
-          View details
-        </p>
+        <div className="mt-auto flex items-center justify-between gap-2">
+          <p className="text-sm font-semibold text-gray-900">{priceText}</p>
+          <p className="text-xs text-gray-400">View details</p>
+        </div>
       </div>
     </button>
   )

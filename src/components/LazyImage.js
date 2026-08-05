@@ -45,6 +45,8 @@ const LazyImage = ({ src, alt, className, placeholder = '/images/placeholder.jpg
       ref={imgRef}
       src={imageSrc}
       alt={alt}
+      loading="lazy"
+      decoding="async"
       className={`${className} ${!isLoaded ? 'opacity-50' : 'opacity-100 transition-opacity duration-300'}`}
     />
   )

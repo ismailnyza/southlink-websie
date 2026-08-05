@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
     title: `Southlink Travels`,
-    description: `Premium travel agency offering tours and flights`,
-    siteUrl: `https://southlink.com`,
+    description: `Flights, Sri Lanka experiences, and corporate travel - handled personally by a dedicated agent based in Galle.`,
+    siteUrl: `https://southlinktravels.com`,
   },
   plugins: [
     {
@@ -44,5 +44,40 @@ module.exports = {
     `gatsby-transformer-json`,
     `gatsby-plugin-postcss`,
     `gatsby-plugin-decap-cms`,
+    `gatsby-plugin-image`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sitemap`,
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Southlink Travels`,
+        short_name: `Southlink`,
+        start_url: `/`,
+        background_color: `#ffffff`,
+        theme_color: `#D32F2F`,
+        display: `standalone`,
+        icon: `src/media/icon.png`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-robots-txt`,
+      options: {
+        host: `https://southlinktravels.com`,
+        sitemap: `https://southlinktravels.com/sitemap-index.xml`,
+        policy: [
+          { userAgent: `*`, disallow: [`/admin`] },
+        ],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        trackingIds: [`G-Q52K6Q2NEH`],
+        pluginConfig: {
+          head: true,
+        },
+      },
+    },
   ],
 }

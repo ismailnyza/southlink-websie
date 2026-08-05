@@ -5,12 +5,27 @@ import { Link } from 'gatsby'
 const geoUrl = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json"
 
 const worldDestinations = {
-  'Dubai': { coordinates: [55.2708, 25.2048] },
+  'Dubai, UAE': { coordinates: [55.2708, 25.2048] },
   'Singapore': { coordinates: [103.8198, 1.3521] },
   'Malaysia': { coordinates: [101.9758, 4.2105] },
   'Thailand': { coordinates: [100.5018, 13.7563] },
-  'Maldives': { coordinates: [73.2207, 3.2028] },
+  'Maldives': { coordinates: [73.5093, 4.1755] },
   'India': { coordinates: [77.2090, 28.6139] },
+  'Australia': { coordinates: [151.2093, -33.8688] },
+  'Bali': { coordinates: [115.1889, -8.4095] },
+  'Cambodia': { coordinates: [103.8670, 13.3671] },
+  'Egypt': { coordinates: [31.2357, 30.0444] },
+  'Indonesia': { coordinates: [106.8456, -6.2088] },
+  'Istanbul': { coordinates: [28.9784, 41.0082] },
+  'Japan': { coordinates: [139.6503, 35.6762] },
+  'Morocco': { coordinates: [-7.9811, 31.6295] },
+  'Nepal': { coordinates: [85.3240, 27.7172] },
+  'Paris': { coordinates: [2.3522, 48.8566] },
+  'Philippines': { coordinates: [120.9842, 14.5995] },
+  'South Korea': { coordinates: [126.9780, 37.5665] },
+  'Turkey': { coordinates: [34.8286, 38.6431] },
+  'United Kingdom': { coordinates: [-0.1276, 51.5074] },
+  'Vietnam': { coordinates: [105.8542, 21.0285] },
 }
 
 const WorldMap = ({ tours = [] }) => {
@@ -88,8 +103,8 @@ const WorldMap = ({ tours = [] }) => {
                     </text>
                     {destinationToursList.map((tour, idx) => (
                       <Link
-                        key={tour.id}
-                        to={`/tours/${tour.id}`}
+                        key={tour.slug}
+                        to={`/tours/${tour.slug}`}
                         className="block"
                       >
                         <text
