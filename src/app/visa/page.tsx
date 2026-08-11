@@ -1,0 +1,12 @@
+export default function VisaPage() {
+  return (
+    <div className="min-h-screen pt-16">
+      <section className="bg-gray-900 text-white py-20 px-5 sm:px-8"><div className="max-w-3xl mx-auto text-center"><p className="text-red-400 text-xs font-semibold uppercase tracking-[0.2em] mb-4">Visa</p><h1 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold leading-tight">Visa help,<br/><span className="text-red-400">made simple.</span></h1><p className="text-gray-400 mt-4 text-base sm:text-lg max-w-xl mx-auto">Document checking, application guidance, and processing support. We handle the confusing parts so you don&apos;t have to.</p></div></section>
+      <section className="py-16 px-5 sm:px-8 lg:px-10"><div className="max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-12">
+          {[{country:"UAE",desc:"Tourist and transit visas for Dubai, Abu Dhabi, and the Emirates. Fast processing, document verification, and application submission."},{country:"Schengen (Europe)",desc:"Tourist visas for France, Germany, Italy, Netherlands and the Schengen zone. Appointment booking, document checklist, cover letter assistance."},{country:"United Kingdom",desc:"Standard visitor visas for tourism, business, and family visits. Full document review and application guidance."},{country:"India",desc:"Tourist, business, and medical visas. E-visa assistance for quick processing."},{country:"Thailand",desc:"Tourist visas and visa-on-arrival guidance. We check your documents before you fly."},{country:"China",desc:"Tourist and business visas. Complex paperwork — we make it manageable."}].map(v=>(<div key={v.country} className="bg-white rounded-2xl border border-gray-100 p-6 shadow-sm hover:shadow-md transition-all"><h3 className="font-bold text-gray-900 text-lg mb-2">{v.country}</h3><p className="text-sm text-gray-500 leading-relaxed mb-4">{v.desc}</p><a href={`https://wa.me/+94776984777?text=${encodeURIComponent(`Hi! I need help with a ${v.country} visa. Can you guide me through the process?`)}`} target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-red-600 hover:text-red-700 inline-flex items-center gap-1">Get visa help <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5}><path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg></a></div>))}
+        </div>
+      </div></section>
+    </div>
+  );
+}

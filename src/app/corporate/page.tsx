@@ -1,0 +1,19 @@
+export default function CorporatePage() {
+  return (
+    <div className="min-h-screen pt-16">
+      <section className="bg-gray-900 text-white py-20 px-5 sm:px-8"><div className="max-w-3xl mx-auto text-center"><p className="text-red-400 text-xs font-semibold uppercase tracking-[0.2em] mb-4">Corporate</p><h1 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold leading-tight">Corporate travel,<br/><span className="text-red-400">done right.</span></h1><p className="text-gray-400 mt-4 text-base sm:text-lg">Credit terms. 24/7 re-routing. A dedicated team member who knows your company by name. We work with SMEs, NGOs, exporters, and executive teams across Sri Lanka.</p></div></section>
+      <section className="py-16 px-5 sm:px-8 lg:px-10"><div className="max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-12">
+          {[{t:"Essential",d:"Pay per trip. Business hours support. Standard fare finding across airlines.",p:"Pay as you go"},{t:"Business",d:"Credit terms. Priority handling. 24/7 re-routing. Monthly travel reports. Dedicated contact.",p:"From LKR 25,000/mo",h:true},{t:"Enterprise",d:"Named account manager. Custom billing cycles. SLA-backed response times. Quarterly strategy reviews.",p:"Custom pricing"}].map(tier=>(<div key={tier.t} className={`relative rounded-2xl p-6 border ${tier.h?"border-red-200 bg-red-50 ring-1 ring-red-200":"bg-white border-gray-100 shadow-sm"}`}>{tier.h&&<div className="absolute -top-3 left-1/2 -translate-x-1/2"><span className="bg-red-600 text-white text-xs px-3 py-1 rounded-full font-semibold">Most Popular</span></div>}<h3 className="font-bold text-gray-900 text-lg mb-1">{tier.t}</h3><p className="text-xs text-red-600 font-semibold mb-3">{tier.p}</p><p className="text-sm text-gray-500 leading-relaxed">{tier.d}</p></div>))}
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+          {[{t:"What we handle",items:["Employee flights — domestic and international","Hotel bookings at corporate rates","Airport transfers for visiting clients","Group bookings for conferences and events","Visa processing for business travel","Emergency re-routing — 24/7"]},{t:"Why companies choose us",items:["One point of contact — no call center maze","We remember preferences — seat, meal, airline","Monthly consolidated billing with full breakdown","We fix problems before you know about them","Credit terms that work for your cash flow","Local presence in Galle — meet us in person"]}].map(col=>(<div key={col.t} className="bg-white rounded-2xl border border-gray-100 p-6 shadow-sm"><h3 className="font-bold text-gray-900 mb-4">{col.t}</h3><ul className="space-y-2.5">{col.items.map((item,i)=>(<li key={i} className="flex items-start gap-2.5 text-sm text-gray-600"><span className="text-red-600 mt-0.5 flex-shrink-0"><svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5}><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7"/></svg></span>{item}</li>))}</ul></div>))}
+        </div>
+        <div className="text-center mt-10">
+          <a href="https://wa.me/+94776984777" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-8 py-4 bg-red-600 hover:bg-red-700 text-white rounded-full font-semibold transition-all shadow-sm"><svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>Set up a corporate account</a>
+          <p className="text-xs text-gray-400 mt-3">Or call +94 91 223 4517 to discuss your company's needs.</p>
+        </div>
+      </div></section>
+    </div>
+  );
+}
