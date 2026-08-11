@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+@theme {
+  --color-red-50: #FEF2F2;
+  --color-red-100: #FEE2E2;
+  --color-red-400: #F87171;
+  --color-red-500: #EF4444;
+  --color-red-600: #DC2626;
+  --color-red-700: #B91C1C;
+
+  --font-serif: var(--font-playfair), Georgia, serif;
+  --font-sans: var(--font-inter), system-ui, -apple-system, sans-serif;
+}
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { @apply bg-white text-gray-900 antialiased; -webkit-font-smoothing: antialiased; }
+  ::selection { background: rgba(220,38,38,0.1); color: #991B1B; }
+  :focus-visible { outline: 2px solid #DC2626; outline-offset: 2px; border-radius: 3px; }
+}
+
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  }
+}
+
+@keyframes ticker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-ticker { animation: ticker 30s linear infinite; }
+.animate-ticker:hover { animation-play-state: paused; }
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(28px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-up { animation: fade-up 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; opacity: 0; }
