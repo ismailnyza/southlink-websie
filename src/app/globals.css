@@ -1,39 +1,122 @@
 @import "tailwindcss";
 
 @theme {
-  --color-red-50: #FEF2F2;
-  --color-red-100: #FEE2E2;
-  --color-red-400: #F87171;
-  --color-red-500: #EF4444;
-  --color-red-600: #DC2626;
-  --color-red-700: #B91C1C;
+  /* ── Terracotta (primary accent) ── */
+  --color-red-50: #FCF5F2;
+  --color-red-100: #F8EDE7;
+  --color-red-200: #F0DAD0;
+  --color-red-400: #D4947A;
+  --color-red-500: #C46B4E;
+  --color-red-600: #C46B4E;
+  --color-red-700: #9E4F35;
+  --color-red-900: #6E3424;
+
+  /* ── Midnight (dark sections, replaces gray-900) ── */
+  --color-gray-800: #242A33;
+  --color-gray-900: #171C23;
+
+  /* ── Warm grays ── */
+  --color-gray-50: #F4F1EA;
+  --color-gray-100: #EBE6DE;
+  --color-gray-200: #DDD7CD;
+  --color-gray-300: #C4BDB2;
+  --color-gray-400: #A0988A;
+  --color-gray-500: #8B8276;
+  --color-gray-600: #6B6359;
+  --color-gray-700: #4A443C;
+
+  /* ── Gold (stars only) ── */
+  --color-amber-400: #D4A34A;
+
+  /* ── Green (WhatsApp only) ── */
+  --color-green-400: #3CC96A;
+  --color-green-500: #25A951;
+  --color-green-600: #1F8D43;
+
+  /* ── Typography ── */
   --font-serif: var(--font-playfair), Georgia, serif;
   --font-sans: var(--font-inter), system-ui, -apple-system, sans-serif;
+
+  /* ── Defaults ── */
+  --color-white: #FFFFFF;
+  --color-black: #171C23;
 }
 
 @layer base {
-  html { scroll-behavior: smooth; }
-  body { @apply bg-white text-gray-900 antialiased; }
-  ::selection { background: rgba(220,38,38,0.1); color: #991B1B; }
-  :focus-visible { outline: 2px solid #DC2626; outline-offset: 2px; border-radius: 3px; }
-}
-
-@layer utilities {
-  .text-balance { text-wrap: balance; }
-  @media (prefers-reduced-motion: reduce) {
-    *,*::before,*::after { animation-duration:0.01ms!important; transition-duration:0.01ms!important; }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-[#FCFAF7] text-[#2D2A28] antialiased;
+  }
+  ::selection {
+    background: rgba(196, 107, 78, 0.15);
+    color: #9E4F35;
+  }
+  :focus-visible {
+    outline: 2px solid #C46B4E;
+    outline-offset: 2px;
+    border-radius: 3px;
   }
 }
 
-@keyframes ticker {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-.animate-ticker { animation: ticker 30s linear infinite; }
-.animate-ticker:hover { animation-play-state: paused; }
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
 
-@keyframes fade-up {
-  from { opacity: 0; transform: translateY(28px); }
-  to { opacity: 1; transform: translateY(0); }
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
 }
-.animate-fade-up { animation: fade-up 0.7s cubic-bezier(0.25,0.46,0.45,0.94) forwards; opacity: 0; }
+
+/* ── Price ticker (infinite scroll) ── */
+@keyframes ticker {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+.animate-ticker {
+  animation: ticker 30s linear infinite;
+}
+.animate-ticker:hover {
+  animation-play-state: paused;
+}
+
+/* ── Fade-up entrance ── */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fade-up {
+  animation: fade-up 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  opacity: 0;
+}
+
+/* ── Rampart divider (signature element) ── */
+.rampart-divider {
+  height: 24px;
+  width: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 24' preserveAspectRatio='none'%3E%3Cpath d='M0 12 Q30 6 60 12 Q90 18 120 12 Q150 6 180 12 Q210 18 240 12 Q270 6 300 12 Q330 18 360 12 Q390 6 420 12 Q450 18 480 12 Q510 6 540 12 Q570 18 600 12 Q630 6 660 12 Q690 18 720 12 Q750 6 780 12 Q810 18 840 12 Q870 6 900 12 Q930 18 960 12 Q990 6 1020 12 Q1050 18 1080 12 Q1110 6 1140 12 Q1170 18 1200 12' fill='none' stroke='%23DDD7CD' stroke-width='1.5'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-position: center;
+  background-size: 200px 24px;
+}
+
+.rampart-divider-dark {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 24' preserveAspectRatio='none'%3E%3Cpath d='M0 12 Q30 6 60 12 Q90 18 120 12 Q150 6 180 12 Q210 18 240 12 Q270 6 300 12 Q330 18 360 12 Q390 6 420 12 Q450 18 480 12 Q510 6 540 12 Q570 18 600 12 Q630 6 660 12 Q690 18 720 12 Q750 6 780 12 Q810 18 840 12 Q870 6 900 12 Q930 18 960 12 Q990 6 1020 12 Q1050 18 1080 12 Q1110 6 1140 12 Q1170 18 1200 12' fill='none' stroke='%23242A33' stroke-width='1.5'/%3E%3C/svg%3E");
+}
