@@ -3,6 +3,7 @@ import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import WhatsAppButton from '../components/WhatsAppButton'
 import Seo from '../components/Seo'
+import { phoneHref } from '../utils/contact'
 
 export const query = graphql`
   query {
@@ -19,9 +20,9 @@ export const query = graphql`
 
 const ContactPage = ({ data }) => {
   const settings = data.allSettingsJson?.nodes[0] || {}
-  const primaryContact = settings.contact_numbers?.[0] || '0912 234 517'
-  const address = settings.address || '26M8+C37, Gamini Mawatha, Galle 80000'
-  const email = settings.email || 'info@southlink.com'
+  const primaryContact = settings.contact_numbers[0]
+  const address = settings.address
+  const email = settings.email
   const mapsLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`Southlink Travels, ${address}`)}`
 
   const [form, setForm] = useState({ name: '', email: '', message: '', website: '' })
@@ -60,10 +61,11 @@ const ContactPage = ({ data }) => {
 
   return (
     <Layout>
-      <section className="bg-gradient-to-r from-primary to-primary-dark text-white pt-24 pb-12">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl font-bold mb-2">Get in touch</h1>
-          <p className="text-xl text-white/90">We usually reply within a few minutes during business hours.</p>
+      <section className="collection-intro cream-section">
+        <div className="site-shell">
+          <p className="eyebrow">LET’S TALK TRAVEL</p>
+          <h1>A conversation away.</h1>
+          <p>Visit our Galle office, send a message, or tell us about your next journey.</p>
         </div>
       </section>
 
@@ -73,7 +75,7 @@ const ContactPage = ({ data }) => {
             <div>
               <h2 className="text-xl font-bold text-gray-900 mb-6">Reach us directly</h2>
               <div className="space-y-5">
-                <a href={`tel:${primaryContact.replace(/\s/g, '')}`} className="flex items-start gap-3 group">
+                <a href={phoneHref(primaryContact)} className="flex items-start gap-3 group">
                   <svg className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                   </svg>
@@ -113,16 +115,18 @@ const ContactPage = ({ data }) => {
             <div>
               <h2 className="text-xl font-bold text-gray-900 mb-6">Send a message</h2>
               {status === 'sent' ? (
-                <div className="p-4 bg-green-50 border border-green-200 rounded-xl">
+                <div role="status" className="p-4 bg-green-50 border border-green-200 rounded-xl">
                   <p className="text-green-800 font-medium">Message sent.</p>
                   <p className="text-sm text-green-700 mt-1">We'll get back to you shortly.</p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Name</label>
+                    <label htmlFor="contact-name" className="block text-sm font-medium text-gray-700 mb-2">Name</label>
                     <input
                       type="text"
+                      id="contact-name"
+                      autoComplete="name"
                       required
                       value={form.name}
                       onChange={handleChange('name')}
@@ -130,9 +134,11 @@ const ContactPage = ({ data }) => {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                    <label htmlFor="contact-email" className="block text-sm font-medium text-gray-700 mb-2">Email</label>
                     <input
                       type="email"
+                      id="contact-email"
+                      autoComplete="email"
                       required
                       value={form.email}
                       onChange={handleChange('email')}
@@ -140,8 +146,9 @@ const ContactPage = ({ data }) => {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                    <label htmlFor="contact-message" className="block text-sm font-medium text-gray-700 mb-2">Message</label>
                     <textarea
+                      id="contact-message"
                       required
                       rows={4}
                       value={form.message}
@@ -162,7 +169,7 @@ const ContactPage = ({ data }) => {
                   />
 
                   {status === 'error' && (
-                    <div className="p-3 bg-red-50 border border-red-200 rounded-xl">
+                    <div role="alert" className="p-3 bg-red-50 border border-red-200 rounded-xl">
                       <p className="text-sm text-red-600">{errorMessage}</p>
                     </div>
                   )}

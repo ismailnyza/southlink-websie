@@ -2,10 +2,8 @@
   "id": "thailand-cultural",
   "title": "Thailand Cultural Journey",
   "images": [
-    "/images/thailand-1.jpg",
-    "/images/thailand-2.jpg"
+    "/images/destinations/thailand-cultural.jpg"
   ],
-  "price": 55000,
   "itinerary": [
     {
       "day": 1,
@@ -34,7 +32,10 @@
     }
   ],
   "visibility": true,
-  "tags": ["culture", "heritage"],
+  "tags": [
+    "culture",
+    "heritage"
+  ],
   "map_location": null,
   "destination": "Thailand",
   "duration": "5 Days",

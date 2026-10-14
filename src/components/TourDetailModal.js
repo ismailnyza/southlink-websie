@@ -78,7 +78,7 @@ const TourDetailModal = ({ tour, settings, onClose }) => {
               </p>
             )}
             <p className="text-xl font-bold text-gray-900 mb-4">
-              {tour.price ? `From LKR ${tour.price.toLocaleString()}` : 'Price on request'}
+              Tailor-made for you
             </p>
             <div className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-primary/10 rounded-full">
               <span className="text-xs font-medium text-primary">

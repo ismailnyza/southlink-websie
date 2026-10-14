@@ -1,46 +1,26 @@
-import React, { useState } from 'react'
-import { graphql, Link, navigate } from 'gatsby'
+import React from 'react'
+import { graphql, Link } from 'gatsby'
 import Layout from '../components/Layout'
-import WhatsAppButton from '../components/WhatsAppButton'
-import LazyImage from '../components/LazyImage'
-import SriLankaMap from '../components/Map/SriLankaMap'
+import TourImage from '../components/TourImage'
 import Seo, { buildTourJsonLd } from '../components/Seo'
 
 export const query = graphql`
-  query($slug: String!) {
+  query JourneyDetail($slug: String!) {
     site {
       siteMetadata {
         siteUrl
       }
     }
-    inboundJson: allInboundJson(filter: { fields: { slug: { eq: $slug } } }) {
+    inbound: allInboundJson(filter: { fields: { slug: { eq: $slug } } }) {
       nodes {
         fields {
           slug
         }
         title
         images
-        price
-        destination
-        duration
-        tags
-        description
-        map_location
-        itinerary {
-          day
-          title
-          description
+        coverImage {
+          ...TourCover
         }
-      }
-    }
-    outboundJson: allOutboundJson(filter: { fields: { slug: { eq: $slug } } }) {
-      nodes {
-        fields {
-          slug
-        }
-        title
-        images
-        price
         destination
         duration
         tags
@@ -52,215 +32,110 @@ export const query = graphql`
         }
       }
     }
-    allSettingsJson {
+    outbound: allOutboundJson(filter: { fields: { slug: { eq: $slug } } }) {
       nodes {
-        whatsapp_number
+        fields {
+          slug
+        }
+        title
+        images
+        coverImage {
+          ...TourCover
+        }
+        destination
+        duration
+        tags
+        description
+        itinerary {
+          day
+          title
+          description
+        }
       }
     }
   }
 `
-
-const TourDetailPage = ({ data }) => {
-  const rawTour = data.inboundJson?.nodes[0] || data.outboundJson?.nodes[0]
-  const tour = rawTour ? { ...rawTour, slug: rawTour.fields.slug } : null
-  const settings = data.allSettingsJson?.nodes[0] || {}
-  const [expandedDescription, setExpandedDescription] = useState(false)
-
-  if (!tour) {
-    return (
-      <Layout>
-        <div className="container mx-auto px-4 py-16 text-center">
-          <h1 className="text-3xl font-bold mb-4">Experience Not Found</h1>
-          <Link to="/tours/inbound" className="text-primary hover:underline">
-            Back to Experiences
-          </Link>
-        </div>
-      </Layout>
-    )
-  }
-
-  const mainImage = tour.images && tour.images.length > 0 ? tour.images[0] : '/images/placeholder.jpg'
-  const tagsText = tour.tags && tour.tags.length > 0 
-    ? tour.tags.join(' · ')
-    : tour.destination || ''
-
-  const isLongDescription = tour.description && tour.description.length > 300
-  const displayDescription = expandedDescription || !isLongDescription
-    ? tour.description
-    : tour.description.substring(0, 300) + '...'
-
-  const goBack = () => {
-    if (typeof window !== 'undefined') {
-      window.history.back()
-    } else {
-      navigate('/tours/inbound')
-    }
-  }
-
+export default function JourneyDetail({ data }) {
+  const tour = data.inbound.nodes[0] || data.outbound.nodes[0]
+  const inbound = data.inbound.nodes.length > 0
   return (
     <Layout>
-      <div className="bg-white min-h-screen pb-24">
-        <div className="sticky top-0 z-10 bg-white border-b border-gray-200">
-          <div className="container mx-auto px-4">
-            <div className="max-w-md mx-auto flex items-center justify-between h-14">
-              <button
-                onClick={goBack}
-                className="flex items-center gap-2 text-gray-700 active:text-gray-900"
-              >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                </svg>
-              </button>
-              <h1 className="text-lg font-bold text-gray-900 flex-1 text-center">
-                {tour.title}
-              </h1>
-              <div className="w-6" />
-            </div>
-          </div>
+      <section className="collection-intro cream-section">
+        <div className="site-shell">
+          <Link
+            className="detail-back"
+            to={inbound ? '/tours/inbound' : '/tours/outbound'}
+          >
+            ← Back to {inbound ? 'Sri Lanka journeys' : 'world travel'}
+          </Link>
+          <p className="eyebrow">
+            {tour.duration} · {tour.destination}
+          </p>
+          <h1>{tour.title}</h1>
+          <p>{tour.description}</p>
         </div>
-
-        <div className="relative">
-          <div className="w-full h-80 bg-gray-200">
-            <LazyImage
-              src={mainImage}
-              alt={tour.title}
-              className="w-full h-80 object-cover"
+      </section>
+      <section className="section-space site-shell detail-layout">
+        <div>
+          {tour.images?.[0] && (
+            <TourImage
+              className="detail-image"
+              tour={tour}
+              sizes="(min-width: 1200px) 740px, (min-width: 900px) 60vw, 92vw"
             />
-          </div>
+          )}
+          <p className="eyebrow">A STARTING POINT FOR YOUR ADVENTURE</p>
+          <h2>Your journey, day by day.</h2>
+          <p>
+            Use this itinerary as inspiration. Your agent will help you tailor
+            the route, accommodation and activities to your dates and interests.
+          </p>
+          <ol className="itinerary-list">
+            {tour.itinerary?.map((day, i) => (
+              <li key={i}>
+                <span>Day {day.day || i + 1}</span>
+                <div>
+                  <h3>{day.title}</h3>
+                  <p>{day.description}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
         </div>
-
-        <div className="container mx-auto px-4">
-          <div className="max-w-md mx-auto">
-            <div className="pt-6 pb-4">
-              <h1 className="text-3xl font-bold text-gray-900 mb-2">
-                {tour.title}
-              </h1>
-              {tagsText && (
-                <p className="text-base text-gray-600 mb-3">
-                  {tagsText}
-                </p>
-              )}
-              <p className="text-xl font-bold text-gray-900 mb-3">
-                {tour.price ? `From LKR ${tour.price.toLocaleString()}` : 'Price on request'}
-              </p>
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-primary/10 rounded-full">
-                <span className="text-xs font-medium text-primary">
-                  Designed by our local team
-                </span>
-              </div>
-            </div>
-
-            {tour.description && (
-              <section className="py-6 border-t border-gray-100">
-                <h2 className="text-xl font-bold text-gray-900 mb-4">
-                  About this experience
-                </h2>
-                <div className="prose max-w-none">
-                  <p className="text-gray-700 leading-relaxed mb-3">
-                    {displayDescription}
-                  </p>
-                  {isLongDescription && !expandedDescription && (
-                    <button
-                      onClick={() => setExpandedDescription(true)}
-                      className="text-primary text-sm font-medium hover:underline"
-                    >
-                      Read more
-                    </button>
-                  )}
-                </div>
-              </section>
-            )}
-
-            {tour.itinerary && tour.itinerary.length > 0 && (
-              <section className="py-6 border-t border-gray-100">
-                <h2 className="text-xl font-bold text-gray-900 mb-4">
-                  Highlights
-                </h2>
-                <ul className="space-y-2">
-                  {tour.itinerary.slice(0, 3).map((item, idx) => (
-                    <li key={idx} className="flex items-start gap-2">
-                      <svg className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                      </svg>
-                      <span className="text-gray-700 text-sm">{item.title || item.description}</span>
-                    </li>
-                  ))}
-                </ul>
-              </section>
-            )}
-
-            {tour.map_location && (
-              <section className="py-6 border-t border-gray-100">
-                <h2 className="text-xl font-bold text-gray-900 mb-4">
-                  Where this takes you
-                </h2>
-                <SriLankaMap tours={[tour]} />
-              </section>
-            )}
-
-            <section className="py-6 border-t border-gray-100">
-              <div className="space-y-2">
-                <div className="flex items-start gap-2">
-                  <svg className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                  </svg>
-                  <span className="text-gray-700 text-sm">Planned by a dedicated agent</span>
-                </div>
-                <div className="flex items-start gap-2">
-                  <svg className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                  </svg>
-                  <span className="text-gray-700 text-sm">Customizable itinerary</span>
-                </div>
-                <div className="flex items-start gap-2">
-                  <svg className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                  </svg>
-                  <span className="text-gray-700 text-sm">Based in Galle</span>
-                </div>
-              </div>
-            </section>
-          </div>
-        </div>
-
-        <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 shadow-lg z-20">
-          <div className="container mx-auto px-4 py-4">
-            <div className="max-w-md mx-auto">
-              <WhatsAppButton
-                context="tour"
-                data={tour}
-                settings={settings}
-                className="w-full justify-center"
-                variant="premium"
-              />
-              <p className="text-xs text-gray-500 text-center mt-2">
-                No booking required. We'll tailor it to you.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
+        <aside className="trip-sidebar">
+          <p className="eyebrow">MAKE IT YOUR OWN</p>
+          <h2>
+            A trip that
+            <br />
+            feels like you.
+          </h2>
+          <p>
+            Share your dates, who’s coming and the experiences you love. We’ll
+            discuss the details and a personalised quote before you book.
+          </p>
+          <Link
+            className="button button-red"
+            to={`/plan-your-trip?tour=${encodeURIComponent(tour.title)}&destination=${encodeURIComponent(tour.destination || '')}`}
+          >
+            Customise this trip ↗
+          </Link>
+          <Link className="text-link" to="/contact">
+            Talk to our team ↗
+          </Link>
+        </aside>
+      </section>
     </Layout>
   )
 }
-
-export default TourDetailPage
-
 export const Head = ({ data, location }) => {
-  const tour = data.inboundJson?.nodes[0] || data.outboundJson?.nodes[0]
-  const siteUrl = data.site?.siteMetadata?.siteUrl
-
-  if (!tour) {
-    return <Seo title="Experience Not Found" pathname={location.pathname} noindex />
-  }
-
+  const tour = data.inbound.nodes[0] || data.outbound.nodes[0]
   return (
     <Seo
       title={tour.title}
       description={tour.description}
       image={tour.images?.[0]}
       pathname={location.pathname}
-      jsonLd={buildTourJsonLd(tour, siteUrl)}
+      jsonLd={buildTourJsonLd(tour, data.site.siteMetadata.siteUrl)}
     />
   )
 }

@@ -2,10 +2,8 @@
   "id": "maldives-paradise",
   "title": "Maldives Island Paradise",
   "images": [
-    "/images/maldives-1.jpg",
-    "/images/maldives-2.jpg"
+    "/images/destinations/maldives-paradise.jpg"
   ],
-  "price": 85000,
   "itinerary": [
     {
       "day": 1,
@@ -34,7 +32,10 @@
     }
   ],
   "visibility": true,
-  "tags": ["luxury", "beach"],
+  "tags": [
+    "luxury",
+    "beach"
+  ],
   "map_location": null,
   "destination": "Maldives",
   "duration": "5 Days",

@@ -66,6 +66,7 @@ export const buildTravelAgencyJsonLd = (settings = {}, siteUrl) => ({
   name: 'Southlink Travels',
   url: siteUrl,
   image: `${siteUrl}${DEFAULT_IMAGE}`,
+  logo: `${siteUrl}/images/southlink-logo.jpg`,
   ...(settings.contact_numbers?.[0] && { telephone: settings.contact_numbers[0] }),
   ...(settings.email && { email: settings.email }),
   ...(settings.address && {
@@ -85,13 +86,14 @@ export const buildTourJsonLd = (tour, siteUrl) => ({
   ...(tour.description && { description: tour.description }),
   ...(tour.images?.[0] && { image: `${siteUrl}${tour.images[0]}` }),
   ...(tour.tags?.length && { touristType: tour.tags }),
-  ...(tour.duration && { itinerary: tour.duration }),
-  ...(tour.price && {
-    offers: {
-      '@type': 'Offer',
-      priceCurrency: 'LKR',
-      price: tour.price,
-      availability: 'https://schema.org/InStock',
+  ...(tour.itinerary?.length && {
+    itinerary: {
+      '@type': 'ItemList',
+      itemListElement: tour.itinerary.map((day, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        name: day.title,
+      })),
     },
   }),
 })

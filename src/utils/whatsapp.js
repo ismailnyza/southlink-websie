@@ -49,9 +49,8 @@ export const buildWhatsAppLink = (context, data, settings) => {
       const date = data.date || 'Not specified'
       const areaLabel = data.direction === 'pickup' ? 'Drop-off area' : 'Pickup area'
       const area = data.area ? `\n*${areaLabel}:* ${data.area}` : ''
-      const price = data.price ? `\n*Fare:* $${data.price} USD` : ''
       const contact = data.phone ? `\n*Contact:* ${data.phone}` : ''
-      message = `Hi Southlink, I'd like to book an ${directionText.toLowerCase()}.\n\n*Service:* ${directionText}\n*Date:* ${date}${area}${price}${contact}\n\nPlease confirm my exact pickup point.`
+      message = `Hi Southlink, I'd like to arrange an ${directionText.toLowerCase()}.\n\n*Service:* ${directionText}\n*Date:* ${date}${area}${contact}\n\nPlease confirm availability, a quote and my exact pickup point.`
       break
     }
     case 'general':

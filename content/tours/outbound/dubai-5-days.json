@@ -2,10 +2,8 @@
   "id": "dubai-5-days",
   "title": "Dubai: Modern Marvels",
   "images": [
-    "/images/dubai-1.jpg",
-    "/images/dubai-2.jpg"
+    "/images/destinations/dubai-5-days.jpg"
   ],
-  "price": 50000,
   "itinerary": [
     {
       "day": 1,
@@ -34,7 +32,10 @@
     }
   ],
   "visibility": true,
-  "tags": ["Adventure", "Luxury"],
+  "tags": [
+    "Adventure",
+    "Luxury"
+  ],
   "map_location": null,
   "destination": "Dubai, UAE",
   "duration": "5–7 days",

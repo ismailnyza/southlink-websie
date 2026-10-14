@@ -2,10 +2,8 @@
   "id": "ella-highlands",
   "title": "Ella Highlands Adventure",
   "images": [
-    "/images/ella-1.jpg",
-    "/images/ella-2.jpg"
+    "/images/ella.jpg"
   ],
-  "price": 22000,
   "itinerary": [
     {
       "day": 1,
@@ -24,7 +22,10 @@
     }
   ],
   "visibility": true,
-  "tags": ["adventure", "nature"],
+  "tags": [
+    "adventure",
+    "nature"
+  ],
   "map_location": "Ella",
   "destination": "Ella",
   "duration": "3 Days",

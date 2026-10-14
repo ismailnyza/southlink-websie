@@ -92,9 +92,6 @@ const AirportTransferStep = ({ settings, onClose, initialDirection = 'dropoff' }
     return date.trim().length > 0 && phoneNumber.trim().length > 0 && validatePhone(phoneNumber).valid
   }
 
-  const dropoffPrice = settings?.airport_transfer_price_dropoff_usd
-  const pickupPrice = settings?.airport_transfer_price_pickup_usd
-  const price = direction === 'pickup' ? pickupPrice : dropoffPrice
   const areaLabel = direction === 'pickup' ? 'Drop-off area' : 'Pickup area'
 
   return (
@@ -149,7 +146,7 @@ const AirportTransferStep = ({ settings, onClose, initialDirection = 'dropoff' }
                           : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                       }`}
                     >
-                      Drop-off{dropoffPrice ? ` · $${dropoffPrice}` : ''}
+                      Drop-off
                     </button>
                     <button
                       type="button"
@@ -160,7 +157,7 @@ const AirportTransferStep = ({ settings, onClose, initialDirection = 'dropoff' }
                           : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                       }`}
                     >
-                      Pickup{pickupPrice ? ` · $${pickupPrice}` : ''}
+                      Pickup
                     </button>
                   </div>
                 </div>
@@ -238,7 +235,6 @@ const AirportTransferStep = ({ settings, onClose, initialDirection = 'dropoff' }
                             direction,
                             date,
                             area: area.trim(),
-                            price,
                             phone: phoneNumber.trim(),
                           }, settings)
 

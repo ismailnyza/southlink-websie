@@ -2,10 +2,8 @@
   "id": "singapore-4-days",
   "title": "Singapore Urban Escape",
   "images": [
-    "/images/singapore-1.jpg",
-    "/images/singapore-2.jpg"
+    "/images/destinations/singapore-4-days.jpg"
   ],
-  "price": 45000,
   "itinerary": [
     {
       "day": 1,
@@ -29,7 +27,10 @@
     }
   ],
   "visibility": true,
-  "tags": ["luxury", "urban"],
+  "tags": [
+    "luxury",
+    "urban"
+  ],
   "map_location": null,
   "destination": "Singapore",
   "duration": "4 Days",

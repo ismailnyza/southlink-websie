@@ -1,11 +1,31 @@
 {
   "id": "knuckles-trek",
   "title": "Knuckles Mountain Range",
-  "images": ["/images/knuckles-1.jpg"],
-  "price": 32000,
-  "itinerary": [{"day": 1, "title": "Mountain Trails", "description": "Challenging trek through diverse ecosystems."}, {"day": 2, "title": "Waterfalls & Villages", "description": "Visit remote villages and natural waterfalls."}, {"day": 3, "title": "Summit Views", "description": "Reach viewpoints for panoramic mountain vistas."}],
+  "images": [
+    "/images/destinations/knuckles-trek.jpg"
+  ],
+  "itinerary": [
+    {
+      "day": 1,
+      "title": "Mountain Trails",
+      "description": "Challenging trek through diverse ecosystems."
+    },
+    {
+      "day": 2,
+      "title": "Waterfalls & Villages",
+      "description": "Visit remote villages and natural waterfalls."
+    },
+    {
+      "day": 3,
+      "title": "Summit Views",
+      "description": "Reach viewpoints for panoramic mountain vistas."
+    }
+  ],
   "visibility": true,
-  "tags": ["adventure", "nature"],
+  "tags": [
+    "adventure",
+    "nature"
+  ],
   "map_location": "Knuckles",
   "destination": "Knuckles",
   "duration": "3 Days",

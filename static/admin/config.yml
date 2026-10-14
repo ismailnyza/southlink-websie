@@ -20,7 +20,6 @@ collections:
       - { label: "ID", name: "id", widget: "string" }
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Description", name: "description", widget: "text" }
-      - { label: "Price", name: "price", widget: "number", required: false }
       - { label: "Duration", name: "duration", widget: "string" }
       - { label: "Destination", name: "destination", widget: "string" }
       - { label: "Map Location", name: "map_location", widget: "string", required: false }
@@ -48,7 +47,6 @@ collections:
       - { label: "ID", name: "id", widget: "string" }
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Description", name: "description", widget: "text" }
-      - { label: "Price", name: "price", widget: "number", required: false }
       - { label: "Duration", name: "duration", widget: "string" }
       - { label: "Destination", name: "destination", widget: "string" }
       - { label: "Map Location", name: "map_location", widget: "string", required: true }
@@ -75,8 +73,6 @@ collections:
           - { label: "Address", name: "address", widget: "string" }
           - { label: "Email", name: "email", widget: "email" }
           - { label: "IATA License Number", name: "iata_license_number", widget: "string", required: false, hint: "Leave blank to hide the IATA Certified badge until you have a real, verifiable license number" }
-          - { label: "Airport Drop-off Price (USD)", name: "airport_transfer_price_dropoff_usd", widget: "number" }
-          - { label: "Airport Pickup Price (USD)", name: "airport_transfer_price_pickup_usd", widget: "number" }
 
   - name: "testimonials"
     label: "Testimonials"

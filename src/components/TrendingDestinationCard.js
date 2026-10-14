@@ -54,7 +54,7 @@ const TrendingDestinationCard = ({ tour, onClick }) => {
             {emotionalSubtitle}
           </p>
           <p className="text-xs text-white/80">
-            {tour.price ? `From LKR ${tour.price.toLocaleString()}` : 'Contact for price'}
+            Tailor-made for you
           </p>
         </div>
       </div>

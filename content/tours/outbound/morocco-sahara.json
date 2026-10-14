@@ -1,11 +1,41 @@
 {
   "id": "morocco-sahara",
   "title": "Morocco Sahara Desert",
-  "images": ["/images/morocco-1.jpg"],
-  "price": 190000,
-  "itinerary": [{"day": 1, "title": "Marrakech", "description": "Explore souks and Djemaa el-Fna square."}, {"day": 2, "title": "Atlas Mountains", "description": "Journey through mountain passes."}, {"day": 3, "title": "Desert Camp", "description": "Camel trek and overnight in desert."}, {"day": 4, "title": "Fez", "description": "Visit ancient medina and tanneries."}, {"day": 5, "title": "Casablanca", "description": "Final day in coastal city."}],
+  "images": [
+    "/images/destinations/morocco-sahara.jpg"
+  ],
+  "itinerary": [
+    {
+      "day": 1,
+      "title": "Marrakech",
+      "description": "Explore souks and Djemaa el-Fna square."
+    },
+    {
+      "day": 2,
+      "title": "Atlas Mountains",
+      "description": "Journey through mountain passes."
+    },
+    {
+      "day": 3,
+      "title": "Desert Camp",
+      "description": "Camel trek and overnight in desert."
+    },
+    {
+      "day": 4,
+      "title": "Fez",
+      "description": "Visit ancient medina and tanneries."
+    },
+    {
+      "day": 5,
+      "title": "Casablanca",
+      "description": "Final day in coastal city."
+    }
+  ],
   "visibility": true,
-  "tags": ["adventure", "culture"],
+  "tags": [
+    "adventure",
+    "culture"
+  ],
   "map_location": null,
   "destination": "Morocco",
   "duration": "5 Days",

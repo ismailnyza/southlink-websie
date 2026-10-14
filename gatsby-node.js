@@ -1,4 +1,18 @@
 const path = require(`path`)
+const fs = require('fs')
+
+exports.onPostBuild = async () => {
+  const settings = JSON.parse(
+    fs.readFileSync(
+      path.join(__dirname, 'content/settings/global.json'),
+      'utf8',
+    ),
+  )
+  fs.writeFileSync(
+    path.join(__dirname, 'public/contact-settings.json'),
+    JSON.stringify({ email: settings.email }),
+  )
+}
 
 // gatsby-transformer-json assigns its own generated `id` to every node
 // (needed as the Node interface's identifier), which shadows the `id` field
@@ -9,12 +23,22 @@ const path = require(`path`)
 // `slug` field so page paths and links stay human-readable.
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
-  if (node.internal.type === `InboundJson` || node.internal.type === `OutboundJson`) {
+  if (
+    node.internal.type === `InboundJson` ||
+    node.internal.type === `OutboundJson`
+  ) {
     const parent = getNode(node.parent)
     createNodeField({
       node,
       name: `slug`,
       value: parent.name,
+    })
+    createNodeField({
+      node,
+      name: 'coverImage',
+      value: node.images?.[0]?.startsWith('/images/')
+        ? path.join(__dirname, 'static', node.images[0])
+        : null,
     })
   }
 }
@@ -26,6 +50,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       id: String!
       title: String!
       images: [String]
+      coverImage: File @link(by: "absolutePath", from: "fields.coverImage")
       price: Int
       itinerary: [ToursJsonItinerary]
       visibility: Boolean
@@ -39,6 +64,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       id: String!
       title: String!
       images: [String]
+      coverImage: File @link(by: "absolutePath", from: "fields.coverImage")
       price: Int
       itinerary: [ToursJsonItinerary]
       visibility: Boolean
@@ -91,7 +117,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     ...(result.data.outbound?.nodes || []),
   ]
 
-  allTours.forEach(node => {
+  allTours.forEach((node) => {
     const slug = node.fields.slug
     createPage({
       path: `/tours/${slug}`,

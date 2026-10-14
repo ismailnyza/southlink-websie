@@ -2,10 +2,8 @@
   "id": "uk-heritage",
   "title": "UK Heritage Tour",
   "images": [
-    "/images/uk-1.jpg",
-    "/images/uk-2.jpg"
+    "/images/destinations/uk-heritage.jpg"
   ],
-  "price": 120000,
   "itinerary": [
     {
       "day": 1,
@@ -39,7 +37,10 @@
     }
   ],
   "visibility": true,
-  "tags": ["heritage", "culture"],
+  "tags": [
+    "heritage",
+    "culture"
+  ],
   "map_location": null,
   "destination": "United Kingdom",
   "duration": "6 Days",

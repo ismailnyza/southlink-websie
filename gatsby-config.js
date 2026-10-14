@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `Southlink Travels`,
     description: `Flights, Sri Lanka experiences, and corporate travel - handled personally by a dedicated agent based in Galle.`,
-    siteUrl: `https://southlinktravels.com`,
+    siteUrl: `https://southlinktravels.lk`,
   },
   plugins: [
     {
@@ -57,14 +57,14 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#D32F2F`,
         display: `standalone`,
-        icon: `src/media/icon.png`,
+        icon: `static/images/southlink-logo.jpg`,
       },
     },
     {
       resolve: `gatsby-plugin-robots-txt`,
       options: {
-        host: `https://southlinktravels.com`,
-        sitemap: `https://southlinktravels.com/sitemap-index.xml`,
+        host: `https://southlinktravels.lk`,
+        sitemap: `https://southlinktravels.lk/sitemap-index.xml`,
         policy: [
           { userAgent: `*`, disallow: [`/admin`] },
         ],
