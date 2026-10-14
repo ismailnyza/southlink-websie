@@ -1,8 +1,9 @@
 {
   "id": "anuradhapura-sacred",
   "title": "Anuradhapura Sacred City",
-  "images": ["/images/anuradhapura-1.jpg"],
-  "price": 18000,
+  "images": [
+    "/images/destinations/anuradhapura-sacred.jpg"
+  ],
   "itinerary": [
     {
       "day": 1,
@@ -16,7 +17,10 @@
     }
   ],
   "visibility": true,
-  "tags": ["culture", "heritage"],
+  "tags": [
+    "culture",
+    "heritage"
+  ],
   "map_location": "Anuradhapura",
   "destination": "Anuradhapura",
   "duration": "2 Days",

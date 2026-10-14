@@ -2,10 +2,8 @@
   "id": "malaysia-adventure",
   "title": "Malaysia Adventure Tour",
   "images": [
-    "/images/malaysia-1.jpg",
-    "/images/malaysia-2.jpg"
+    "/images/destinations/malaysia-adventure.jpg"
   ],
-  "price": 48000,
   "itinerary": [
     {
       "day": 1,
@@ -34,7 +32,10 @@
     }
   ],
   "visibility": true,
-  "tags": ["adventure", "beach"],
+  "tags": [
+    "adventure",
+    "beach"
+  ],
   "map_location": null,
   "destination": "Malaysia",
   "duration": "5 Days",

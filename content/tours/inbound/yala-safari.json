@@ -2,10 +2,8 @@
   "id": "yala-safari",
   "title": "Yala Wildlife Safari",
   "images": [
-    "/images/yala-1.jpg",
-    "/images/yala-2.jpg"
+    "/images/destinations/yala-safari.jpg"
   ],
-  "price": 25000,
   "itinerary": [
     {
       "day": 1,
@@ -24,7 +22,10 @@
     }
   ],
   "visibility": true,
-  "tags": ["Wildlife", "Adventure"],
+  "tags": [
+    "Wildlife",
+    "Adventure"
+  ],
   "map_location": "Yala",
   "destination": "Yala",
   "duration": "3–4 days",

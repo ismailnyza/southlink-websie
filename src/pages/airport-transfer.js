@@ -9,8 +9,6 @@ export const query = graphql`
     allSettingsJson {
       nodes {
         whatsapp_number
-        airport_transfer_price_dropoff_usd
-        airport_transfer_price_pickup_usd
       }
     }
   }
@@ -36,8 +34,6 @@ const steps = [
 
 const AirportTransferPage = ({ data }) => {
   const settings = data.allSettingsJson?.nodes[0] || {}
-  const dropoffPrice = settings.airport_transfer_price_dropoff_usd
-  const pickupPrice = settings.airport_transfer_price_pickup_usd
   const [booking, setBooking] = useState(null) // null | 'dropoff' | 'pickup'
 
   return (
@@ -51,9 +47,9 @@ const AirportTransferPage = ({ data }) => {
 
       <section className="py-12 bg-white">
         <div className="container mx-auto px-4">
-          <div className="max-w-md mx-auto">
+          <div className="max-w-3xl mx-auto">
             <p className="text-gray-600 mb-8 text-center leading-relaxed">
-              Fixed fares, door to airport or airport to door. No need to work out logistics yourself -
+              From your door to the airport, or the airport to your door. No need to work out logistics yourself -
               pick your date and leave the rest to your agent.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -61,7 +57,7 @@ const AirportTransferPage = ({ data }) => {
                 <h3 className="font-bold text-gray-900 mb-1">Airport Drop-off</h3>
                 <p className="text-sm text-gray-600 mb-3">From your location to the airport</p>
                 <p className="text-2xl font-bold text-gray-900 mb-4">
-                  {dropoffPrice ? `$${dropoffPrice}` : 'Contact us'}
+                  Plan your transfer
                 </p>
                 <button
                   onClick={() => setBooking('dropoff')}
@@ -74,7 +70,7 @@ const AirportTransferPage = ({ data }) => {
                 <h3 className="font-bold text-gray-900 mb-1">Airport Pickup</h3>
                 <p className="text-sm text-gray-600 mb-3">From the airport to your location</p>
                 <p className="text-2xl font-bold text-gray-900 mb-4">
-                  {pickupPrice ? `$${pickupPrice}` : 'Contact us'}
+                  Plan your transfer
                 </p>
                 <button
                   onClick={() => setBooking('pickup')}
@@ -90,7 +86,7 @@ const AirportTransferPage = ({ data }) => {
 
       <section className="py-12 bg-gray-50">
         <div className="container mx-auto px-4">
-          <div className="max-w-md mx-auto">
+          <div className="max-w-3xl mx-auto">
             <h2 className="text-xl font-bold text-gray-900 mb-6 text-center">
               How it works
             </h2>
@@ -131,7 +127,7 @@ export default AirportTransferPage
 export const Head = ({ location }) => (
   <Seo
     title="Airport Transfers"
-    description="Book an airport drop-off or pickup by date - fixed fares, and your Southlink Travels agent confirms the exact pickup point on WhatsApp."
+    description="Book an airport drop-off or pickup by date - your Southlink Travels agent confirms the exact pickup point on WhatsApp."
     pathname={location.pathname}
   />
 )

@@ -37,12 +37,19 @@ $name = mb_substr($name, 0, 200);
 $message = mb_substr($message, 0, 5000);
 $email = clean_header_value($email);
 
-// TODO: confirm this is the inbox that should receive website inquiries.
-$to = 'info@southlinktravels.com';
+// Gatsby emits only the public enquiry address from global settings at build time.
+// Keep form delivery and the address shown on the site in sync.
+$settings = json_decode(@file_get_contents(__DIR__ . '/contact-settings.json'), true);
+$to = $settings['email'] ?? '';
+if (!filter_var($to, FILTER_VALIDATE_EMAIL)) {
+    http_response_code(503);
+    echo json_encode(['success' => false, 'error' => 'Email is temporarily unavailable. Please call or use WhatsApp.']);
+    exit;
+}
 $subject = 'New contact form message - Southlink Travels';
 $body = "Name: {$name}\nEmail: {$email}\n\nMessage:\n{$message}\n";
 
-$headers = "From: Southlink Website <no-reply@southlinktravels.com>\r\n";
+$headers = "From: Southlink Website <no-reply@southlinktravels.lk>\r\n";
 $headers .= "Reply-To: {$email}\r\n";
 $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
 

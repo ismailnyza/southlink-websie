@@ -3,6 +3,7 @@ import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import CorporateContactStep from '../components/CorporateContactStep'
 import Seo from '../components/Seo'
+import { phoneHref } from '../utils/contact'
 
 export const query = graphql`
   query {
@@ -32,7 +33,7 @@ const CorporatePage = ({ data }) => {
   const [selectedPackage, setSelectedPackage] = useState(null)
   const [inquirySource, setInquirySource] = useState(null)
 
-  const primaryContact = settings.contact_numbers?.[0] || '0912 234 517'
+  const primaryContact = settings.contact_numbers[0]
 
   const clientTypes = [
     {
@@ -160,7 +161,7 @@ const CorporatePage = ({ data }) => {
               <span className="px-3 py-1 bg-gray-100 rounded-full">Serving Sri Lanka & overseas businesses</span>
             </div>
             <a
-              href={`tel:${primaryContact.replace(/\s/g, '')}`}
+              href={phoneHref(primaryContact)}
               className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary hover:bg-red-600 text-white rounded-full font-medium transition-colors shadow-sm"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -340,7 +341,7 @@ const CorporatePage = ({ data }) => {
                 Request a consultation
               </button>
               <a
-                href={`tel:${primaryContact.replace(/\s/g, '')}`}
+                href={phoneHref(primaryContact)}
                 className="block w-full text-center px-6 py-3 border-2 border-gray-300 text-gray-700 hover:border-primary hover:text-primary rounded-full font-medium transition-colors"
               >
                 Call corporate desk

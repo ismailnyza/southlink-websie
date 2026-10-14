@@ -2,10 +2,8 @@
   "id": "galle-heritage",
   "title": "Galle Heritage & Fort",
   "images": [
-    "/images/galle-1.jpg",
-    "/images/galle-2.jpg"
+    "/images/destinations/galle-heritage.jpg"
   ],
-  "price": 15000,
   "itinerary": [
     {
       "day": 1,
@@ -19,7 +17,10 @@
     }
   ],
   "visibility": true,
-  "tags": ["Heritage", "Culture"],
+  "tags": [
+    "Heritage",
+    "Culture"
+  ],
   "map_location": "Galle",
   "destination": "Galle",
   "duration": "2–3 days",

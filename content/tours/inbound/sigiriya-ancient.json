@@ -2,10 +2,8 @@
   "id": "sigiriya-ancient",
   "title": "Sigiriya Ancient Wonder",
   "images": [
-    "/images/sigiriya-1.jpg",
-    "/images/sigiriya-2.jpg"
+    "/images/sigiriya.jpg"
   ],
-  "price": 20000,
   "itinerary": [
     {
       "day": 1,
@@ -24,7 +22,10 @@
     }
   ],
   "visibility": true,
-  "tags": ["heritage", "culture"],
+  "tags": [
+    "heritage",
+    "culture"
+  ],
   "map_location": "Sigiriya",
   "destination": "Sigiriya",
   "duration": "3 Days",

@@ -2,10 +2,8 @@
   "id": "kandy-cultural",
   "title": "Kandy Cultural Capital",
   "images": [
-    "/images/kandy-1.jpg",
-    "/images/kandy-2.jpg"
+    "/images/destinations/kandy-cultural.jpg"
   ],
-  "price": 18000,
   "itinerary": [
     {
       "day": 1,
@@ -24,7 +22,10 @@
     }
   ],
   "visibility": true,
-  "tags": ["culture", "heritage"],
+  "tags": [
+    "culture",
+    "heritage"
+  ],
   "map_location": "Kandy",
   "destination": "Kandy",
   "duration": "3 Days",

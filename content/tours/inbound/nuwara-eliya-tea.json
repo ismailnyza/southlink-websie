@@ -2,10 +2,8 @@
   "id": "nuwara-eliya-tea",
   "title": "Nuwara Eliya Tea Country",
   "images": [
-    "/images/nuwara-eliya-1.jpg",
-    "/images/nuwara-eliya-2.jpg"
+    "/images/destinations/nuwara-eliya-tea.jpg"
   ],
-  "price": 19000,
   "itinerary": [
     {
       "day": 1,
@@ -24,7 +22,10 @@
     }
   ],
   "visibility": true,
-  "tags": ["nature", "culture"],
+  "tags": [
+    "nature",
+    "culture"
+  ],
   "map_location": "Nuwara Eliya",
   "destination": "Nuwara Eliya",
   "duration": "3 Days",
