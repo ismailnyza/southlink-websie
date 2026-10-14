@@ -3,6 +3,7 @@ import { graphql } from 'gatsby'
 import Layout from '../../components/Layout'
 import TourCollection from '../../components/TourCollection'
 import Seo from '../../components/Seo'
+import { getTourNodes } from '../../utils/tours'
 
 export const query = graphql`
   query SriLankaJourneys {
@@ -32,7 +33,7 @@ export default function Inbound({ data }) {
   return (
     <Layout>
       <TourCollection
-        tours={data.allInboundJson.nodes}
+        tours={getTourNodes(data, 'inbound')}
         title="Sri Lanka, at your pace."
         description="Ancient cities, tea-covered hills and the coast we call home. Discover our island through journeys shaped around you."
       />

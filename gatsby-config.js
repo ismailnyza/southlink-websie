@@ -57,6 +57,7 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#D32F2F`,
         display: `standalone`,
+        crossOrigin: `use-credentials`,
         icon: `static/images/southlink-logo.jpg`,
       },
     },

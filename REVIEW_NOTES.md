@@ -64,6 +64,14 @@ The configured hosting path is: a push to GitHub `main` (or a manual Actions run
 - Catalogue completeness: 43 tours retained, all with local destination photographs; 40 additional source/author/licence records in `src/data/destination-photo-credits.json` and three existing credits on the credits page.
 - Additional browser checks pass for whitespace-only names, past dates, enquiry focus, QR focus cycling, Escape dismissal, focus restoration and scroll restoration. At 390 px with device scale 1, the hero loaded a 59,808-byte WebP instead of the previous approximately 688 KB fixed AVIF asset. This is an image transfer measurement, not a Lighthouse performance score.
 
+## Hydration and manifest correction
+
+The prior homepage query omitted `fields.slug`; prior tour listings and detail pages used `inboundJson` / `outboundJson` aliases. Mixing those older cached page-data responses with the new JavaScript caused the reported `slug` and `nodes` exceptions. Chromium reproduced the slug failure when the fields were removed from page-data.
+
+The correction accepts both query shapes, resolves known legacy tour titles to their established routes, avoids undefined itinerary links, and declares non-null slug fields in the build schema. HTML, JSON and the manifest now revalidate rather than relying on heuristic caching. The manifest has an explicit MIME type and uses credentials so the host's verification cookie accompanies its browser request. A regular Chromium session confirmed the current live page-data is valid; unauthenticated manifest requests received an HTML verification page.
+
+Regression checks inject missing slug fields and the legacy query aliases into real browser responses, then test direct page loads, navigation, search and itinerary links. Current page-data and the generated manifest also remain covered by the normal build and browser checks.
+
 ## Local use
 
 Use Node 22, then `npm ci --legacy-peer-deps`, `npm run lint`, `npm run build`, and `npm run serve -- --host 127.0.0.1 --port 9000`.

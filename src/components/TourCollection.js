@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'gatsby'
 import TourCard from './TourCard'
+import { getTourSlug } from '../utils/tours'
 
 const categories = [
   ['all', 'All journeys'],
@@ -10,7 +11,7 @@ const categories = [
   ['adventure', 'Hills & adventure'],
 ]
 
-export default function TourCollection({ tours, title, description }) {
+export default function TourCollection({ tours = [], title, description }) {
   const [search, setSearch] = useState('')
   const [style, setStyle] = useState('all')
   useEffect(() => {
@@ -18,6 +19,7 @@ export default function TourCollection({ tours, title, description }) {
     if (categories.some(([key]) => key === value)) setStyle(value)
   }, [])
   const filtered = tours.filter((t) => {
+    if (!t || t.visibility === false) return false
     const text = [t.title, t.destination, t.description, ...(t.tags || [])]
       .join(' ')
       .toLowerCase()
@@ -70,7 +72,7 @@ export default function TourCollection({ tours, title, description }) {
         </p>
         <div className="journey-grid">
           {filtered.map((t) => (
-            <TourCard key={t.fields.slug} tour={t} />
+            <TourCard key={getTourSlug(t) || t.id || t.title} tour={t} />
           ))}
         </div>
         {!filtered.length && (

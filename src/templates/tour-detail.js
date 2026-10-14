@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql, Link } from 'gatsby'
 import Layout from '../components/Layout'
 import TourImage from '../components/TourImage'
+import { getTourNodes } from '../utils/tours'
 import Seo, { buildTourJsonLd } from '../components/Seo'
 
 export const query = graphql`
@@ -56,8 +57,21 @@ export const query = graphql`
   }
 `
 export default function JourneyDetail({ data }) {
-  const tour = data.inbound.nodes[0] || data.outbound.nodes[0]
-  const inbound = data.inbound.nodes.length > 0
+  const inboundTours = getTourNodes(data, 'inbound')
+  const tour = inboundTours[0] || getTourNodes(data, 'outbound')[0]
+  const inbound = inboundTours.length > 0
+  if (!tour)
+    return (
+      <Layout>
+        <section className="section-space site-shell">
+          <h1>This journey could not be loaded.</h1>
+          <p>Please refresh the page, or explore our other journeys.</p>
+          <Link className="button button-red" to="/tours">
+            Explore journeys
+          </Link>
+        </section>
+      </Layout>
+    )
   return (
     <Layout>
       <section className="collection-intro cream-section">
@@ -128,14 +142,20 @@ export default function JourneyDetail({ data }) {
   )
 }
 export const Head = ({ data, location }) => {
-  const tour = data.inbound.nodes[0] || data.outbound.nodes[0]
+  const tour =
+    getTourNodes(data, 'inbound')[0] || getTourNodes(data, 'outbound')[0]
+  if (!tour)
+    return <Seo title="Explore Our Journeys" pathname={location.pathname} />
   return (
     <Seo
       title={tour.title}
       description={tour.description}
       image={tour.images?.[0]}
       pathname={location.pathname}
-      jsonLd={buildTourJsonLd(tour, data.site.siteMetadata.siteUrl)}
+      jsonLd={buildTourJsonLd(
+        tour,
+        data?.site?.siteMetadata?.siteUrl || 'https://southlinktravels.lk',
+      )}
     />
   )
 }

@@ -1,11 +1,13 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import TourImage from './TourImage'
+import { getTourSlug } from '../utils/tours'
 
 export default function TourCard({ tour }) {
   if (!tour || tour.visibility === false) return null
-  const slug = tour.slug || tour.fields?.slug
-  const detail = `/tours/${slug}`
+  const slug = getTourSlug(tour)
+  const enquiry = `/plan-your-trip?tour=${encodeURIComponent(tour.title)}&destination=${encodeURIComponent(tour.destination || '')}`
+  const detail = slug ? `/tours/${slug}` : enquiry
   return (
     <article className="journey-card">
       <Link
@@ -49,15 +51,14 @@ export default function TourCard({ tour }) {
           </>
         )}
         <div className="journey-actions">
-          <Link
-            to={`/plan-your-trip?tour=${encodeURIComponent(tour.title)}&destination=${encodeURIComponent(tour.destination || '')}`}
-            className="text-link"
-          >
+          <Link to={enquiry} className="text-link">
             Customise this trip <span aria-hidden="true">↗</span>
           </Link>
-          <Link to={detail} className="details-link">
-            Itinerary
-          </Link>
+          {slug && (
+            <Link to={detail} className="details-link">
+              Itinerary
+            </Link>
+          )}
         </div>
       </div>
     </article>
