@@ -1,6 +1,23 @@
 DirectoryIndex index.html index.php
 
+<IfModule mod_mime.c>
+  AddType application/manifest+json .webmanifest
+</IfModule>
+
+# HTML, Gatsby page-data/app-data and the manifest must be revalidated together.
+# Hashed JavaScript, CSS and images retain the host's normal caching policy.
+<IfModule mod_expires.c>
+  <FilesMatch "\.(html|json|webmanifest)$">
+    ExpiresActive Off
+  </FilesMatch>
+</IfModule>
+
 <IfModule mod_headers.c>
+  <FilesMatch "\.(html|json|webmanifest)$">
+    Header unset Cache-Control
+    Header always set Cache-Control "public, max-age=0, must-revalidate"
+    Header unset Expires
+  </FilesMatch>
   Header always set X-Content-Type-Options "nosniff"
   Header always set X-Frame-Options "SAMEORIGIN"
   Header always set Referrer-Policy "strict-origin-when-cross-origin"

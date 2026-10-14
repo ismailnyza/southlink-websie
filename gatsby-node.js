@@ -47,6 +47,7 @@ exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions
   const typeDefs = `
     type InboundJson implements Node {
+      fields: TourNodeFields!
       id: String!
       title: String!
       images: [String]
@@ -61,6 +62,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       description: String
     }
     type OutboundJson implements Node {
+      fields: TourNodeFields!
       id: String!
       title: String!
       images: [String]
@@ -73,6 +75,10 @@ exports.createSchemaCustomization = ({ actions }) => {
       destination: String
       duration: String
       description: String
+    }
+    type TourNodeFields {
+      slug: String!
+      coverImage: String
     }
     type ToursJsonItinerary {
       day: Int

@@ -3,6 +3,7 @@ import { graphql, Link } from 'gatsby'
 import { StaticImage } from 'gatsby-plugin-image'
 import Layout from '../components/Layout'
 import TourCard from '../components/TourCard'
+import { getTourNodes, getTourSlug } from '../utils/tours'
 import Seo, { buildTravelAgencyJsonLd } from '../components/Seo'
 
 export const query = graphql`
@@ -51,7 +52,9 @@ const styles = [
 
 export default function IndexPage({ data }) {
   const tours = ['sigiriya-ancient', 'ella-highlands', 'galle-heritage']
-    .map((slug) => data.inbound.nodes.find((t) => t.fields.slug === slug))
+    .map((slug) =>
+      getTourNodes(data, 'inbound').find((t) => getTourSlug(t) === slug),
+    )
     .filter(Boolean)
   return (
     <Layout>
@@ -157,7 +160,7 @@ export default function IndexPage({ data }) {
           </div>
           <div className="journey-grid">
             {tours.map((t) => (
-              <TourCard key={t.fields.slug} tour={t} />
+              <TourCard key={getTourSlug(t)} tour={t} />
             ))}
           </div>
         </div>
@@ -271,8 +274,8 @@ export const Head = ({ data }) => (
   <Seo
     title="Sri Lanka Journeys & Personal Travel Planning"
     jsonLd={buildTravelAgencyJsonLd(
-      data.allSettingsJson.nodes[0],
-      data.site.siteMetadata.siteUrl,
+      data?.allSettingsJson?.nodes?.[0] || {},
+      data?.site?.siteMetadata?.siteUrl || 'https://southlinktravels.lk',
     )}
   />
 )

@@ -3,6 +3,7 @@ import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import TourCollection from '../components/TourCollection'
 import Seo from '../components/Seo'
+import { getTourNodes } from '../utils/tours'
 
 export const query = graphql`
   query AllJourneys {
@@ -52,7 +53,10 @@ export default function Tours({ data }) {
   return (
     <Layout>
       <TourCollection
-        tours={[...data.inbound.nodes, ...data.outbound.nodes]}
+        tours={[
+          ...getTourNodes(data, 'inbound'),
+          ...getTourNodes(data, 'outbound'),
+        ]}
         title="Where will you go next?"
         description="Near home or a world away, find the starting point for a trip that feels like you."
       />
